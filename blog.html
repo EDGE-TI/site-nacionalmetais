@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Nacional Metais</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192">
+    <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/x-icon">
+
+    <!-- CSS Externos -->
+    <link rel="stylesheet" href="assets/css/header-footer.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Configurado -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vinho: {
+                            900: '#660e54',
+                            700: '#660e54',
+                            50: '#f5f5f5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-vinho-50 font-sans text-gray-800 flex flex-col min-h-screen">
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="images/logo-nacional.png" alt="Nacional Metais Logo">
+            </a>
+
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quem-somos.html">Quem Somos</a></li>
+                    <li><a href="fabricacao.html">Fabricação</a></li>
+                    <li><a href="distribuicao.html">Distribuição</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="parceria.html">Parceria</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+
+            <button id="btn-mobile" class="btn-mobile-trigger">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+
+        <nav id="menu-mobile" class="menu-mobile">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="fabricacao.html">Fabricação</a></li>
+                <li><a href="distribuicao.html">Distribuição</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="parceria.html">Parceria</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <h1 class="text-3xl font-bold text-vinho-900 mb-8 text-center border-b border-vinho-900/20 pb-4">
+            Últimas Notícias
+        </h1>
+        
+        <div id="loading" class="text-center py-10">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-vinho-900"></div>
+            <p class="mt-2 text-gray-600">Carregando posts...</p>
+        </div>
+
+        <!-- Grid de Posts -->
+        <div id="lista-posts" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+            <!-- O JavaScript vai preencher aqui -->
+        </div>
+        
+        <!-- Controles de Paginação -->
+        <div id="paginacao" class="hidden justify-center items-center gap-4 mt-auto pt-8 border-t border-vinho-900/10">
+            <button id="btn-prev" onclick="mudarPagina(-1)" class="px-5 py-2 border border-vinho-900 text-vinho-900 font-medium rounded hover:bg-vinho-50 disabled:opacity-40 disabled:cursor-not-allowed disabled:bg-transparent transition-colors">
+                &larr; Anterior
+            </button>
+            
+            <span id="info-pagina" class="text-vinho-900 font-semibold">
+                Página 1
+            </span>
+
+            <button id="btn-next" onclick="mudarPagina(1)" class="px-5 py-2 bg-vinho-900 text-white font-medium rounded hover:bg-vinho-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                Próxima &rarr;
+            </button>
+        </div>
+    </main>
+    
+    <!-- Botão Whatsapp -->
+    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento."
+       class="btn-whatsapp-flutuante" target="_blank" aria-label="Falar no WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="assets/js/menu.js"></script>
+    
+    <!-- O script de paginação deve ser o ÚNICO script de lógica aqui -->
+    <script src="assets/js/blog-pagination.js"></script>
+
+</body>
+</html>

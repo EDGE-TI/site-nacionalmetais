@@ -1,0 +1,155 @@
+.page-header {
+            padding: 60px 0;
+            background: linear-gradient(to right, var(--cor-primaria-claro), #fff);
+            margin-bottom: 0; /* Sem margem embaixo para colar no grid */
+        }
+
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .breadcrumb { font-size: 0.9rem; color: var(--cor-texto-corpo); }
+
+        /* Layout Dividido (Grid) */
+        .contato-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Metade Info, Metade Mapa */
+            min-height: 600px; /* Altura mínima para ficar imponente */
+        }
+
+        /* Lado Esquerdo: Informações */
+        .contato-info {
+            padding: 80px 10% 80px 20px; /* Padding extra na direita */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 600px;
+            margin-left: auto; /* Alinha o bloco de texto à direita da coluna dele */
+        }
+
+        .info-titulo {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .info-subtitulo {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        /* Bloco de WhatsApp (Destaque) */
+        .card-whatsapp {
+            background-color: #25D366; /* Verde Oficial WhatsApp */
+            color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .card-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            color: white;
+        }
+
+        .wpp-texto span {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .wpp-texto strong {
+            font-size: 1.2rem;
+        }
+
+        /* Redes Sociais */
+        .label-secao {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--cor-texto-corpo);
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: block;
+        }
+
+        .redes-sociais {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn-social {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--cor-cinza-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cor-primaria);
+            transition: 0.3s;
+        }
+
+        .btn-social:hover {
+            background-color: var(--cor-primaria);
+            color: white;
+        }
+
+        /* Endereço */
+        .endereco-bloco {
+            border-left: 4px solid var(--cor-primaria);
+            padding-left: 20px;
+        }
+
+        .endereco-bloco p {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        /* Lado Direito: Mapa */
+        .contato-mapa {
+            background-color: #e5e7eb;
+            width: 100%;
+            height: 100%;
+            min-height: 400px; /* Para mobile */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(20%); /* Deixa o mapa levemente cinza para combinar com o site clean */
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .contato-wrapper {
+                grid-template-columns: 1fr; /* Vira uma coluna só */
+            }
+            
+            .contato-info {
+                padding: 60px 20px;
+                margin: 0 auto;
+                align-items: center;
+                text-align: center;
+            }
+
+            .endereco-bloco {
+                border-left: none;
+                border-top: 4px solid var(--cor-primaria);
+                padding-left: 0;
+                padding-top: 20px;
+            }
+
+            .contato-mapa {
+                height: 400px; /* Altura fixa no mobile */
+            }
+        }

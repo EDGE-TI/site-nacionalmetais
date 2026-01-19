@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregando...</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192">
+    <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/x-icon">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="/assets/css/header-footer.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // --- CONFIGURAÇÃO DE CORES ---
+                        vinho: {
+                            900: '#660e54',
+                            700: '#660e54',
+                            50: '#fdf4fc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prose img { 
+            margin: 2rem auto; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+        }
+        /* Força a cor dos links para a sua cor específica */
+        .prose a {
+            color: #660e54 !important;
+            text-decoration: underline;
+        }
+        /* Cor das bolinhas das listas */
+        .prose ul > li::marker {
+            color: #660e54;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
+  
+     <header>
+        <div class="container header-content">
+            
+            <div class="flex items-center gap-4">
+                <a href="blog.html" class="text-magenta hover:bg-white/20 p-2 rounded-full transition flex items-center justify-center" title="Voltar para o Blog">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </a>
+
+                <a href="index.html" class="logo">
+                <img src="images/logo-nacional.png" alt="Nacional Metais Logo">
+            </a>
+            </div>
+            
+
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quem-somos.html">Quem Somos</a></li>
+                    <li><a href="fabricacao.html">Fabricação</a></li>
+                    <li><a href="distribuicao.html">Distribuição</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="parceria.html">Parceria</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+
+            <button id="btn-mobile" class="btn-mobile-trigger">
+                <i class="ph ph-list"></i>
+            </button>
+
+        </div>
+
+        <nav id="menu-mobile" class="menu-mobile">
+            <ul>
+               
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="fabricacao.html">Fabricação</a></li>
+                <li><a href="distribuicao.html">Distribuição</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="parceria.html">Parceria</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-10 max-w-4xl">
+        
+        <div id="loading" class="text-center py-20">
+            <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-vinho-900 border-t-transparent"></div>
+            <p class="mt-4 text-gray-500 font-medium">Buscando conteúdo...</p>
+        </div>
+
+        <article id="artigo" class="hidden animate-fade-in">
+            <div class="mb-8 text-center">
+                <span id="post-data" class="text-sm font-bold text-vinho-700 uppercase tracking-wider bg-vinho-50 px-3 py-1 rounded-full"></span>
+                <h1 id="post-titulo" class="text-3xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6 leading-tight"></h1>
+            </div>
+
+            <div class="mb-10 w-full rounded-xl overflow-hidden shadow-lg bg-gray-100">
+                <img id="post-imagem" src="" alt="" class="w-full h-auto object-cover max-h-[500px]">
+            </div>
+
+            <div id="post-conteudo" class="prose prose-lg prose-rose mx-auto text-gray-700"></div>
+
+            <div class="mt-12 pt-8 border-t text-center">
+                <a href="blog.html" class="inline-block px-8 py-3 bg-vinho-900 hover:bg-opacity-90 text-white font-semibold rounded-lg transition shadow-md">
+                    Ver outras notícias
+                </a>
+            </div>
+        </article>
+
+        <div id="erro-msg" class="hidden flex flex-col items-center justify-center py-20 text-center">
+            <h2 class="text-2xl font-bold text-gray-800">Ops! Algo deu errado.</h2>
+            <p id="erro-detalhe" class="mt-2 text-gray-600 max-w-md mx-auto"></p>
+            <a href="blog.html" class="mt-6 text-vinho-700 hover:underline font-medium">Voltar ao blog</a>
+        </div>
+
+    </main>
+    <script>
+        const API_URL = 'https://nacionalmetais.com'; 
+
+        function renderStrapiBlocks(content) {
+            if (!content) return "";
+            if (typeof content === 'string') return content;
+            if (Array.isArray(content)) {
+                return content.map(block => {
+                    if (block.type === 'paragraph') {
+                        const text = block.children.map(child => {
+                            let t = child.text || "";
+                            if (child.bold) t = `<strong>${t}</strong>`;
+                            if (child.italic) t = `<em>${t}</em>`;
+                            if (child.underline) t = `<u>${t}</u>`;
+                            if (child.type === 'link') t = `<a href="${child.url}">${child.children[0].text}</a>`;
+                            return t;
+                        }).join("");
+                        return `<p>${text}</p>`;
+                    }
+                    if (block.type === 'heading') {
+                        return `<h${block.level || 2}>${block.children.map(c => c.text).join("")}</h${block.level || 2}>`;
+                    }
+                    if (block.type === 'list') {
+                        const tag = block.format === 'ordered' ? 'ol' : 'ul';
+                        const items = block.children.map(item => `<li>${item.children.map(c => c.text).join("")}</li>`).join("");
+                        return `<${tag}>${items}</${tag}>`;
+                    }
+                    if (block.type === 'image') return `<img src="${block.image.url}" alt="${block.image.alternativeText || ''}">`;
+                    return "";
+                }).join("");
+            }
+            return "";
+        }
+
+        async function carregarPostUnico() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const loading = document.getElementById('loading');
+            const artigo = document.getElementById('artigo');
+            const erroDiv = document.getElementById('erro-msg');
+
+            if (!id) {
+                loading.style.display = 'none';
+                erroDiv.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/api/posts?filters[id][$eq]=${id}&populate=*`);
+                const json = await response.json();
+                
+                if (!json.data || json.data.length === 0) throw new Error('Post não encontrado.');
+
+                const post = json.data[0];
+                const info = post.attributes || post;
+
+                document.title = info.title || info.titulo || 'Post';
+                document.getElementById('post-titulo').innerText = info.title || info.titulo;
+
+                if (info.publishedAt) {
+                    const data = new Date(info.publishedAt).toLocaleDateString('pt-BR', { dateStyle: 'long' });
+                    document.getElementById('post-data').innerText = data;
+                }
+
+                const imgElement = document.getElementById('post-imagem');
+                let imgUrl = null;
+                const midia = info.capa?.data || info.capa;
+                if (midia) {
+                    const attrs = midia.attributes || midia;
+                    if (attrs.url) imgUrl = API_URL + attrs.url;
+                }
+                if (imgUrl) imgElement.src = imgUrl;
+                else imgElement.style.display = 'none';
+
+                const htmlContent = renderStrapiBlocks(info.conteudo || info.content);
+                document.getElementById('post-conteudo').innerHTML = htmlContent;
+
+                loading.style.display = 'none';
+                artigo.classList.remove('hidden');
+
+            } catch (error) {
+                loading.style.display = 'none';
+                erroDiv.classList.remove('hidden');
+                document.getElementById('erro-detalhe').innerText = error.message;
+            }
+        }
+
+        carregarPostUnico();
+    </script>
+     <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento."
+            class="btn-whatsapp-flutuante" target="_blank" aria-label="Falar no WhatsApp">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+        <script src="assets/js/menu.js"></script>
+        <footer style="background-color: #622969; color: white; padding: 25px 0;">
+        <div class="container">
+            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
+                <div class="footer-col">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Nacional Metais</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção</p>
+                </div>
+                <div class="footer-col">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Institucional</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;"><a href="quem-somos.html" style="color: #ccc; text-decoration: none;">Sobre Nós</a></li>
+                        <li style="margin-bottom: 8px;"><a href="parceria.html" style="color: #ccc; text-decoration: none;">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;"><a href="contato.html" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center;">
+                <p style="font-size: 0.7rem; opacity: 0.8;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
+                
+                <!-- ASSINATURA EDGETI -->
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
+                    <span>Desenvolvido por</span>
+                    <!-- Certifique-se que a imagem edgeti.png existe na pasta images -->
+                   <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento." 
+   class="btn-whatsapp-flutuante" 
+   target="_blank"
+   aria-label="Falar no WhatsApp">
+    <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>

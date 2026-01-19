@@ -1,0 +1,126 @@
+/* SEÇÃO EDUCATIVA (Por que importa?)  (Importancia-calha se refere a todas as classes de seção de importancia)*/
+.importancia-calha {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    margin: 60px 0 100px;
+}
+
+.importancia-texto h2 {
+    font-size: 2.2rem;
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+}
+
+.importancia-texto p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--cor-texto-corpo);
+    text-align: justify;
+}
+
+.destaque-box {
+    background-color: var(--cor-primaria-claro);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--cor-primaria);
+    font-weight: 500;
+    color: var(--cor-primaria-escuro);
+    margin-top: 30px;
+}
+
+.importancia-img {
+    height: 400px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.importancia-img i {
+    font-size: 6rem;
+    color: #d1d5db;
+}
+
+/* VITRINE DE MODELOS */
+.modelos-titulo {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.modelos-titulo h2 {
+    font-size: 2rem;
+    color: var(--cor-texto-titulo);
+}
+
+.modelos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.card-modelo {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card-modelo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-color: var(--cor-primaria-claro);
+}
+
+.modelo-img {
+    height: 50%;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.modelo-conteudo {
+    padding: 25px;
+}
+
+.modelo-conteudo h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--cor-primaria);
+}
+
+.modelo-conteudo p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.tag-uso {
+    display: inline-block;
+    background-color: var(--cor-primaria-claro);
+    color: var(--cor-primaria);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .importancia-calha {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .importancia-img {
+        order: -1; /* Imagem sobe no mobile */
+        height: 250px;
+    }
+}

@@ -1,0 +1,140 @@
+.page-header {
+    padding: 60px 0;
+    background: linear-gradient(to right, var(--cor-primaria-claro), #fff);
+    margin-bottom: 0; /* Colado no conteúdo abaixo */
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--cor-texto-corpo);
+}
+
+/* Seção do Produto (Faixa inteira) */
+.secao-produto {
+    padding: 80px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Alternar cores de fundo para separar os produtos visualmente */
+.secao-produto:nth-child(even) {
+    background-color: var(--cor-cinza-bg);
+}
+
+.secao-produto:nth-child(odd) {
+    background-color: var(--cor-fundo);
+}
+
+/* Grid do Conteúdo (Texto + Imagem) */
+.produto-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Truque para inverter a ordem visual (Imagem na esquerda) nos produtos pares */
+.secao-produto:nth-child(even) .produto-wrapper {
+    direction: rtl; 
+}
+
+/* Volta o texto para a direção normal (esquerda para direita) */
+.secao-produto:nth-child(even) .produto-wrapper > * {
+    direction: ltr; 
+}
+
+/* Tipografia e Elementos do Produto */
+.produto-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--cor-primaria);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.produto-texto p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Lista de Detalhes (Checklist) */
+.lista-detalhes {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.lista-detalhes li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.lista-detalhes i {
+    color: var(--cor-primaria);
+    font-size: 1.2rem;
+}
+
+/* Botão de Orçamento */
+.btn-paginaProduto {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-paginaProduto:hover {
+    background-color: var(--cor-primaria-escuro);
+}
+
+/* Área da Imagem */
+.produto-img {
+    height: 400px;
+    background-color: #eee;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.produto-img i {
+    font-size: 5rem;
+    color: #ccc;
+}
+.produto-img img {
+    width: 100%;       
+    height: 100%;       
+    object-fit: cover;  
+    object-position: center; 
+}
+
+/* Responsividade Específica desta página */
+@media (max-width: 900px) {
+    .produto-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    /* Remove inversão no mobile para ficar tudo igual (Imagem em cima, Texto embaixo) */
+    .secao-produto:nth-child(even) .produto-wrapper {
+        direction: ltr;
+    }
+    
+    /* Força a imagem a aparecer antes do texto no celular */
+    .produto-img {
+        height: 300px;
+        order: -1;
+    }
+}

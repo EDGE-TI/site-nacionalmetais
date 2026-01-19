@@ -1,0 +1,110 @@
+ /* Banner Simples */
+        .page-header {
+            padding: 60px 0;
+            background: linear-gradient(to right, var(--cor-primaria-claro), #fff);
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .breadcrumb { font-size: 0.9rem; color: var(--cor-texto-corpo); }
+
+        /* Área de Conteúdo Principal */
+        .parceria-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .texto-parceria h2 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--cor-primaria); /* Destaque em Roxo */
+        }
+
+        .texto-parceria p {
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-bottom: 30px;
+            color: var(--cor-texto-corpo);
+        }
+
+        /* Botão de Chamada para Ação (CTA) */
+        .btn-parceiro {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366; /* Verde WhatsApp */
+            color: white;
+            padding: 15px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-parceiro:hover {
+            transform: translateY(-2px);
+            background-color: #1ebc57;
+        }
+
+        /* Imagem Ilustrativa */
+        .img-parceria {
+            height: 450px;
+            background-color: #eee;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-parceria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Benefícios (Cards Extras) */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .card-beneficio {
+            background: var(--cor-cinza-bg);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .card-beneficio:hover {
+            border-color: var(--cor-primaria);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .card-beneficio i {
+            font-size: 2.5rem;
+            color: var(--cor-primaria);
+            margin-bottom: 15px;
+        }
+
+        .card-beneficio h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .parceria-content { grid-template-columns: 1fr; }
+            .beneficios-grid { grid-template-columns: 1fr; }
+            .img-parceria { height: 300px; order: -1; margin-bottom: 30px; }
+            .texto-parceria h2 { font-size: 1.8rem; }
+        }

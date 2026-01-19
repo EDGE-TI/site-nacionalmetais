@@ -1,0 +1,127 @@
+/* --- HEADER DESKTOP (Padrão) --- */
+header {
+    background-color: white;
+    height: 80px;
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex; 
+    align-items: center;
+}
+
+.header-content {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+}
+
+.logo { display: flex; align-items: center; }
+.logo img { max-height: 50px; width: auto; }
+
+/* Navegação Desktop (some no mobile) */
+.nav-desktop ul { display: flex; gap: 32px; list-style: none; }
+.nav-desktop a { font-weight: 500; font-size: 0.95rem; text-decoration: none; color: var(--cor-texto-titulo); }
+.nav-desktop a:hover { color: var(--cor-primaria); }
+.nav-desktop a.ativo { color: var(--cor-primaria); font-weight: 700; }
+
+/* Botão Mobile (Só aparece no celular) */
+.btn-mobile-trigger {
+    display: none; /* Escondido no Desktop */
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* --- CORREÇÃO DO MENU MOBILE --- */
+
+.menu-mobile {
+    /* Posição Fixa Blindada */
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0; /* Força a encostar nos dois lados */
+    bottom: 0; /* Força a ir até ao fundo */
+    width: 100vw; /* 100% da largura da janela visual */
+    height: calc(100vh - 80px);
+    
+    /* Visual */
+    background-color: #ffffff;
+    z-index: 999;
+    
+    /* Reset de heranças (Garante que não herda margens estranhas) */
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+
+    /* Animação */
+    transform: translateX(100%); /* Escondido à direita */
+    transition: transform 0.3s ease-in-out;
+
+    /* Flexbox para centralizar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: flex-start;
+    padding-top: 40px !important; /* Espaço interno no topo */
+}
+
+/* Estado Aberto */
+.menu-mobile.aberto {
+    transform: translateX(0); /* Traz para o centro */
+}
+
+/* Lista */
+.menu-mobile ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu-mobile li {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.menu-mobile a {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cor-texto-titulo);
+    text-decoration: none;
+    display: block; /* Ocupa a linha toda */
+}
+
+.menu-mobile a:hover {
+    color: var(--cor-primaria);
+}
+
+
+
+/* FOOTER */
+footer {
+    background-color: var(--cor-primaria); 
+    color: white;
+    padding: 60px 0 20px; 
+    margin-top: auto; 
+    text-align: center;
+}
+
+/* --- RESPONSIVIDADE (O Segredo) --- */
+@media (max-width: 900px) {
+    /* Esconde o menu desktop normal */
+    .nav-desktop { display: none; }
+    
+    /* Mostra o botão do hambúrguer */
+    .btn-mobile-trigger { display: block; }
+}
