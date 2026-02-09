@@ -182,6 +182,26 @@
 
                 const post = json.data[0];
                 const info = post.attributes || post;
+                document.title = `${info.title} - Nacional Metais`;
+
+                // 2. Atualiza a Meta Description (NOVO - CRUCIAL PARA O GOOGLE)
+                let metaDesc = document.querySelector('meta[name="description"]');
+                if (!metaDesc) {
+                     metaDesc = document.createElement('meta');
+                     metaDesc.name = "description";
+                      document.head.appendChild(metaDesc);
+                }
+                // Pega o resumo ou os primeiros 150 caracteres do texto para o Google
+                const textoPuro = info.resumo || (info.conteudo ? info.conteudo.substring(0, 150).replace(/<[^>]*>?/gm, '') : '');
+                        metaDesc.content = textoPuro;
+                // 3. Link Canônico (Para o Google saber qual é a URL oficial deste post)
+                let linkCanonical = document.querySelector('link[rel="canonical"]');
+                if (!linkCanonical) {
+                     linkCanonical = document.createElement('link');
+                     linkCanonical.rel = "canonical";
+                     document.head.appendChild(linkCanonical);
+                }
+                linkCanonical.href = window.location.href;
 
                 document.title = info.title || info.titulo || 'Post';
                 document.getElementById('post-titulo').innerText = info.title || info.titulo;
@@ -215,6 +235,7 @@
         }
 
         carregarPostUnico();
+        
     </script>
      <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento."
             class="btn-whatsapp-flutuante" target="_blank" aria-label="Falar no WhatsApp">
