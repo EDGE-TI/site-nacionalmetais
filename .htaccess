@@ -1,10 +1,16 @@
+Options +FollowSymLinks -MultiViews
 RewriteEngine On
+RewriteBase /
 
-# 1. Redireciona externamente /arquivo.html para /arquivo (para SEO, evita conteúdo duplicado)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
-RewriteRule ^ %1 [R=301,L]
+# 1. REMOVER A EXTENSÃO .HTML (Redirecionamento Externo)
+# Se alguém digitar /contato.html, o navegador muda para /contato
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
 
-# 2. Mapeia internamente /arquivo para /arquivo.html (para o servidor encontrar o arquivo)
+# 2. ADICIONAR A EXTENSÃO INTERNAMENTE (Reescrita Interna)
+# Se o usuário digitar /contato, o servidor entrega contato.html
+# Verifica se não é um diretório
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [L]
+# Verifica se o arquivo .html existe
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
