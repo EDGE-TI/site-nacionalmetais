@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carregando...</title>
+
+    <title id="post-title-tag">Carregando... - Nacional Metais</title>
+    
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192">
     <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/x-icon">
-
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="/assets/css/header-footer.css">
@@ -18,7 +19,6 @@
             theme: {
                 extend: {
                     colors: {
-                        // --- CONFIGURAÇÃO DE CORES ---
                         vinho: {
                             900: '#660e54',
                             700: '#660e54',
@@ -35,36 +35,39 @@
             border-radius: 8px; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
         }
-        /* Força a cor dos links para a sua cor específica */
         .prose a {
             color: #660e54 !important;
             text-decoration: underline;
         }
-        /* Cor das bolinhas das listas */
         .prose ul > li::marker {
             color: #660e54;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
     </style>
+
+    <meta name="adopt-website-id" content="c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" />
+    <script src="https://tag.goadopt.io/injector.js?website_code=c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" class="adopt-injector"></script>
 </head>
 <body class="bg-white font-sans text-gray-800">
   
-     <header>
+    <header>
         <div class="container header-content">
-            
             <div class="flex items-center gap-4">
                 <a href="blog.html" class="text-magenta hover:bg-white/20 p-2 rounded-full transition flex items-center justify-center" title="Voltar para o Blog">
                     <i class="ph-bold ph-arrow-left text-xl"></i>
                 </a>
-
                 <a href="index.html" class="logo">
-                <img src="images/logo-nacional.png" alt="Nacional Metais Logo">
-            </a>
+                    <img src="images/logo-nacional.png" alt="Nacional Metais Logo">
+                </a>
             </div>
-            
 
             <nav class="nav-desktop">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="quem-somos.html">Quem Somos</a></li>
                     <li><a href="fabricacao.html">Fabricação</a></li>
                     <li><a href="distribuicao.html">Distribuição</a></li>
@@ -77,13 +80,11 @@
             <button id="btn-mobile" class="btn-mobile-trigger">
                 <i class="ph ph-list"></i>
             </button>
-
         </div>
 
         <nav id="menu-mobile" class="menu-mobile">
             <ul>
-               
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="quem-somos.html">Quem Somos</a></li>
                 <li><a href="fabricacao.html">Fabricação</a></li>
                 <li><a href="distribuicao.html">Distribuição</a></li>
@@ -107,7 +108,7 @@
                 <h1 id="post-titulo" class="text-3xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6 leading-tight"></h1>
             </div>
 
-            <div class="mb-10 w-full rounded-xl overflow-hidden shadow-lg bg-gray-100">
+            <div id="container-imagem" class="mb-10 w-full rounded-xl overflow-hidden shadow-lg bg-gray-100 hidden">
                 <img id="post-imagem" src="" alt="" class="w-full h-auto object-cover max-h-[500px]">
             </div>
 
@@ -127,6 +128,44 @@
         </div>
 
     </main>
+
+    <footer style="background-color: #622969; color: white; padding: 25px 0;">
+        <div class="container">
+            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
+                <div class="footer-col">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Nacional Metais</h3>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção</p>
+                </div>
+                <div class="footer-col">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Institucional</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;"><a href="quem-somos.html" style="color: #ccc; text-decoration: none;">Sobre Nós</a></li>
+                        <li style="margin-bottom: 8px;"><a href="parceria.html" style="color: #ccc; text-decoration: none;">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;"><a href="contato.html" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center; padding-top: 20px;">
+                <p style="font-size: 0.7rem; opacity: 0.8;">&copy; 2026 Nacional Metais. Todos os direitos reservados.</p>
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
+                    <span>Desenvolvido por</span>
+                    <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento." 
+       class="btn-whatsapp-flutuante" target="_blank" aria-label="Falar no WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
     <script>
         const API_URL = 'https://nacionalmetais.com'; 
 
@@ -162,68 +201,70 @@
         }
 
         async function carregarPostUnico() {
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get('id');
-            const loading = document.getElementById('loading');
-            const artigo = document.getElementById('artigo');
-            const erroDiv = document.getElementById('erro-msg');
+        const params = new URLSearchParams(window.location.search);
+        let id = params.get('id');
+        let slug = params.get('slug');
 
-            if (!id) {
-                loading.style.display = 'none';
-                erroDiv.classList.remove('hidden');
-                return;
-            }
+        // Se não veio id nem slug na URL (ex: acessou direto /nome-do-post)
+        if (!id && !slug) {
+            // Pega o nome da página na URL e limpa as barras /
+            slug = window.location.pathname.split('/').pop() || window.location.pathname.split('/').slice(-2, -1)[0];
+        }
+
+        // Se ainda assim não tiver nada, mostra erro
+        if (!id && !slug || slug === 'post') {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('erro-msg').classList.remove('hidden');
+            document.getElementById('erro-detalhe').innerText = "Notícia não encontrada.";
+            return;
+        }
+    
+    // ... restante do seu fetch abaixo (usando a variável 'id' ou 'slug')
 
             try {
-                const response = await fetch(`${API_URL}/api/posts?filters[id][$eq]=${id}&populate=*`);
+                // Define o filtro: se tiver id usa id, senão usa o slug
+                const filtro = id ? `filters[id][$eq]=${id}` : `filters[slug][$eq]=${slug}`;
+                
+                const response = await fetch(`${API_URL}/api/posts?${filtro}&populate=*`);
                 const json = await response.json();
                 
-                if (!json.data || json.data.length === 0) throw new Error('Post não encontrado.');
+                if (!json.data || json.data.length === 0) throw new Error('Post não encontrado no banco de dados.');
 
                 const post = json.data[0];
                 const info = post.attributes || post;
-                document.title = `${info.title} - Nacional Metais`;
 
-                // 2. Atualiza a Meta Description (NOVO - CRUCIAL PARA O GOOGLE)
-                let metaDesc = document.querySelector('meta[name="description"]');
-                if (!metaDesc) {
-                     metaDesc = document.createElement('meta');
-                     metaDesc.name = "description";
-                      document.head.appendChild(metaDesc);
-                }
-                // Pega o resumo ou os primeiros 150 caracteres do texto para o Google
-                const textoPuro = info.resumo || (info.conteudo ? info.conteudo.substring(0, 150).replace(/<[^>]*>?/gm, '') : '');
-                        metaDesc.content = textoPuro;
-                // 3. Link Canônico (Para o Google saber qual é a URL oficial deste post)
-                let linkCanonical = document.querySelector('link[rel="canonical"]');
-                if (!linkCanonical) {
-                     linkCanonical = document.createElement('link');
-                     linkCanonical.rel = "canonical";
-                     document.head.appendChild(linkCanonical);
-                }
-                linkCanonical.href = window.location.href;
-
-                document.title = info.title || info.titulo || 'Post';
+                // SEO e Título
+                document.title = `${info.title || info.titulo} - Nacional Metais`;
                 document.getElementById('post-titulo').innerText = info.title || info.titulo;
+                document.getElementById('post-title-tag').innerText = info.title || info.titulo;
 
+                // Data
                 if (info.publishedAt) {
-                    const data = new Date(info.publishedAt).toLocaleDateString('pt-BR', { dateStyle: 'long' });
-                    document.getElementById('post-data').innerText = data;
+                    const dataFormatada = new Date(info.publishedAt).toLocaleDateString('pt-BR', { dateStyle: 'long' });
+                    document.getElementById('post-data').innerText = dataFormatada;
                 }
 
+                // Imagem de Capa
                 const imgElement = document.getElementById('post-imagem');
+                const containerImg = document.getElementById('container-imagem');
                 let imgUrl = null;
                 const midia = info.capa?.data || info.capa;
+                
                 if (midia) {
                     const attrs = midia.attributes || midia;
-                    if (attrs.url) imgUrl = API_URL + attrs.url;
+                    if (attrs.url) imgUrl = attrs.url.startsWith('http') ? attrs.url : API_URL + attrs.url;
                 }
-                if (imgUrl) imgElement.src = imgUrl;
-                else imgElement.style.display = 'none';
 
+                if (imgUrl) {
+                    imgElement.src = imgUrl;
+                    containerImg.classList.remove('hidden');
+                }
+
+                // Conteúdo Principal
                 const htmlContent = renderStrapiBlocks(info.conteudo || info.content);
                 document.getElementById('post-conteudo').innerHTML = htmlContent;
 
+                // Finalização
                 loading.style.display = 'none';
                 artigo.classList.remove('hidden');
 
@@ -235,54 +276,7 @@
         }
 
         carregarPostUnico();
-        
     </script>
-     <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento."
-            class="btn-whatsapp-flutuante" target="_blank" aria-label="Falar no WhatsApp">
-            <i class="ph-fill ph-whatsapp-logo"></i>
-        </a>
-        <script src="assets/js/menu.js"></script>
-        <footer style="background-color: #622969; color: white; padding: 25px 0;">
-        <div class="container">
-            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
-                <div class="footer-col">
-                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Nacional Metais</h3>
-                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção</p>
-                </div>
-                <div class="footer-col">
-                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Institucional</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 8px;"><a href="quem-somos.html" style="color: #ccc; text-decoration: none;">Sobre Nós</a></li>
-                        <li style="margin-bottom: 8px;"><a href="parceria.html" style="color: #ccc; text-decoration: none;">Trabalhe Conosco</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 8px;"><a href="contato.html" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center;">
-                <p style="font-size: 0.7rem; opacity: 0.8;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
-                
-                <!-- ASSINATURA EDGETI -->
-                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
-                    <span>Desenvolvido por</span>
-                    <!-- Certifique-se que a imagem edgeti.png existe na pasta images -->
-                   <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento." 
-   class="btn-whatsapp-flutuante" 
-   target="_blank"
-   aria-label="Falar no WhatsApp">
-    <i class="ph-fill ph-whatsapp-logo"></i>
-    </a>
     <script src="assets/js/menu.js"></script>
 </body>
 </html>
