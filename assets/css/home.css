@@ -64,7 +64,7 @@ background: linear-gradient(0deg, rgba(176, 0, 176, 1) 0%, rgba(128, 0, 255, 1) 
 /* Card do Produto */
 .card-produto {
     background: white;
-    border-radius: 12px;
+    border-radius: 3.5px;
     overflow: hidden;
     border: 1px solid #e5e7eb;
     transition: all 0.3s ease;
