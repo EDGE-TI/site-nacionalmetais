@@ -7,12 +7,12 @@
      color: #ffffff;
      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.255); 
      background: #350080;
-background: radial-gradient(circle, rgba(53, 0, 128, 0.62) 0%, rgba(148, 4, 129, 1) 0%, rgba(88, 6, 156, 1) 91%, rgba(101, 0, 173, 0.79) 100%);
+background: radial-gradient(circle, rgba(183, 0, 255, 0.62) 0%, rgba(255, 1, 221, 0.537) 0%, rgb(134, 0, 171) 91%, rgba(119, 0, 205, 0.79) 100%);
 }
 
 .secao-produtos-container {
     background: #b000b0;
-background: linear-gradient(0deg, rgba(176, 0, 176, 1) 0%, rgba(128, 0, 255, 1) 50%, rgb(150, 83, 237) 100%);
+background: linear-gradient(0deg, rgba(176, 0, 176, 0.663) 0%, rgba(128, 0, 255, 1) 50%, rgb(193, 83, 237) 100%);
     padding: 80px 0;
 }
 
