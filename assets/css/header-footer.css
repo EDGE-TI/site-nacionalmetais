@@ -21,7 +21,7 @@ header {
 .logo img { max-height: 50px; width: auto; }
 
 /* Navegação Desktop (some no mobile) */
-.nav-desktop ul { display: flex; gap: 32px; list-style: none; }
+.nav-desktop ul { display: flex; gap: 32px; list-style: none; align-items: center;}
 .nav-desktop a { font-weight: 500; font-size: 0.95rem; text-decoration: none; color: var(--cor-texto-titulo); }
 .nav-desktop a:hover { color: var(--cor-primaria); }
 .nav-desktop a.ativo { color: var(--cor-primaria); font-weight: 700; }
@@ -124,4 +124,36 @@ footer {
     
     /* Mostra o botão do hambúrguer */
     .btn-mobile-trigger { display: block; }
+
+    /* Estilo do Botão no Mobile (para destacar dentro da lista) */
+.menu-mobile .btn-catalogo-mobile {
+    background-color: #622969;
+    color: #ffffff !important;
+    margin: 10px 20px; /* Margem lateral para não colar nas bordas */
+    padding: 12px !important;
+    border-radius: 8px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
 }
+}
+.nav-desktop .btn-catalogo {
+    background-color: #622969; /* Seu Roxo-Vinho */
+    color: #ffffff !important; /* Força a cor branca */
+    padding: 8px 20px !important; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px; /* Afasta um pouco dos outros links */
+}
+
+.nav-desktop .btn-catalogo:hover {
+    background-color: #82338d; /* Um roxo levemente mais claro no hover */
+    transform: translateY(-2px); /* Efeito de levitação */
+    box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3);
+}
+
