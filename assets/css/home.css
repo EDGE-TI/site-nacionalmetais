@@ -11,7 +11,7 @@
 }
 
 .secao-produtos-container {
-background-color: rgb(44, 39, 38);
+background-color: rgb(27, 24, 31);
     padding: 80px 0;
 }
 
@@ -76,7 +76,7 @@ background-color: rgb(44, 39, 38);
 .card-produto:hover {
     transform: translateY(-5px);
     /* Levanta o card */
-    box-shadow: 0 15px 30px rgba(124, 58, 237, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.425);
     /* Sombra roxa suave */
     border-color: var(--cor-primaria-claro);
 }
