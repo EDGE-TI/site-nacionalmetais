@@ -13,8 +13,12 @@ RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
 
 # 3. REGRA PARA POSTS DO BLOG (URLs AMIGÁVEIS)
-# Se NÃO for um diretório E NÃO for um arquivo real E NÃO tiver o arquivo .html correspondente
-# Então manda para o post.html passando o slug como parâmetro
+
+# A. Redirecionar de 'post.html?slug=meu-post' para '/meu-post' (Limpeza visual)
+RewriteCond %{THE_REQUEST} \s/+post\.html\?slug=([^&\s]+) [NC]
+RewriteRule ^ /%1? [R=301,L]
+
+# B. Mapeamento Interno (Faz o servidor entender a URL limpa)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/$1.html !-f
