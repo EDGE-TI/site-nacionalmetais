@@ -99,8 +99,7 @@ background-color: rgb(44, 39, 38);
 }
 
 .card-produto:hover .card-img-area i {
-    color: var(--cor-primaria);
-    /* Fica roxo ao passar o mouse */
+    color: #141414;
     transform: scale(1.1);
 }
 
@@ -118,7 +117,7 @@ background-color: rgb(44, 39, 38);
 .card-body h3 {
     font-size: 1.3rem;
     margin-bottom: 8px;
-    color: var(--cor-texto-titulo);
+    color: #41005a;
 }
 
 .ver-mais {
@@ -151,5 +150,4 @@ background-color: rgb(44, 39, 38);
         display: none;
     }
 
-    /* Menu hamburguer viria aqui */
 }
