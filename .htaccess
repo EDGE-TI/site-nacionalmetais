@@ -2,20 +2,21 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 
-# 1. REMOVER A EXTENSÃO .HTML (Redirecionamento Externo)
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteRule ^ /%1 [R=301,L,NE]
+# 1. REDIRECIONAMENTO EXTERNO: Limpa a URL caso alguém acesse o link "sujo"
+# Transforma /post.html?slug=exemplo em /exemplo
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/post\.html\?slug=([^\s&]+) [NC]
+RewriteRule ^ /%1? [R=301,L]
 
-# 2. ADICIONAR A EXTENSÃO INTERNAMENTE PARA PÁGINAS EXISTENTES
-# Se existir o arquivo .html (ex: quem-somos.html), ele abre normal
-RewriteCond %{REQUEST_FILENAME} !-d
+# 2. EXCEÇÃO: Se o arquivo ou pasta real existir (imagens, css, js), abre normalmente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 3. PÁGINAS FIXAS: Se existir um arquivo .html (ex: contato.html), abre sem a extensão
+# Se você digitar /contato, ele abre o contato.html
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(.+?)/?$ $1.html [L]
+RewriteRule ^(.+?)/?$ $1.html [NC,L]
 
-# 3. REGRA PARA POSTS DO BLOG (URLs AMIGÁVEIS)
-# Se NÃO for um diretório E NÃO for um arquivo real E NÃO tiver o arquivo .html correspondente
-# Então manda para o post.html passando o slug como parâmetro
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/$1.html !-f
-RewriteRule ^([^/]+)/?$ post.html?slug=$1 [L,QSA]
+# 4. REESCRITA INTERNA DO BLOG: Faz o servidor ler /nome-do-post como /post.html?slug=nome-do-post
+# Esta regra só roda se as anteriores não encontrarem um arquivo real ou uma página .html
+RewriteRule ^([a-zA-Z0-9_-]+)$ post.html?slug=$1 [QSA,L]

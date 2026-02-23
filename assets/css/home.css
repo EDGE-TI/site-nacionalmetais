@@ -1,37 +1,37 @@
 .hero {
-
-    padding-top: 200px;
+    position: relative;
+    padding: 300px 0;
+    background: linear-gradient(135deg, rgba(25, 16, 26, 0.644) 0%, rgba(38, 16, 41, 0.801) 100%), 
+                url('/images/background-principal.jpeg') no-repeat; 
+    background-size: cover;
+    background-attachment: fixed; 
     text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 250px;
-     color: #ffffff;
-     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.255); 
-     background: #350080;
-background: radial-gradient(circle, rgba(183, 0, 255, 0.62) 0%, rgba(255, 1, 221, 0.537) 0%, rgb(134, 0, 171) 91%, rgba(119, 0, 205, 0.79) 100%);
+    color: white;
+    overflow: hidden;
 }
 
 .secao-produtos-container {
-    background: #b000b0;
-background: linear-gradient(0deg, rgba(176, 0, 176, 0.663) 0%, rgba(128, 0, 255, 1) 50%, rgb(193, 83, 237) 100%);
+background-color: rgb(27, 24, 31);
     padding: 80px 0;
 }
 
 .secao-produtos-container .titulo-secao {
-    color: #1e1e1e;
+    color: #e4e4e4;
 }
 
 .secao-produtos-container .subtitulo-secao {
-    color: #141414;
+    color: #cccccc;
     opacity: 1;
 }
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     line-height: 1.2;
+    box-shadow:#141414
 }
 
 .hero h1 span {
-    color: black;
+    color: rgb(132, 0, 255);
 }
 
 .hero p {
@@ -76,7 +76,7 @@ background: linear-gradient(0deg, rgba(176, 0, 176, 0.663) 0%, rgba(128, 0, 255,
 .card-produto:hover {
     transform: translateY(-5px);
     /* Levanta o card */
-    box-shadow: 0 15px 30px rgba(124, 58, 237, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.425);
     /* Sombra roxa suave */
     border-color: var(--cor-primaria-claro);
 }
@@ -84,7 +84,7 @@ background: linear-gradient(0deg, rgba(176, 0, 176, 0.663) 0%, rgba(128, 0, 255,
 /* Área da Imagem/Ícone */
 .card-img-area {
     height: 200px;
-    background-color: #f3f4f6;
+    background-color: #2c222eea;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,14 +93,13 @@ background: linear-gradient(0deg, rgba(176, 0, 176, 0.663) 0%, rgba(128, 0, 255,
 
 .card-img-area i {
     font-size: 4rem;
-    color: #9ca3af;
+    color: #3c3f44;
     /* Cinza claro */
     transition: 0.3s;
 }
 
 .card-produto:hover .card-img-area i {
-    color: var(--cor-primaria);
-    /* Fica roxo ao passar o mouse */
+    color: #141414;
     transform: scale(1.1);
 }
 
@@ -118,7 +117,7 @@ background: linear-gradient(0deg, rgba(176, 0, 176, 0.663) 0%, rgba(128, 0, 255,
 .card-body h3 {
     font-size: 1.3rem;
     margin-bottom: 8px;
-    color: var(--cor-texto-titulo);
+    color: #41005a;
 }
 
 .ver-mais {
@@ -151,5 +150,4 @@ background: linear-gradient(0deg, rgba(176, 0, 176, 0.663) 0%, rgba(128, 0, 255,
         display: none;
     }
 
-    /* Menu hamburguer viria aqui */
 }
