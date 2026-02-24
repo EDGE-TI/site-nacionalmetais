@@ -11,27 +11,30 @@
 }
 
 .secao-produtos-container {
-background-color: rgb(27, 24, 31);
+background-color: #af0bcc;
     padding: 80px 0;
 }
 
 .secao-produtos-container .titulo-secao {
     color: #e4e4e4;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    
 }
 
 .secao-produtos-container .subtitulo-secao {
     color: #cccccc;
     opacity: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     line-height: 1.2;
-    box-shadow:#141414
+    box-shadow:#141414;
 }
 
 .hero h1 span {
-    color: rgb(132, 0, 255);
+    color: #af0bcc;
 }
 
 .hero p {
@@ -79,16 +82,20 @@ background-color: rgb(27, 24, 31);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.425);
     /* Sombra roxa suave */
     border-color: var(--cor-primaria-claro);
+     
 }
 
 /* Área da Imagem/Ícone */
 .card-img-area {
     height: 200px;
-    background-color: #2c222eea;
+    background-color: #5c3265ea;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+}
+.card-img-area:hover {
+    background-color: #af0bcc;
 }
 
 .card-img-area i {
