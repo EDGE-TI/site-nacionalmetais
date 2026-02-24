@@ -81,7 +81,9 @@ background-color: #af0bcc;
     /* Levanta o card */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.425);
     /* Sombra roxa suave */
-    border-color: var(--cor-primaria-claro);
+    border-color: white;
+    box-sizing: border-box;
+    padding: 5px;
      
 }
 
