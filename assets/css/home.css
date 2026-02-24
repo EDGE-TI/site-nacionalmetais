@@ -16,15 +16,15 @@ background-color: #af0bcc;
 }
 
 .secao-produtos-container .titulo-secao {
-    color: #e4e4e4;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     
 }
 
 .secao-produtos-container .subtitulo-secao {
-    color: #cccccc;
+    color: #ffffff;
     opacity: 1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
 }
 .hero h1 {
     font-size: 3rem;
