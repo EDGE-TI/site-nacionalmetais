@@ -94,7 +94,7 @@ background-color: #af0bcc;
     justify-content: center;
     position: relative;
 }
-.card-img-area:hover {
+.card-produto:hover .card-img-area {
     background-color: #af0bcc;
 }
 
