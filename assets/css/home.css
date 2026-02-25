@@ -11,20 +11,20 @@
 }
 
 .secao-produtos-container {
-background-color: #af0bcc;
+background-color: #fffcff;
     padding: 80px 0;
 }
 
 .secao-produtos-container .titulo-secao {
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #110315;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.247);
     
 }
 
 .secao-produtos-container .subtitulo-secao {
-    color: #ffffff;
+    color: #130d07;
     opacity: 1;
-    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.463);
 }
 .hero h1 {
     font-size: 3rem;
@@ -74,12 +74,13 @@ background-color: #af0bcc;
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.425);
 }
 
 .card-produto:hover {
     transform: translateY(-5px);
     /* Levanta o card */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.425);
+    box-shadow: 0 15px 30px rgba(88, 0, 106, 0.425);
     /* Sombra roxa suave */
     border-color: white;
     box-sizing: border-box;
@@ -90,14 +91,14 @@ background-color: #af0bcc;
 /* Área da Imagem/Ícone */
 .card-img-area {
     height: 200px;
-    background-color: #5c3265ea;
+    background-color: #f4f4f4;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
 }
 .card-produto:hover .card-img-area {
-    background-color: #ed88ff;
+    background-color: #e23bff;
 }
 
 .card-img-area i {
