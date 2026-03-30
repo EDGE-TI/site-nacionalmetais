@@ -8,9 +8,333 @@
 
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <link rel="stylesheet" href="/assets/css/header-footer.css">
-    <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/secao-contato.css">
+    <style>
+        /* --- HEADER DESKTOP (Padrão) --- */
+header {
+    background-color: white;
+    height: 80px;
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex; 
+    align-items: center;
+}
+
+.header-content {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+}
+
+.logo { display: flex; align-items: center; }
+.logo img { max-height: 50px; width: auto; }
+
+/* Navegação Desktop (some no mobile) */
+.nav-desktop ul { display: flex; gap: 32px; list-style: none; align-items: center;}
+.nav-desktop a { font-weight: 500; font-size: 0.95rem; text-decoration: none; color: var(--cor-texto-titulo); }
+.nav-desktop a:hover { color: var(--cor-primaria); }
+.nav-desktop a.ativo { color: var(--cor-primaria); font-weight: 700; }
+
+/* Botão Mobile (Só aparece no celular) */
+.btn-mobile-trigger {
+    display: none; /* Escondido no Desktop */
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* --- CORREÇÃO DO MENU MOBILE --- */
+
+.menu-mobile {
+    /* Posição Fixa Blindada */
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0; /* Força a encostar nos dois lados */
+    bottom: 0; /* Força a ir até ao fundo */
+    width: 100vw; /* 100% da largura da janela visual */
+    height: calc(100vh - 80px);
+    
+    /* Visual */
+    background-color: #ffffff;
+    z-index: 999;
+    
+    /* Reset de heranças (Garante que não herda margens estranhas) */
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+
+    /* Animação */
+    transform: translateX(100%); /* Escondido à direita */
+    transition: transform 0.3s ease-in-out;
+
+    /* Flexbox para centralizar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: flex-start;
+    padding-top: 40px !important; /* Espaço interno no topo */
+}
+
+/* Estado Aberto */
+.menu-mobile.aberto {
+    transform: translateX(0); /* Traz para o centro */
+}
+
+/* Lista */
+.menu-mobile ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu-mobile li {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.menu-mobile a {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cor-texto-titulo);
+    text-decoration: none;
+    display: block; /* Ocupa a linha toda */
+}
+
+.menu-mobile a:hover {
+    color: var(--cor-primaria);
+}
+
+
+
+/* FOOTER */
+footer {
+    background-color: var(--cor-primaria); 
+    color: white;
+    padding: 60px 0 20px; 
+    margin-top: auto; 
+    text-align: center;
+}
+
+/* --- RESPONSIVIDADE (O Segredo) --- */
+@media (max-width: 900px) {
+    /* Esconde o menu desktop normal */
+    .nav-desktop { display: none; }
+    
+    /* Mostra o botão do hambúrguer */
+    .btn-mobile-trigger { display: block; }
+
+    /* Estilo do Botão no Mobile (para destacar dentro da lista) */
+.menu-mobile .btn-catalogo-mobile {
+    background-color: #622969;
+    color: #ffffff !important;
+    margin: 10px 20px; /* Margem lateral para não colar nas bordas */
+    padding: 12px !important;
+    border-radius: 8px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+}
+.nav-desktop .btn-catalogo {
+    background-color: #622969; /* Seu Roxo-Vinho */
+    color: #ffffff !important; /* Força a cor branca */
+    padding: 8px 20px !important; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px; /* Afasta um pouco dos outros links */
+}
+
+.nav-desktop .btn-catalogo:hover {
+    background-color: #82338d; /* Um roxo levemente mais claro no hover */
+    transform: translateY(-2px); /* Efeito de levitação */
+    box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3);
+}
+
+    /* home.css      */
+    .hero {
+    position: relative;
+    padding: 300px 0;
+    background: linear-gradient(135deg, rgba(25, 16, 26, 0.644) 0%, rgba(38, 16, 41, 0.801) 100%), 
+                url('/images/background-principal.jpeg') no-repeat; 
+    background-size: cover;
+    background-attachment: fixed; 
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.secao-produtos-container {
+background-color: #fffcff;
+    padding: 80px 0;
+}
+
+.secao-produtos-container .titulo-secao {
+    color: #110315;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.247);
+    
+}
+
+.secao-produtos-container .subtitulo-secao {
+    color: #130d07;
+    opacity: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.463);
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    box-shadow:#141414;
+}
+
+.hero h1 span {
+    color: #af0bcc;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* Título das Seções */
+.titulo-secao {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subtitulo-secao {
+    text-align: center;
+    margin-bottom: 50px;
+    opacity: 0.8;
+    color: white;
+}
+
+/* GRID DE PRODUTOS */
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+/* Card do Produto */
+.card-produto {
+    background: white;
+    border-radius: 3.5px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.425);
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    /* Levanta o card */
+    box-shadow: 0 15px 30px rgba(88, 0, 106, 0.425);
+    /* Sombra roxa suave */
+    border-color: white;
+    box-sizing: border-box;
+    padding: 5px;
+     
+}
+
+/* Área da Imagem/Ícone */
+.card-img-area {
+    height: 200px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.card-produto:hover .card-img-area {
+    background-color: #e23bff;
+}
+
+.card-img-area i {
+    font-size: 4rem;
+    color: #3c3f44;
+    /* Cinza claro */
+    transition: 0.3s;
+}
+
+.card-produto:hover .card-img-area i {
+    color: #141414;
+    transform: scale(1.1);
+}
+
+/* Conteúdo do Card */
+.card-body {
+    padding: 24px;
+    text-align: center;
+    flex-grow: 1;
+    /* Empurra o botão para baixo se o texto for curto */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #41005a;
+}
+
+.ver-mais {
+    color: var(--cor-primaria);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ver-mais i {
+    transition: 0.3s;
+}
+
+.card-produto:hover .ver-mais i {
+    transform: translateX(5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .produtos-grid {
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+    nav ul {
+        display: none;
+    }
+
+}
+
+    </style>
 
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
