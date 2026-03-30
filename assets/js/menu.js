@@ -1,32 +1,37 @@
+// Elementos do DOM
 const btnMobile = document.getElementById('btn-mobile');
 const menuNav = document.getElementById('menu-mobile');
-const iconBtn = btnMobile.querySelector('i');
 
-function toggleMenu() {
-    // Adiciona ou remove a classe 'aberto'
-    menuNav.classList.toggle('aberto');
-    
-    // Troca o ícone (Se tiver aberto vira X, se fechado vira Lista)
-    if (menuNav.classList.contains('aberto')) {
-        iconBtn.classList.remove('ph-list');
-        iconBtn.classList.add('ph-x');
-        // Trava a rolagem da página atrás do menu
-        document.body.style.overflow = 'hidden';
-    } else {
-        iconBtn.classList.remove('ph-x');
-        iconBtn.classList.add('ph-list');
-        // Destrava a rolagem
-        document.body.style.overflow = 'auto';
+if (btnMobile && menuNav) {
+    const iconBtn = btnMobile.querySelector('i');
+
+    function toggleMenu() {
+        // window.requestAnimationFrame agrupa as mudanças no DOM para evitar o Reflow Forçado
+        window.requestAnimationFrame(() => {
+            // Adiciona ou remove a classe 'aberto'
+            menuNav.classList.toggle('aberto');
+            
+            // Troca o ícone e trava/destrava a rolagem
+            if (menuNav.classList.contains('aberto')) {
+                iconBtn.classList.remove('ph-list');
+                iconBtn.classList.add('ph-x');
+                document.body.style.overflow = 'hidden';
+            } else {
+                iconBtn.classList.remove('ph-x');
+                iconBtn.classList.add('ph-list');
+                document.body.style.overflow = '';
+            }
+        });
     }
-}
 
-// Ouve o clique no botão
-btnMobile.addEventListener('click', toggleMenu);
+    btnMobile.addEventListener('click', toggleMenu);
 
-// Fecha o menu se clicar em um link (para navegar)
-const linksMobile = document.querySelectorAll('.menu-mobile a');
-linksMobile.forEach(link => {
-    link.addEventListener('click', () => {
-        toggleMenu(); // Fecha o menu
+    const linksMobile = menuNav.querySelectorAll('a');
+    linksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+            if (menuNav.classList.contains('aberto')) {
+                toggleMenu(); 
+            }
+        });
     });
-});
+}
