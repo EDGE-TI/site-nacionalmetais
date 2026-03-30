@@ -10,8 +10,157 @@
 
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <link rel="stylesheet" href="/assets/css/secao-contato.css">
+    <link rel="stylesheet" href="assets/css/secao-contato.css" media="print" onload="this.media='all'">
+
+<noscript><link rel="stylesheet" href="assets/css/secao-contato.css"></noscript>
     <style>
+         /* --- Global.css --- */
+                :root {
+            /* Paleta de Cores */
+            --cor-primaria: #500056;      /* Roxo Vibrante */
+            --cor-primaria-escuro: #5B21B6; /* Roxo Escuro para hover */
+            --cor-primaria-suave: #f1f1f1;  /* Roxo clarinho para fundos */
+            
+            --cor-texto-forte: #000000;
+            --cor-texto-medio: #4B5563;
+            --cor-branco: #FFFFFF;
+            --cor-cinza-fundo: #f5f5f5;
+            
+            /* Tamanhos */
+            --largura-maxima: 1200px;
+            --altura-header: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-cinza-fundo);
+            color: var(--cor-texto-medio);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Classes Utilitárias */
+        .container {
+            max-width: var(--largura-maxima);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-primario {
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+        }
+
+        .btn-primario:hover {
+            background-color: var(--cor-primaria-escuro);
+        }
+
+        .titulo-secao {
+            font-size: 2rem;
+            color: var(--cor-texto-forte);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        /* ... (Mantenha o código que já existe acima) ... */
+
+/* =======================================================
+   BOTÃO FLUTUANTE DO WHATSAPP
+   ======================================================= */
+.btn-whatsapp-flutuante {
+    position: fixed; /* Fixa na tela, ignora a rolagem */
+    bottom: 30px;    /* Distância do rodapé */
+    right: 30px;     /* Distância da direita */
+    z-index: 9999;   /* Garante que fique em cima de TUDO */
+    
+    background-color: #25D366; /* Verde oficial do WhatsApp */
+    color: white;
+    
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Deixa redondinho */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra para dar destaque */
+    text-decoration: none;
+    transition: transform 0.3s;
+    
+    /* Animação para chamar atenção */
+    animation: pulso-whatsapp 2s infinite;
+}
+
+.btn-whatsapp-flutuante i {
+    font-size: 32px; /* Tamanho do ícone */
+}
+
+/* Efeito ao passar o mouse */
+.btn-whatsapp-flutuante:hover {
+    background-color: #128C7E; /* Verde mais escuro */
+    transform: scale(1.1); /* Aumenta um pouquinho */
+    animation: none; /* Para de pular quando passa o mouse */
+}
+
+/* Definição da Animação de Pulso */
+@keyframes pulso-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        transform: scale(1);
+    }
+}
+
+/* Ajuste para celulares (fica menorzinho para não atrapalhar) */
+@media (max-width: 768px) {
+    .btn-whatsapp-flutuante {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .btn-whatsapp-flutuante i {
+        font-size: 26px;
+    }
+}
+         
+
         /* --- HEADER DESKTOP (Padrão) --- */
 header {
     background-color: white;
@@ -339,9 +488,11 @@ background-color: #fffcff;
     </style>
 
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+<link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+<!-- Carregamento Assíncrono da Fonte -->
+<link rel="stylesheet" href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap)" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap)"></noscript>
 
     <link rel="icon" type="image/png" href="images/nacional-favicon.png" sizes="192x192">
     <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/png">
@@ -634,6 +785,9 @@ background-color: #fffcff;
             class="btn-whatsapp-flutuante" target="_blank" aria-label="Falar no WhatsApp">
             <i class="ph-fill ph-whatsapp-logo"></i>
         </a>
+
+        <script src="[https://unpkg.com/@phosphor-icons/web](https://unpkg.com/@phosphor-icons/web)" defer></script>
+    <script src="assets/js/menu.js"></script>
         <script src="assets/js/menu.js"></script>
 </body>
 
