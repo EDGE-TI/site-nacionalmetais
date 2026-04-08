@@ -162,164 +162,151 @@
 }
          
 
-        /* --- HEADER DESKTOP (Padrão) --- */
-header {
-    background-color: white;
-    height: 80px;
-    position: sticky; 
-    top: 0; 
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    display: flex; 
-    align-items: center;
-}
+       /* =======================================================
+           HEADER DESKTOP E MEGA MENU
+           ======================================================= */
+        header { background-color: white; height: var(--altura-header); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; }
+        .logo { display: flex; align-items: center; }
+        .logo img { max-height: 50px; width: auto; }
 
-.header-content {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    width: 100%;
-}
+        .nav-desktop ul { display: flex; gap: 32px; align-items: center; list-style: none; margin: 0; padding: 0;}
+        .nav-desktop > ul > li { height: var(--altura-header); display: flex; align-items: center; }
+        .nav-desktop a { font-weight: 500; font-size: 0.95rem; color: var(--cor-texto-forte); display: flex; align-items: center; gap: 6px; transition: 0.3s; text-decoration: none;}
+        .nav-desktop a:hover { color: var(--cor-primaria); }
 
-.logo { display: flex; align-items: center; }
-.logo img { max-height: 50px; width: auto; }
+        .has-mega-menu { position: static !important; }
+        
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--cor-primaria);
+            border-radius: 0 0 8px 8px;
+            padding: 40px;
+            
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
 
-/* Navegação Desktop (some no mobile) */
-.nav-desktop ul { display: flex; gap: 32px; list-style: none; align-items: center;}
-.nav-desktop a { font-weight: 500; font-size: 0.95rem; text-decoration: none; color: var(--cor-texto-titulo); }
-.nav-desktop a:hover { color: var(--cor-primaria); }
-.nav-desktop a.ativo { color: var(--cor-primaria); font-weight: 700; }
+        .has-mega-menu:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-/* Botão Mobile (Só aparece no celular) */
-.btn-mobile-trigger {
-    display: none; /* Escondido no Desktop */
-    font-size: 2rem;
-    color: var(--cor-primaria);
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-}
+        .mega-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 280px; 
+            /* Reduzimos o gap geral porque o padding das colunas fará o espaçamento */
+            gap: 30px; 
+        }
 
-/* --- CORREÇÃO DO MENU MOBILE --- */
+        .mega-coluna {
+            display: flex;
+            flex-direction: column;
+            /* Adiciona a linha vertical cinza super suave */
+            border-right: 1px solid #f0f0f0; 
+            /* Afasta o texto da linha divisória para dar respiro */
+            padding-right: 30px; 
+        }
 
-.menu-mobile {
-    /* Posição Fixa Blindada */
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0; /* Força a encostar nos dois lados */
-    bottom: 0; /* Força a ir até ao fundo */
-    width: 100vw; /* 100% da largura da janela visual */
-    height: calc(100vh - 80px);
-    
-    /* Visual */
-    background-color: #ffffff;
-    z-index: 999;
-    
-    /* Reset de heranças (Garante que não herda margens estranhas) */
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box;
+        /* Remove a linha divisória apenas da 3ª coluna, 
+           para não ficar "colada" e estranha ao lado da caixa de Destaque */
+        .mega-coluna:nth-child(3) {
+            border-right: none;
+            padding-right: 0;
+        }
+        
+        .mega-coluna h3 {
+            font-size: 1.05rem;
+            color: var(--cor-primaria);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaeaea;
+        }
 
-    /* Animação */
-    transform: translateX(100%); /* Escondido à direita */
-    transition: transform 0.3s ease-in-out;
+        .mega-coluna ul { display: flex; flex-direction: column; gap: 10px; }
+        .mega-coluna ul li { height: auto !important; }
+        .mega-coluna a { color: var(--cor-texto-medio); font-size: 0.9rem; font-weight: 400; transition: all 0.2s; }
+        .mega-coluna a:hover { color: var(--cor-primaria); transform: translateX(5px); }
 
-    /* Flexbox para centralizar */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: flex-start;
-    padding-top: 40px !important; /* Espaço interno no topo */
-}
+        .mega-destaque {
+            background-color: var(--cor-primaria-suave);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .mega-destaque img { max-height: 120px; margin-bottom: 15px; }
+        .mega-destaque p { font-size: 0.9rem; font-weight: 600; color: var(--cor-primaria); margin-bottom: 10px; }
+        .btn-pequeno { background: var(--cor-primaria); color: #fff !important; padding: 8px 16px; border-radius: 4px; font-size: 0.85rem !important; }
+        .btn-pequeno:hover { background: var(--cor-primaria-escuro); transform: translateY(-2px); }
 
-/* Estado Aberto */
-.menu-mobile.aberto {
-    transform: translateX(0); /* Traz para o centro */
-}
+        .nav-desktop .btn-catalogo { background-color: #622969; color: #ffffff !important; padding: 8px 20px !important; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 10px; }
+        .nav-desktop .btn-catalogo:hover { background-color: #82338d; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3); }
 
-/* Lista */
-.menu-mobile ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
+        /* =======================================================
+           MENU MOBILE
+           ======================================================= */
+        .btn-mobile-trigger { display: none; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; z-index: 1001; }
+        
+        .menu-mobile {
+            position: fixed; top: 80px; left: 0; right: 0; bottom: 0; width: 100vw; height: calc(100vh - 80px);
+            background-color: #ffffff; z-index: 999;
+            transform: translateX(100%); transition: transform 0.3s ease-in-out;
+            overflow-y: auto; padding: 20px 0; margin: 0 !important; box-sizing: border-box;
+        }
+        .menu-mobile.aberto { transform: translateX(0); }
 
-.menu-mobile li {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 25px;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 15px;
-}
+        .menu-mobile ul { display: flex; flex-direction: column; align-items: center; width: 100%; list-style: none; padding: 0; margin: 0;}
+        .menu-mobile > ul > li { width: 100%; text-align: center; margin-bottom: 25px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; }
+        .menu-mobile a { font-size: 1.3rem; font-weight: 600; color: var(--cor-texto-forte); display: flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none;}
+        .menu-mobile a:hover { color: var(--cor-primaria); }
+        
+        .submenu-mobile { display: none; padding-top: 15px; background-color: #fafafa; border-radius: 6px; margin-top: 15px;}
+        .has-submenu.ativo .submenu-mobile { display: block; }
+        .has-submenu.ativo > a { color: var(--cor-primaria); }
+        .has-submenu.ativo > a i { transform: rotate(180deg); }
+        .submenu-mobile a { padding: 12px 0; font-size: 1.1rem; font-weight: 400; color: var(--cor-texto-medio); border-bottom: 1px dashed #eaeaea; justify-content: center;}
+        .submenu-mobile a:last-child { border-bottom: none; }
+        /* Títulos separadores dentro do menu mobile */
+        .submenu-titulo {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--cor-primaria);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 20px 0 5px 0;
+            text-align: center;
+            border-bottom: 2px solid #eaeaea;
+            width: 80%;
+            margin: 0 auto;
+            background-color:#c69ccd;
+            border-radius: 4px;
+        }
+        
+        .submenu-mobile a {
+            padding: 12px 0;
+            font-size: 1rem; /* Deixa os links ligeiramente menores para caberem bem */
+        }
 
-.menu-mobile a {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--cor-texto-titulo);
-    text-decoration: none;
-    display: block; /* Ocupa a linha toda */
-}
+        @media (max-width: 900px) {
+            .nav-desktop { display: none; }
+            .btn-mobile-trigger { display: block; }
+            .menu-mobile .btn-catalogo-mobile { background-color: #622969; color: #ffffff !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; }
+        }
 
-.menu-mobile a:hover {
-    color: var(--cor-primaria);
-}
-
-
-
-/* FOOTER */
-footer {
-    background-color: var(--cor-primaria); 
-    color: white;
-    padding: 60px 0 20px; 
-    margin-top: auto; 
-    text-align: center;
-}
-
-/* --- RESPONSIVIDADE (O Segredo) --- */
-@media (max-width: 900px) {
-    /* Esconde o menu desktop normal */
-    .nav-desktop { display: none; }
-    
-    /* Mostra o botão do hambúrguer */
-    .btn-mobile-trigger { display: block; }
-
-    /* Estilo do Botão no Mobile (para destacar dentro da lista) */
-.menu-mobile .btn-catalogo-mobile {
-    background-color: #622969;
-    color: #ffffff !important;
-    margin: 10px 20px; /* Margem lateral para não colar nas bordas */
-    padding: 12px !important;
-    border-radius: 8px;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    gap: 10px;
-}
-}
-.nav-desktop .btn-catalogo {
-    background-color: #622969; /* Seu Roxo-Vinho */
-    color: #ffffff !important; /* Força a cor branca */
-    padding: 8px 20px !important; /* Espaçamento interno */
-    border-radius: 8px; /* Bordas arredondadas */
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 10px; /* Afasta um pouco dos outros links */
-}
-
-.nav-desktop .btn-catalogo:hover {
-    background-color: #82338d; /* Um roxo levemente mais claro no hover */
-    transform: translateY(-2px); /* Efeito de levitação */
-    box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3);
-}
 
     /* home.css      */
     .hero {
@@ -507,19 +494,114 @@ background-color: #fffcff;
     </head>
 <body>
     <header>
-        <div class="container header-content">
+         <div class="container header-content">
 
             <a href="/" class="logo">
                 <img src="/images/logo-nacional.webp" alt="Nacional Metais Logo">
             </a>
 
-
             <nav class="nav-desktop">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="quem-somos">Quem Somos</a></li>
-                    <li><a href="fabricacao">Fabricação</a></li>
-                    <li><a href="distribuicao">Distribuição</a></li>
+                    
+                    <!-- MEGA MENU: FABRICAÇÃO -->
+                    <li class="has-mega-menu">
+                        <a href="fabricacao.html">Fabricação <i class="ph-bold ph-caret-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                
+                                <div class="mega-coluna">
+                                    <h3>Calhas de Chuva</h3>
+                                    <ul>
+                                        <li><a href="calha-moldura.html"><i class="ph ph-caret-right"></i> Calha Moldura</a></li>
+                                        <li><a href="calha-americana.html"><i class="ph ph-caret-right"></i> Calha Americana</a></li>
+                                        <li><a href="calha-quadrada.html"><i class="ph ph-caret-right"></i> Calha Quadrada</a></li>
+                                        <li><a href="agua-furtada.html"><i class="ph ph-caret-right"></i> Água Furtada</a></li>
+                                        <li><a href="calha-platibanda.html"><i class="ph ph-caret-right"></i> Calha Platibanda</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mega-coluna">
+                                    <h3>Rufos e Pingadeiras</h3>
+                                    <ul>
+                                        <li><a href="rufo-encosto.html"><i class="ph ph-caret-right"></i> Rufo de Encosto</a></li>
+                                        <li><a href="rufo-pingadeira.html"><i class="ph ph-caret-right"></i> Rufo Pingadeira</a></li>
+                                        <li><a href="rufo-capa.html"><i class="ph ph-caret-right"></i> Rufo Interno / Capa</a></li>
+                                    </ul>
+
+                                    <h3 style="margin-top: 25px;">Bobinas Metálicas</h3>
+                                    <ul>
+                                        <li><a href="bobina-aluminio.html"><i class="ph ph-caret-right"></i> Bobina de Alumínio</a></li>
+                                        <li><a href="bobina-galvanizada.html"><i class="ph ph-caret-right"></i> Bobina Galvanizada</a></li>
+                                        <li><a href="bobina-galvalume.html"><i class="ph ph-caret-right"></i> Bobina Galvalume</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mega-coluna">
+                                    <h3>Coifas e Chaminés</h3>
+                                    <ul>
+                                        <li><a href="coifas-industriais.html"><i class="ph ph-caret-right"></i> Coifas Industriais</a></li>
+                                        <li><a href="coifas-residenciais.html"><i class="ph ph-caret-right"></i> Coifas Residenciais</a></li>
+                                        <li><a href="chamines.html"><i class="ph ph-caret-right"></i> Chaminés e Chapéus</a></li>
+                                        <li><a href="dutos.html"><i class="ph ph-caret-right"></i> Dutos e Curvas</a></li>
+                                    </ul>
+
+                                    <h3 style="margin-top: 25px;">Exaustores</h3>
+                                    <ul>
+                                        <li><a href="exaustores-eolicos.html"><i class="ph ph-caret-right"></i> Exaustores Eólicos</a></li>
+                                        <li><a href="exaustores-eletricos.html"><i class="ph ph-caret-right"></i> Exaustores Elétricos</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mega-destaque">
+                                    <p>Projetos Especiais</p>
+                                    <span style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Fabricamos peças sob medida em até 6 metros sem emendas.</span>
+                                    <a href="contato.html" class="btn-pequeno">Solicitar Orçamento</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- MEGA MENU: DISTRIBUIÇÃO -->
+                    <li class="has-mega-menu">
+                        <a href="distribuicao.html">Distribuição <i class="ph-bold ph-caret-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                <div class="mega-coluna">
+                                    <h3>Chapas Metálicas</h3>
+                                    <ul>
+                                        <li><a href="chapa-galvanizada.html"><i class="ph ph-caret-right"></i> Chapa Galvanizada</a></li>
+                                        <li><a href="chapa-aluminio.html"><i class="ph ph-caret-right"></i> Chapa de Alumínio</a></li>
+                                        <li><a href="chapa-inox.html"><i class="ph ph-caret-right"></i> Chapa de Inox</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-coluna">
+                                    <h3>Fachadas e Coberturas</h3>
+                                    <ul>
+                                        <li><a href="acm.html"><i class="ph ph-caret-right"></i> Revestimento ACM</a></li>
+                                        <li><a href="policarbonato-alveolar.html"><i class="ph ph-caret-right"></i> Policarbonato Alveolar</a></li>
+                                        <li><a href="policarbonato-compacto.html"><i class="ph ph-caret-right"></i> Policarbonato Compacto</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-coluna">
+                                    <h3>Acessórios de Montagem</h3>
+                                    <ul>
+                                        <li><a href="selantes-pu.html"><i class="ph ph-caret-right"></i> Selantes PU e Silicone</a></li>
+                                        <li><a href="fixacao.html"><i class="ph ph-caret-right"></i> Rebites e Fixadores</a></li>
+                                        <li><a href="fitas.html"><i class="ph ph-caret-right"></i> Fitas Adesivas e VHB</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-destaque">
+                                    <p>Seja um Parceiro</p>
+                                    <span style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Preços exclusivos para serralheiros e calheiros.</span>
+                                    <a href="parceria.html" class="btn-pequeno">Ver Vantagens</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
                     <li><a href="blog">Blog</a></li>
                     <li><a href="parceria">Parceria</a></li>
                     <li><a href="contato">Contato</a></li>
@@ -527,20 +609,66 @@ background-color: #fffcff;
                 </ul>
             </nav>
 
-
             <button id="btn-mobile" class="btn-mobile-trigger" aria-label="Abrir menu de navegação">
                 <i class="ph ph-list"></i>
             </button>
 
-
         </div>
+
+        <!-- MENU MOBILE COM ACORDEÃO -->
         <nav id="menu-mobile" class="menu-mobile">
             <ul>
-
                 <li><a href="/">Home</a></li>
                 <li><a href="quem-somos">Quem Somos</a></li>
-                <li><a href="fabricacao">Fabricação</a></li>
-                <li><a href="distribuicao">Distribuição</a></li>
+                
+                <li class="has-submenu">
+                    <a href="#">Fabricação <i class="ph-bold ph-caret-down" style="transition: 0.3s;"></i></a>
+                    <div class="submenu-mobile">
+                        <span class="submenu-titulo">Calhas de Chuva</span>
+                        <a href="calha-moldura.html">Calha Moldura</a>
+                        <a href="calha-americana.html">Calha Americana</a>
+                        <a href="calha-quadrada.html">Calha Quadrada</a>
+                        <a href="agua-furtada.html">Água Furtada</a>
+                        <a href="calha-platibanda.html">Calha Platibanda</a>
+
+                        <span class="submenu-titulo">Rufos e Bobinas</span>
+                        <a href="rufo-encosto.html">Rufo de Encosto</a>
+                        <a href="rufo-pingadeira.html">Rufo Pingadeira</a>
+                        <a href="rufo-capa.html">Rufo Interno / Capa</a>
+                        <a href="bobina-aluminio.html">Bobina de Alumínio</a>
+                        <a href="bobina-galvanizada.html">Bobina Galvanizada</a>
+                        <a href="bobina-galvalume.html">Bobina Galvalume</a>
+
+                        <span class="submenu-titulo">Coifas e Exaustores</span>
+                        <a href="coifas-industriais.html">Coifas Industriais</a>
+                        <a href="coifas-residenciais.html">Coifas Residenciais</a>
+                        <a href="chamines.html">Chaminés e Chapéus</a>
+                        <a href="dutos.html">Dutos e Curvas</a>
+                        <a href="exaustores-eolicos.html">Exaustores Eólicos</a>
+                        <a href="exaustores-eletricos.html">Exaustores Elétricos</a>
+                    </div>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">Distribuição <i class="ph-bold ph-caret-down" style="transition: 0.3s;"></i></a>
+                    <div class="submenu-mobile">
+                        <span class="submenu-titulo">Chapas Metálicas</span>
+                        <a href="chapa-galvanizada.html">Chapa Galvanizada</a>
+                        <a href="chapa-aluminio.html">Chapa de Alumínio</a>
+                        <a href="chapa-inox.html">Chapa de Inox</a>
+
+                        <span class="submenu-titulo">Fachadas e Coberturas</span>
+                        <a href="acm.html">Revestimento ACM</a>
+                        <a href="policarbonato-alveolar.html">Policarbonato Alveolar</a>
+                        <a href="policarbonato-compacto.html">Policarbonato Compacto</a>
+
+                        <span class="submenu-titulo">Acessórios de Montagem</span>
+                        <a href="selantes-pu.html">Selantes PU e Silicone</a>
+                        <a href="fixacao.html">Rebites e Fixadores</a>
+                        <a href="fitas.html">Fitas Adesivas e VHB</a>
+                    </div>
+                </li>
+
                 <li><a href="blog">Blog</a></li>
                 <li><a href="parceria">Parceria</a></li>
                 <li><a href="contato">Contato</a></li>
