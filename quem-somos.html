@@ -25,23 +25,237 @@
    <meta name="adopt-website-id" content="c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" />
     
     <script src="https://tag.goadopt.io/injector.js?website_code=c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" class="adopt-injector"></script>
+    <style>
+        :root {
+            --cor-primaria: #500056;
+            --cor-primaria-escuro: #3a003e;
+            --cor-primaria-suave: #f9f5fa;
+            --cor-texto-forte: #000000;
+            --cor-texto-medio: #4B5563;
+            --cor-branco: #FFFFFF;
+            --cor-cinza-fundo: #fcfcfc;
+            --largura-maxima: 1200px;
+            --altura-header: 80px;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--cor-cinza-fundo); color: var(--cor-texto-medio); line-height: 1.6; margin: 0;}
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        
+        .container { max-width: var(--largura-maxima); margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER DESKTOP E MEGA MENU */
+        header { background-color: white; height: var(--altura-header); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; }
+        .logo { display: flex; align-items: center; }
+        .logo img { max-height: 50px; width: auto; }
+
+        .nav-desktop ul { display: flex; gap: 32px; align-items: center; list-style: none; margin: 0; padding: 0;}
+        .nav-desktop > ul > li { height: var(--altura-header); display: flex; align-items: center; }
+        .nav-desktop a { font-weight: 500; font-size: 0.95rem; color: var(--cor-texto-forte); display: flex; align-items: center; gap: 6px; transition: 0.3s; text-decoration: none;}
+        .nav-desktop a:hover { color: var(--cor-primaria); }
+
+        .has-mega-menu { position: static !important; }
+        
+        .mega-menu { position: absolute; top: 100%; left: 0; width: 100%; background-color: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-top: 3px solid var(--cor-primaria); border-radius: 0 0 8px 8px; padding: 40px 30px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 999; }
+        .has-mega-menu:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .mega-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 280px; gap: 30px; }
+        .mega-coluna { display: flex; flex-direction: column; border-right: 1px solid #f0f0f0; padding-right: 30px; }
+        .mega-coluna:nth-child(3) { border-right: none; padding-right: 0; }
+
+        .mega-coluna h3 { font-size: 0.85rem; color: var(--cor-primaria); margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #f1f1f1; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+        .mega-coluna .grupo-superior { min-height: 145px; }
+        .mega-coluna .titulo-secundario { margin-top: 10px; }
+        .mega-coluna ul { display: flex; flex-direction: column; gap: 12px; }
+        .mega-coluna ul li { height: auto !important; }
+        .mega-coluna a { display: flex; align-items: center; gap: 8px; color: var(--cor-texto-medio); font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
+        .mega-coluna a i { color: #d1d5db; font-size: 0.8rem; transition: 0.2s; }
+        .mega-coluna a:hover { color: var(--cor-primaria); transform: translateX(5px); }
+        .mega-coluna a:hover i { color: var(--cor-primaria); }
+
+        .mega-destaque { background: linear-gradient(145deg, var(--cor-primaria-suave) 0%, #ffffff 100%); border: 1px solid #f0f0f0; padding: 25px 20px; border-radius: 8px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .mega-destaque img { max-height: 120px; margin-bottom: 15px; }
+        .mega-destaque p { font-size: 1rem; font-weight: 700; color: var(--cor-primaria); margin-bottom: 8px; }
+        .btn-pequeno { background: var(--cor-primaria); color: #fff !important; padding: 10px 20px; border-radius: 4px; font-size: 0.85rem !important; transition: 0.3s; }
+        .btn-pequeno:hover { background: var(--cor-primaria-escuro); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(80,0,86,0.2); }
+
+        .nav-desktop .btn-catalogo { background-color: #622969; color: #ffffff !important; padding: 8px 20px !important; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 10px; }
+        .nav-desktop .btn-catalogo:hover { background-color: #82338d; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3); }
+
+        /* MENU MOBILE */
+        .btn-mobile-trigger { display: none; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; z-index: 1001; }
+        .menu-mobile { position: fixed; top: 80px; left: 0; right: 0; bottom: 0; width: 100vw; height: calc(100vh - 80px); background-color: #ffffff; z-index: 999; transform: translateX(100%); transition: transform 0.3s ease-in-out; overflow-y: auto; padding: 20px 0; margin: 0 !important; box-sizing: border-box; }
+        .menu-mobile.aberto { transform: translateX(0); }
+        .menu-mobile ul { display: flex; flex-direction: column; align-items: center; width: 100%; list-style: none; padding: 0; margin: 0;}
+        .menu-mobile > ul > li { width: 100%; text-align: center; margin-bottom: 25px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; }
+        .menu-mobile a { font-size: 1.3rem; font-weight: 600; color: var(--cor-texto-forte); display: flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none;}
+        .menu-mobile a:hover { color: var(--cor-primaria); }
+        
+        .submenu-mobile { display: none; padding-top: 15px; background-color: #fafafa; border-radius: 6px; margin-top: 15px;}
+        .has-submenu.ativo .submenu-mobile { display: block; }
+        .has-submenu.ativo > a { color: var(--cor-primaria); }
+        .has-submenu.ativo > a i { transform: rotate(180deg); }
+        
+        .submenu-titulo { display: block; font-size: 0.85rem; font-weight: 700; color: var(--cor-primaria); text-transform: uppercase; letter-spacing: 0.5px; padding: 20px 0 5px 0; text-align: center; border-bottom: 2px solid #eaeaea; width: 80%; margin: 0 auto; }
+        .submenu-mobile a { padding: 12px 0; font-size: 1rem; font-weight: 400; color: var(--cor-texto-medio); border-bottom: 1px dashed #eaeaea; justify-content: center;}
+        .submenu-mobile a:last-child { border-bottom: none; }
+
+        /* OUTROS ESTILOS DA PÁGINA (Sobrescreve conflitos com CSS antigo) */
+        .page-header { background-color: var(--cor-primaria-suave); padding: 60px 0; border-bottom: 1px solid #eaeaea; }
+        .breadcrumb { font-size: 0.9rem; color: #888; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .breadcrumb a { color: var(--cor-primaria); font-weight: 500; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .page-header h1 { font-size: 2.8rem; color: var(--cor-texto-forte); margin-bottom: 10px; margin-top: 0; }
+        .page-header p { font-size: 1.1rem; max-width: 600px; margin: 0; }
+
+        .produto-detalhe { padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .produto-galeria { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; position: sticky; top: 100px; }
+        .imagem-principal img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s ease; }
+        .miniaturas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
+        .thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; transition: all 0.3s ease; }
+        .thumb:hover { opacity: 1; transform: translateY(-2px); }
+        .thumb.ativo { opacity: 1; border-color: var(--cor-primaria); box-shadow: 0 4px 8px rgba(102, 14, 84, 0.2); }
+
+        .produto-info h2 { font-size: 1.8rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top: 0;}
+        .produto-info p { margin-bottom: 20px; font-size: 1.05rem; }
+
+        .lista-vantagens { margin: 30px 0; }
+        .lista-vantagens li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 1.05rem; background: white; padding: 15px 20px; border-radius: 8px; border-left: 4px solid var(--cor-primaria); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .lista-vantagens i { color: var(--cor-primaria); font-size: 1.4rem; margin-top: 2px; }
+        .lista-vantagens strong { display: block; color: var(--cor-texto-forte); margin-bottom: 4px; }
+
+        .situacoes-ideais { background-color: var(--cor-primaria-suave); padding: 80px 0; }
+        .secao-titulo { text-align: center; font-size: 2.2rem; color: var(--cor-texto-forte); margin-bottom: 50px; margin-top: 0; }
+        .cards-situacoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .card-sit { background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card-sit:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); }
+        .card-sit i { font-size: 3rem; color: var(--cor-primaria); margin-bottom: 20px; }
+        .card-sit h3 { font-size: 1.3rem; color: var(--cor-texto-forte); margin-bottom: 15px; margin-top: 0;}
+
+        .btn-orcamento { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; margin-top: 20px; transition: 0.3s; }
+        .btn-orcamento:hover { background-color: #128C7E; transform: translateY(-2px); color: white;}
+
+        .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s; animation: pulso-whatsapp 2s infinite; }
+        .btn-whatsapp-flutuante i { font-size: 32px; }
+        .btn-whatsapp-flutuante:hover { background-color: #128C7E; transform: scale(1.1); animation: none; color: white; }
+        @keyframes pulso-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); transform: scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } }
+
+        @media (max-width: 900px) {
+            .container { padding: 0 25px; } 
+            .produto-detalhe { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 40px; }
+            .cards-situacoes { grid-template-columns: 1fr; gap: 20px; }
+            .nav-desktop { display: none; }
+            .btn-mobile-trigger { display: block; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; }
+            .menu-mobile .btn-catalogo-mobile { background-color: #622969; color: #ffffff !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; }
+            .produto-galeria { position: relative; top: 0; margin-bottom: 10px; padding: 20px; }
+            .btn-whatsapp-flutuante { width: 55px; height: 55px; bottom: 25px; right: 25px; }
+            .btn-whatsapp-flutuante i { font-size: 28px; }
+            .page-header { padding: 40px 0; }
+            .page-header h1 { font-size: 2.2rem; }
+            .secao-titulo { font-size: 1.8rem; margin-bottom: 30px; }
+            .card-sit { padding: 30px 20px; }
+        }
+    </style>
 </head>
 <body>
 
    <header>
         <div class="container header-content">
-
             <a href="/" class="logo">
                 <img src="/images/logo-nacional.webp" alt="Nacional Metais Logo">
             </a>
-
 
             <nav class="nav-desktop">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="quem-somos">Quem Somos</a></li>
-                    <li><a href="fabricacao">Fabricação</a></li>
-                    <li><a href="distribuicao">Distribuição</a></li>
+                    
+                    <li class="has-mega-menu">
+                        <a href="fabricacao">Fabricação <i class="ph-bold ph-caret-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                <div class="mega-coluna">
+                                    <h3>Calhas de Chuva</h3>
+                                    <ul>
+                                        <li><a href="calha-beirado"><i class="ph-bold ph-caret-right"></i> Calha de Beirado</a></li>
+                                        <li><a href="calha-americana"><i class="ph-bold ph-caret-right"></i> Calha Americana</a></li>
+                                        <li><a href="calha-interna"><i class="ph-bold ph-caret-right"></i> Calha Interna</a></li>
+                                        <li><a href="calha-rincao"><i class="ph-bold ph-caret-right"></i> Calha Rincão</a></li>
+                                        <li><a href="calha-platibanda"><i class="ph-bold ph-caret-right"></i> Calha Platibanda</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-coluna">
+                                    <h3>Rufos e Pingadeiras</h3>
+                                    <ul class="grupo-superior">
+                                        <li><a href="rufo-encosto"><i class="ph-bold ph-caret-right"></i> Rufo de Encosto</a></li>
+                                        <li><a href="capa-pingadeira"><i class="ph-bold ph-caret-right"></i> Rufo Pingadeira</a></li>
+                                        <li><a href="rufo-corte"><i class="ph-bold ph-caret-right"></i> Rufo de Corte</a></li>
+                                    </ul>
+                                    <h3 class="titulo-secundario">Bobinas Metálicas</h3>
+                                    <ul>
+                                        <li><a href="bobinas-metalicas"><i class="ph-bold ph-caret-right"></i> Bobinas de Alumínio</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-coluna">
+                                    <h3>Coifas e Chaminés</h3>
+                                    <ul class="grupo-superior">
+                                        <li><a href="coifas-cozinha-especiais"><i class="ph-bold ph-caret-right"></i> Coifas (Cozinha e Especiais)</a></li>
+                                        <li><a href="chamines-geral"><i class="ph-bold ph-caret-right"></i> Chaminés e Chapéus</a></li>
+                                        <li><a href="sputnik"><i class="ph-bold ph-caret-right"></i> Chaminé Sputnik</a></li>
+                                        <li><a href="dutos-curvas"><i class="ph-bold ph-caret-right"></i> Dutos e Curvas</a></li>
+                                    </ul>
+                                    <h3 class="titulo-secundario">Exaustores</h3>
+                                    <ul>
+                                        <li><a href="exaustores-eolicos"><i class="ph-bold ph-caret-right"></i> Exaustores Eólicos</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-destaque">
+                                    <p>Projetos Especiais</p>
+                                    <span style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Fabricamos peças sob medida em até 6 metros sem emendas.</span>
+                                    <a href="contato" class="btn-pequeno">Solicitar Orçamento</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="has-mega-menu">
+                        <a href="distribuicao">Distribuição <i class="ph-bold ph-caret-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                <div class="mega-coluna">
+                                    <h3>Chapas Metálicas</h3>
+                                    <ul>
+                                        <li><a href="chapas-produtos"><i class="ph-bold ph-caret-right"></i> Chapas </a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-coluna">
+                                    <h3>Fachadas e Coberturas</h3>
+                                    <ul>
+                                        <li><a href="chapa-acm"><i class="ph-bold ph-caret-right"></i> Revestimento ACM</a></li>
+                                        <li><a href="policarbonato-alveolar"><i class="ph-bold ph-caret-right"></i> Policarbonato Alveolar</a></li>
+                                        <li><a href="policarbonato-compacto"><i class="ph-bold ph-caret-right"></i> Policarbonato Compacto</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-coluna">
+                                    <h3>Acessórios de Montagem</h3>
+                                    <ul>
+                                        <li><a href="selantes-pu-silicone"><i class="ph-bold ph-caret-right"></i> Selantes PU e Silicone</a></li>
+                                        <li><a href="fixacao"><i class="ph-bold ph-caret-right"></i> Rebites e Fixadores</a></li>
+                                        
+                                        <!-- NOVA OPÇÃO INSERIDA AQUI -->
+                                        <li><a href="abrasivos"><i class="ph-bold ph-caret-right"></i> Abrasivos e Discos</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-destaque">
+                                    <p>Seja um Parceiro</p>
+                                    <span style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Preços exclusivos para serralheiros e calheiros.</span>
+                                    <a href="parceria" class="btn-pequeno">Ver Vantagens</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
                     <li><a href="blog">Blog</a></li>
                     <li><a href="parceria">Parceria</a></li>
                     <li><a href="contato">Contato</a></li>
@@ -49,20 +263,62 @@
                 </ul>
             </nav>
 
-
-            <button id="btn-mobile" class="btn-mobile-trigger">
+            <button id="btn-mobile" class="btn-mobile-trigger" aria-label="Abrir menu de navegação">
                 <i class="ph ph-list"></i>
             </button>
-
-
         </div>
+
         <nav id="menu-mobile" class="menu-mobile">
             <ul>
-
                 <li><a href="/">Home</a></li>
                 <li><a href="quem-somos">Quem Somos</a></li>
-                <li><a href="fabricacao">Fabricação</a></li>
-                <li><a href="distribuicao">Distribuição</a></li>
+                
+                <li class="has-submenu">
+                    <a href="#">Fabricação <i class="ph-bold ph-caret-down" style="transition: 0.3s;"></i></a>
+                    <div class="submenu-mobile">
+                        <span class="submenu-titulo">Calhas de Chuva</span>
+                        <a href="calha-beirado">Calha de Beirado</a>
+                        <a href="calha-americana">Calha Americana</a>
+                        <a href="calha-interna">Calha Interna</a>
+                        <a href="calha-rincao">Calha Rincão</a>
+                        <a href="calha-platibanda">Calha Platibanda</a>
+
+                        <span class="submenu-titulo">Rufos e Bobinas</span>
+                        <a href="rufo-encosto">Rufo de Encosto</a>
+                        <a href="capa-pingadeira">Rufo Pingadeira</a>
+                        <a href="rufo-corte">Rufo de Corte</a>
+                        <a href="bobinas-metalicas">Bobinas de Alumínio</a>
+
+                        <span class="submenu-titulo">Coifas e Exaustores</span>
+                        <a href="coifas-cozinha-especiais">Coifas (Cozinha e Especiais)</a>
+                        <a href="chamines-geral">Chaminés e Chapéus</a>
+                        <a href="sputnik">Chaminé Sputnik</a>
+                        <a href="dutos-curvas">Dutos e Curvas</a>
+                        <a href="exaustores-eolicos">Exaustores Eólicos</a>
+                    </div>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">Distribuição <i class="ph-bold ph-caret-down" style="transition: 0.3s;"></i></a>
+                    <div class="submenu-mobile">
+                        <span class="submenu-titulo">Chapas Metálicas</span>
+                        <a href="chapas-produtos">Chapas</a>
+                        
+
+                        <span class="submenu-titulo">Fachadas e Coberturas</span>
+                        <a href="acm">Revestimento ACM</a>
+                        <a href="policarbonato-alveolar">Policarbonato Alveolar</a>
+                        <a href="policarbonato-compacto">Policarbonato Compacto</a>
+
+                        <span class="submenu-titulo">Acessórios de Montagem</span>
+                        <a href="selantes-pu-silicone">Selantes PU e Silicone</a>
+                        <a href="fixacao">Rebites e Fixadores</a>
+                        
+                        <!-- NOVA OPÇÃO INSERIDA AQUI NO MOBILE -->
+                        <a href="abrasivos">Abrasivos e Discos</a>
+                    </div>
+                </li>
+
                 <li><a href="blog">Blog</a></li>
                 <li><a href="parceria">Parceria</a></li>
                 <li><a href="contato">Contato</a></li>
