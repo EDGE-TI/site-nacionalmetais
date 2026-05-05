@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nacional Metais | Tudo sobre Calhas</title>
-    
+    <title>Modelos de Calhas - Nacional Metais</title>
+
+    <meta name="description" content="Conheça os modelos de Calha de Beirado, Americana, Interna, Rincão e Platibanda. Fabricação sob medida em Palhoça e Grande Florianópolis.">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- CSS Externos (Mantidos para garantir fontes/rodape) -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/header-footer.css">
+    <link rel="stylesheet" href="/assets/css/produtos-detalhe.css"> 
 
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/header-footer.css">
-    <link rel="stylesheet" href="assets/css/produtos-detalhe.css"> 
-
-     <link rel="icon" type="image/png" href="images/nacional-favicon.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/nacional-favicon.png" sizes="192x192">
     <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/png">
-
-
     <link rel="apple-touch-icon" href="images/nacional-favicon.png">
 
-    <meta property="og:image"
-        content="[https://nacionalmetais.com/images/nacional-favicon.png](https://nacionalmetais.com/images/nacional-favicon.png)">
+    <meta property="og:image" content="https://nacionalmetais.com/images/nacional-favicon.png">
 
     <meta name="adopt-website-id" content="c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" />
-    
     <script src="https://tag.goadopt.io/injector.js?website_code=c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" class="adopt-injector"></script>
+
     <style>
+        /* --- ESTILOS DO NOVO MEGA MENU E LAYOUT GLOBAL --- */
         :root {
             --cor-primaria: #500056;
             --cor-primaria-escuro: #3a003e;
@@ -100,7 +101,7 @@
         .submenu-mobile a { padding: 12px 0; font-size: 1rem; font-weight: 400; color: var(--cor-texto-medio); border-bottom: 1px dashed #eaeaea; justify-content: center;}
         .submenu-mobile a:last-child { border-bottom: none; }
 
-        /* OUTROS ESTILOS DA PÁGINA (Sobrescreve conflitos com CSS antigo) */
+        /* ESTILOS DA PÁGINA DE CALHAS */
         .page-header { background-color: var(--cor-primaria-suave); padding: 60px 0; border-bottom: 1px solid #eaeaea; }
         .breadcrumb { font-size: 0.9rem; color: #888; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
         .breadcrumb a { color: var(--cor-primaria); font-weight: 500; }
@@ -108,32 +109,53 @@
         .page-header h1 { font-size: 2.8rem; color: var(--cor-texto-forte); margin-bottom: 10px; margin-top: 0; }
         .page-header p { font-size: 1.1rem; max-width: 600px; margin: 0; }
 
-        .produto-detalhe { padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .produto-galeria { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; position: sticky; top: 100px; }
-        .imagem-principal img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s ease; }
-        .miniaturas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
-        .thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; transition: all 0.3s ease; }
-        .thumb:hover { opacity: 1; transform: translateY(-2px); }
-        .thumb.ativo { opacity: 1; border-color: var(--cor-primaria); box-shadow: 0 4px 8px rgba(102, 14, 84, 0.2); }
+        .importancia-calha { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; align-items: center; }
+        .importancia-texto h2 { font-size: 2rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top:0; }
+        .importancia-texto p { margin-bottom: 15px; font-size: 1.05rem; }
+        .destaque-box { background-color: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 25px; color: #166534; font-weight: 500; display: flex; gap: 10px; }
+        .importancia-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .produto-info h2 { font-size: 1.8rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top: 0;}
-        .produto-info p { margin-bottom: 20px; font-size: 1.05rem; }
-
-        .lista-vantagens { margin: 30px 0; }
-        .lista-vantagens li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 1.05rem; background: white; padding: 15px 20px; border-radius: 8px; border-left: 4px solid var(--cor-primaria); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-        .lista-vantagens i { color: var(--cor-primaria); font-size: 1.4rem; margin-top: 2px; }
-        .lista-vantagens strong { display: block; color: var(--cor-texto-forte); margin-bottom: 4px; }
-
-        .situacoes-ideais { background-color: var(--cor-primaria-suave); padding: 80px 0; }
-        .secao-titulo { text-align: center; font-size: 2.2rem; color: var(--cor-texto-forte); margin-bottom: 50px; margin-top: 0; }
-        .cards-situacoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card-sit { background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card-sit:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); }
-        .card-sit i { font-size: 3rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .card-sit h3 { font-size: 1.3rem; color: var(--cor-texto-forte); margin-bottom: 15px; margin-top: 0;}
+        .modelos-titulo { text-align: center; margin-bottom: 40px; }
+        .modelos-titulo h2 { font-size: 2.2rem; color: var(--cor-texto-forte); margin: 0 0 10px 0; }
+        
+        .modelos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .card-modelo { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eaeaea; box-shadow: 0 10px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;}
+        .card-modelo:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); border-color: rgba(80,0,86,0.2); }
+        .card-modelo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 1px solid #eee; }
+        .modelo-conteudo { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .modelo-conteudo h3 { font-size: 1.4rem; color: var(--cor-primaria); margin-top: 0; margin-bottom: 15px; }
+        .modelo-conteudo p { font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+        .tag-uso { display: inline-block; background: var(--cor-primaria-suave); color: var(--cor-primaria); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(80,0,86,0.1); width: fit-content;}
 
         .btn-orcamento { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; margin-top: 20px; transition: 0.3s; }
         .btn-orcamento:hover { background-color: #128C7E; transform: translateY(-2px); color: white;}
+
+        /* ESTILO NOVO PARA BOTÃO CHAMATIVO NA CTA */
+        .btn-chamativo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #25D366;
+            color: #ffffff !important;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .btn-chamativo:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
+        }
+        .btn-chamativo i {
+            font-size: 1.5rem;
+        }
 
         .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s; animation: pulso-whatsapp 2s infinite; }
         .btn-whatsapp-flutuante i { font-size: 32px; }
@@ -141,19 +163,12 @@
         @keyframes pulso-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); transform: scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } }
 
         @media (max-width: 900px) {
-            .container { padding: 0 25px; } 
-            .produto-detalhe { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 40px; }
-            .cards-situacoes { grid-template-columns: 1fr; gap: 20px; }
-            .nav-desktop { display: none; }
+            .importancia-calha { grid-template-columns: 1fr; gap: 30px; margin: 40px 0;}
+            .modelos-grid { grid-template-columns: 1fr; }
             .btn-mobile-trigger { display: block; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; }
-            .menu-mobile .btn-catalogo-mobile { background-color: #622969; color: #ffffff !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; }
-            .produto-galeria { position: relative; top: 0; margin-bottom: 10px; padding: 20px; }
-            .btn-whatsapp-flutuante { width: 55px; height: 55px; bottom: 25px; right: 25px; }
-            .btn-whatsapp-flutuante i { font-size: 28px; }
-            .page-header { padding: 40px 0; }
+            .nav-desktop { display: none; }
             .page-header h1 { font-size: 2.2rem; }
-            .secao-titulo { font-size: 1.8rem; margin-bottom: 30px; }
-            .card-sit { padding: 30px 20px; }
+            .btn-chamativo { width: 100%; justify-content: center; padding: 14px 24px; font-size: 1rem; }
         }
     </style>
 </head>
@@ -188,21 +203,21 @@
                                     <h3>Rufos e Pingadeiras</h3>
                                     <ul class="grupo-superior">
                                         <li><a href="rufo-encosto"><i class="ph-bold ph-caret-right"></i> Rufo de Encosto</a></li>
-                                        <li><a href="capa-pingadeira"><i class="ph-bold ph-caret-right"></i> Rufo Pingadeira</a></li>
+                                        <li><a href="rufo-pingadeira"><i class="ph-bold ph-caret-right"></i> Rufo Pingadeira</a></li>
                                         <li><a href="rufo-corte"><i class="ph-bold ph-caret-right"></i> Rufo de Corte</a></li>
                                     </ul>
                                     <h3 class="titulo-secundario">Bobinas Metálicas</h3>
                                     <ul>
-                                        <li><a href="bobinas-metalicas"><i class="ph-bold ph-caret-right"></i> Bobinas de Alumínio</a></li>
+                                        <li><a href="bobinas"><i class="ph-bold ph-caret-right"></i> Bobinas de Alumínio</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-coluna">
                                     <h3>Coifas e Chaminés</h3>
                                     <ul class="grupo-superior">
-                                        <li><a href="coifas-cozinha-especiais"><i class="ph-bold ph-caret-right"></i> Coifas (Cozinha e Especiais)</a></li>
-                                        <li><a href="chamines-geral"><i class="ph-bold ph-caret-right"></i> Chaminés e Chapéus</a></li>
-                                        <li><a href="sputnik"><i class="ph-bold ph-caret-right"></i> Chaminé Sputnik</a></li>
-                                        <li><a href="dutos-curvas"><i class="ph-bold ph-caret-right"></i> Dutos e Curvas</a></li>
+                                        <li><a href="coifas"><i class="ph-bold ph-caret-right"></i> Coifas (Cozinha e Especiais)</a></li>
+                                        <li><a href="chamines"><i class="ph-bold ph-caret-right"></i> Chaminés e Chapéus</a></li>
+                                        <li><a href="chamine-sputnik"><i class="ph-bold ph-caret-right"></i> Chaminé Sputnik</a></li>
+                                        <li><a href="dutos"><i class="ph-bold ph-caret-right"></i> Dutos e Curvas</a></li>
                                     </ul>
                                     <h3 class="titulo-secundario">Exaustores</h3>
                                     <ul>
@@ -225,13 +240,13 @@
                                 <div class="mega-coluna">
                                     <h3>Chapas Metálicas</h3>
                                     <ul>
-                                        <li><a href="chapas-produtos"><i class="ph-bold ph-caret-right"></i> Chapas </a></li>
+                                        <li><a href="chapas"><i class="ph-bold ph-caret-right"></i> Chapas (Bobinas e Lisas)</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-coluna">
                                     <h3>Fachadas e Coberturas</h3>
                                     <ul>
-                                        <li><a href="chapa-acm"><i class="ph-bold ph-caret-right"></i> Revestimento ACM</a></li>
+                                        <li><a href="acm"><i class="ph-bold ph-caret-right"></i> Revestimento ACM</a></li>
                                         <li><a href="policarbonato-alveolar"><i class="ph-bold ph-caret-right"></i> Policarbonato Alveolar</a></li>
                                         <li><a href="policarbonato-compacto"><i class="ph-bold ph-caret-right"></i> Policarbonato Compacto</a></li>
                                     </ul>
@@ -239,10 +254,9 @@
                                 <div class="mega-coluna">
                                     <h3>Acessórios de Montagem</h3>
                                     <ul>
-                                        <li><a href="selantes-pu-silicone"><i class="ph-bold ph-caret-right"></i> Selantes PU e Silicone</a></li>
+                                        <li><a href="selantes-pu"><i class="ph-bold ph-caret-right"></i> Selantes PU e Silicone</a></li>
                                         <li><a href="fixacao"><i class="ph-bold ph-caret-right"></i> Rebites e Fixadores</a></li>
-                                        
-                                        <!-- NOVA OPÇÃO INSERIDA AQUI -->
+                                        <li><a href="fitas"><i class="ph-bold ph-caret-right"></i> Fitas Adesivas e VHB</a></li>
                                         <li><a href="abrasivos"><i class="ph-bold ph-caret-right"></i> Abrasivos e Discos</a></li>
                                     </ul>
                                 </div>
@@ -284,15 +298,15 @@
 
                         <span class="submenu-titulo">Rufos e Bobinas</span>
                         <a href="rufo-encosto">Rufo de Encosto</a>
-                        <a href="capa-pingadeira">Rufo Pingadeira</a>
+                        <a href="rufo-pingadeira">Rufo Pingadeira</a>
                         <a href="rufo-corte">Rufo de Corte</a>
-                        <a href="bobinas-metalicas">Bobinas de Alumínio</a>
+                        <a href="bobinas">Bobinas de Alumínio</a>
 
                         <span class="submenu-titulo">Coifas e Exaustores</span>
-                        <a href="coifas-cozinha-especiais">Coifas (Cozinha e Especiais)</a>
-                        <a href="chamines-geral">Chaminés e Chapéus</a>
-                        <a href="sputnik">Chaminé Sputnik</a>
-                        <a href="dutos-curvas">Dutos e Curvas</a>
+                        <a href="coifas">Coifas (Cozinha e Especiais)</a>
+                        <a href="chamines">Chaminés e Chapéus</a>
+                        <a href="chamine-sputnik">Chaminé Sputnik</a>
+                        <a href="dutos">Dutos e Curvas</a>
                         <a href="exaustores-eolicos">Exaustores Eólicos</a>
                     </div>
                 </li>
@@ -301,8 +315,7 @@
                     <a href="#">Distribuição <i class="ph-bold ph-caret-down" style="transition: 0.3s;"></i></a>
                     <div class="submenu-mobile">
                         <span class="submenu-titulo">Chapas Metálicas</span>
-                        <a href="chapas-produtos">Chapas</a>
-                        
+                        <a href="chapas">Chapas (Bobinas e Lisas)</a>
 
                         <span class="submenu-titulo">Fachadas e Coberturas</span>
                         <a href="acm">Revestimento ACM</a>
@@ -310,10 +323,9 @@
                         <a href="policarbonato-compacto">Policarbonato Compacto</a>
 
                         <span class="submenu-titulo">Acessórios de Montagem</span>
-                        <a href="selantes-pu-silicone">Selantes PU e Silicone</a>
+                        <a href="selantes-pu">Selantes PU e Silicone</a>
                         <a href="fixacao">Rebites e Fixadores</a>
-                        
-                        <!-- NOVA OPÇÃO INSERIDA AQUI NO MOBILE -->
+                        <a href="fitas">Fitas Adesivas e VHB</a>
                         <a href="abrasivos">Abrasivos e Discos</a>
                     </div>
                 </li>
@@ -326,115 +338,119 @@
         </nav>
     </header>
 
-    <!-- TÍTULO DA PÁGINA -->
-    <div class="page-header">
-        <div class="container">
-            <h1>Especialista em Calhas</h1>
-            <p class="breadcrumb">Home > Fabricação > Calhas</p>
-        </div>
-    </div>
-
-    <section class="container">
-        
-        <!-- SEÇÃO EDUCATIVA: POR QUE IMPORTA? -->
-        <div class="importancia-calha">
-            <div class="importancia-texto">
-                <h2>A importância da Calha certa</h2>
-                <p>Muitos veem a calha apenas como um acabamento estético, mas ela é o principal sistema de defesa do seu telhado contra a água. A escolha incorreta do modelo ou da vazão pode causar transbordamentos, apodrecimento dos beirais de madeira e infiltrações graves na alvenaria.</p>
-                
-                <p>Cada telhado possui uma inclinação e uma área de captação de água diferentes. Por isso, na Nacional Metais, não vendemos apenas "metros de calha", nós analisamos o seu projeto para indicar o corte (largura) e o modelo ideal.</p>
-
-                <div class="destaque-box">
-                    <i class="ph-bold ph-info"></i> Dica de Especialista: O barato sai caro. Calhas mal dimensionadas podem custar a reforma inteira da sua fachada em poucos anos.
+    <main>
+        <!-- TÍTULO DA PÁGINA -->
+        <div class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> <i class="ph-bold ph-caret-right"></i> 
+                    <a href="fabricacao">Fabricação</a> <i class="ph-bold ph-caret-right"></i> 
+                    <span>Calhas</span>
                 </div>
+                <h1>Modelos de Calhas Sob Medida</h1>
+                <p>Especialistas em calhas para Palhoça e região. Conheça as diferenças entre os modelos e descubra a opção perfeita para proteger o seu telhado.</p>
             </div>
+        </div>
+
+        <section class="container">
             
-            <div class="importancia-img">
-                <img class="card-modelo" src="images/produtosImagens/calhas/calhas-fundo.webp" alt="Calhas em diferentes materiais">
-            </div>
-        </div>
+            <!-- SEÇÃO EDUCATIVA: POR QUE IMPORTA? -->
+            <div class="importancia-calha">
+                <div class="importancia-texto">
+                    <h2>A importância do Modelo Certo</h2>
+                    <p>Muitos veem a calha apenas como um acabamento estético, mas ela é o principal sistema de defesa do seu telhado contra a água. A escolha incorreta do modelo ou da vazão pode causar transbordamentos, apodrecimento dos beirais de madeira e infiltrações graves na alvenaria.</p>
+                    
+                    <p>Cada telhado possui uma inclinação e uma área de captação de água diferentes. Por isso, na Nacional Metais, não vendemos apenas "metros de calha", nós analisamos o seu projeto para indicar o corte (largura) e o modelo ideal para a sua obra.</p>
 
-        <!-- VITRINE DE MODELOS -->
-        <div class="modelos-titulo">
-            <h2>Conheça os Modelos</h2>
-            <p style="opacity: 0.7;">Fabricamos sob medida em Aço Galvanizado, Alumínio ou Inox.</p>
-        </div>
-
-        <div class="modelos-grid">
-            
-            <!-- MODELO 1: MOLDURA -->
-            <div class="card-modelo">
-
-                    <img src="images/produtosImagens/calhas/calha-moldura.webp" alt="Imagem de uma calha com moldura estilo americano">
-               
-                <div class="modelo-conteudo">
-                    <h3>Calha Moldura</h3>
-                    <p>O modelo mais tradicional e estético. Possui um design frontal que imita uma moldura de gesso, agregando beleza ao beiral da casa.</p>
-                    <span class="tag-uso">Ideal para: Beirais Aparentes</span>
+                    <div class="destaque-box">
+                        <i class="ph-fill ph-warning-circle" style="font-size: 1.5rem;"></i> 
+                        <span><strong>Dica de Especialista:</strong> O barato sai caro. Calhas mal dimensionadas podem custar a reforma inteira da sua fachada em poucos anos de chuvas fortes.</span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- MODELO 2: AMERICANA -->
-            <div class="card-modelo">
-                <img src="images/produtosImagens/calhas/calhas-moldura-americana.jpg" alt="">
-                <div class="modelo-conteudo">
-                    <h3>Calha Americana</h3>
-                    <p>Compacta e funcional. É fixada diretamente na tábua do beiral ou nos caibros, oferecendo um visual mais limpo e discreto.</p>
-                    <span class="tag-uso">Ideal para: Telhados Coloniais</span>
-                </div>
-            </div>
-
-            <!-- MODELO 3: QUADRADA -->
-            <div class="card-modelo">
                 
-                    <img src="images/produtosImagens/calhas/calha-quadrada.jpg" alt="">
+                <div class="importancia-img">
+                    <img src="images/produtosImagens/calhas/calhas-fundo.webp" onerror="this.src='https://placehold.co/600x400/eeeeee/666666?text=Instalacao+de+Calhas'" alt="Calhas em diferentes materiais">
+                </div>
+            </div>
+
+            <!-- VITRINE DE MODELOS -->
+            <div class="modelos-titulo">
+                <h2>Conheça os Nossos Modelos</h2>
+                <p style="opacity: 0.7; font-size: 1.1rem;">Fabricamos sob medida em Aço Galvanizado, Alumínio, Galvalume e Inox.</p>
+            </div>
+
+            <div class="modelos-grid">
                 
-                <div class="modelo-conteudo">
-                    <h3>Calha Quadrada</h3>
-                    <p>Focada em alta vazão. Seu formato geométrico permite captar um volume maior de água, sendo perfeita para grandes telhados ou galpões.</p>
-                    <span class="tag-uso">Ideal para: Galpões e Indústrias</span>
-                </div>
+                <!-- MODELO 1: CALHA DE BEIRADO (Antiga Moldura) -->
+                <a href="calha-beirado" class="card-modelo">
+                    <img src="images/produtosImagens/calhas/calha-moldura.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Calha+de+Beirado'" alt="Calha de Beirado">
+                    <div class="modelo-conteudo">
+                        <h3>Calha de Beirado</h3>
+                        <p>O modelo mais tradicional e estético. Fica visível na extremidade do telhado, possuindo um design frontal (frequentemente semelhante a uma moldura) que capta a água que desce das telhas e agrega beleza ao beiral da casa.</p>
+                        <span class="tag-uso">Ideal para: Beirais Aparentes</span>
+                    </div>
+                </a>
+
+                <!-- MODELO 2: CALHA AMERICANA -->
+                <a href="calha-americana" class="card-modelo">
+                    <img src="images/produtosImagens/calhas/calhas-moldura-americana.jpg" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Calha+Americana'" alt="Calha Americana">
+                    <div class="modelo-conteudo">
+                        <h3>Calha Americana</h3>
+                        <p>Apresenta um formato prático, geralmente com as costas retas. É fixada diretamente na tábua de testeira (tábua do beiral) ou nos caibros, oferecendo um visual mais limpo e discreto para o escoamento.</p>
+                        <span class="tag-uso">Ideal para: Telhados Coloniais e Testeiras</span>
+                    </div>
+                </a>
+
+                <!-- MODELO 3: CALHA INTERNA (Antiga Quadrada) -->
+                <a href="calha-interna" class="card-modelo">
+                    <img src="images/produtosImagens/calhas/calha-quadrada.jpg" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Calha+Interna'" alt="Calha Interna">
+                    <div class="modelo-conteudo">
+                        <h3>Calha Interna</h3>
+                        <p>Projetada para captação no meio da cobertura (quando o telhado tem formato em "V" ou múltiplas quedas). Possui alta vazão e um formato retangular robusto para evitar qualquer risco de transbordamento interno.</p>
+                        <span class="tag-uso">Ideal para: Galpões e Vãos Centrais</span>
+                    </div>
+                </a>
+
+                <!-- MODELO 4: CALHA RINCÃO (Antiga Água Furtada) -->
+                <a href="calha-rincao" class="card-modelo">
+                    <img src="images/produtosImagens/calhas/calha-rincao/calha-rincao-2.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Calha+Rincao'" alt="Calha Rincão">
+                    <div class="modelo-conteudo">
+                        <h3>Calha Rincão</h3>
+                        <p>Também conhecida como "água furtada". É instalada no encontro interno (quinas convergentes) entre duas águas do telhado. É uma peça que atua como um canal crítico e exige corte e vedação perfeitos.</p>
+                        <span class="tag-uso">Ideal para: Junções Internas de Telhado</span>
+                    </div>
+                </a>
+
+                <!-- MODELO 5: CALHA PLATIBANDA -->
+                <a href="calha-platibanda" class="card-modelo">
+                    <img src="images/produtosImagens/calhas/calha-platibanda/calha-platibanda-4.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Calha+Platibanda'" alt="Calha Platibanda">
+                    <div class="modelo-conteudo">
+                        <h3>Calha Platibanda</h3>
+                        <p>Feita especificamente para ficar escondida atrás da mureta (a platibanda). O seu design foca 100% na funcionalidade e na vedação perfeita contra a parede, sem a necessidade de acabamentos estéticos frontais.</p>
+                        <span class="tag-uso">Ideal para: Casas Modernas (Telhado Embutido)</span>
+                    </div>
+                </a>
+
             </div>
 
-            <!-- MODELO 4: ÁGUA FURTADA -->
-            <div class="card-modelo">
-              <img src="images/produtosImagens/calhas/agua-furtada.jpg" alt="">
-                <div class="modelo-conteudo">
-                    <h3>Água Furtada</h3>
-                    <p>Instalada no encontro entre duas águas do telhado (o "V" do telhado). É uma peça crítica que exige vedação perfeita.</p>
-                    <span class="tag-uso">Ideal para: Junções de Telhado</span>
-                </div>
+            <!-- CTA FINAL (Atualizado com botão super chamativo) -->
+            <div style="text-align: center; margin-bottom: 80px; padding: 40px 20px; background: var(--cor-primaria-suave); border: 1px solid #eaeaea; border-radius: 12px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: var(--cor-texto-forte); margin-top:0;">Ainda não sabe qual escolher?</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--cor-texto-medio);">Envie uma foto do seu telhado para o nosso WhatsApp. A nossa equipa técnica em Palhoça analisa a sua obra e indica a solução ideal.</p>
+                <a href="https://wa.me/5548999462068?text=Olá! Estou no site e preciso de ajuda para escolher o modelo de calha ideal para a minha obra." class="btn-chamativo">
+                    <i class="ph-fill ph-whatsapp-logo"></i> Falar com um Técnico
+                </a>
             </div>
 
-            <!-- MODELO 5: PLATIBANDA -->
-            <div class="card-modelo">
-                    <img src="images/produtosImagens/calhas/calha-platibanda.jpg" alt="">
-                <div class="modelo-conteudo">
-                    <h3>Calha Platibanda</h3>
-                    <p>Feita para ficar escondida atrás da mureta (platibanda). Geralmente não tem acabamento frontal estético, focando 100% na função.</p>
-                    <span class="tag-uso">Ideal para: Casas Modernas (Telhado Embutido)</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- CTA FINAL -->
-        <div style="text-align: center; margin-bottom: 80px; padding: 40px; background: var(--cor-primaria-claro); border-radius: 12px;">
-            <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Não sabe qual escolher?</h3>
-            <p style="margin-bottom: 25px;">Envie uma foto do seu telhado no nosso WhatsApp e nossos técnicos indicam a melhor solução.</p>
-            <a href="https://wa.me/5548999462068" class="btn" style="background-color: #25D366;">
-                <i class="ph-bold ph-whatsapp-logo"></i> Falar com Técnico
-            </a>
-        </div>
-
-    </section>
+        </section>
+    </main>
 
     <footer style="background-color: #622969; color: white; padding: 25px 0;">
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
                 <div class="footer-col">
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Nacional Metais</h3>
-                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção</p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção em Palhoça e região.</p>
                 </div>
                 <div class="footer-col">
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Institucional</h3>
@@ -447,29 +463,56 @@
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 8px;"><a href="contato" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
-                        
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center;">
-                <p style="font-size: 0.7rem; opacity: 0.8;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center; padding-top: 20px;">
+                <p style="font-size: 0.7rem; opacity: 0.8; margin: 0;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
                 
-                <!-- ASSINATURA EDGETI -->
                 <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
                     <span>Desenvolvido por</span>
-                   
-                   <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
+                    <a href="https://edgeti.com.br/"> <img src="images/logoEdgeTi.webp" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
                 </div>
             </div>
         </div>
     </footer>
-<a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento." 
-   class="btn-whatsapp-flutuante" 
-   target="_blank"
-   aria-label="Falar no WhatsApp">
-    <i class="ph-fill ph-whatsapp-logo"></i>
+
+    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento de calhas." 
+       class="btn-whatsapp-flutuante" 
+       target="_blank"
+       aria-label="Falar no WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
-    <script src="assets/js/menu.js"></script>
+
+    <!-- SCRIPT DO MENU MOBILE SANFONA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnMobile = document.getElementById('btn-mobile');
+            const menuMobile = document.getElementById('menu-mobile');
+            const hasSubmenus = document.querySelectorAll('.has-submenu');
+
+            // Abrir/Fechar menu mobile
+            if(btnMobile) {
+                btnMobile.addEventListener('click', () => {
+                    menuMobile.classList.toggle('aberto');
+                });
+            }
+
+            // Lógica sanfona no menu mobile
+            hasSubmenus.forEach(item => {
+                const link = item.querySelector('a');
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Fecha os outros
+                    hasSubmenus.forEach(otherItem => {
+                        if(otherItem !== item) otherItem.classList.remove('ativo');
+                    });
+                    // Abre/fecha o clicado
+                    item.classList.toggle('ativo');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
