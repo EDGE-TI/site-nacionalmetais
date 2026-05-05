@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nacional Metais | Tudo sobre Rufos</title>
-    
+    <title>Modelos de Rufos - Nacional Metais</title>
+
+    <meta name="description" content="Conheça os modelos de Rufos: Encosto, Capa (Pingadeira) e Corte. Fabricação sob medida contra infiltrações em Palhoça e Grande Florianópolis.">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/header-footer.css">
-    <link rel="stylesheet" href="assets/css/produtos-detalhe.css">
     
-     <link rel="icon" type="image/png" href="images/nacional-favicon.png" sizes="192x192">
+    <!-- CSS Externos (Mantidos para garantir fontes/rodape) -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/header-footer.css">
+    <link rel="stylesheet" href="/assets/css/produtos-detalhe.css"> 
+
+    <link rel="icon" type="image/png" href="images/nacional-favicon.png" sizes="192x192">
     <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/png">
-
-
     <link rel="apple-touch-icon" href="images/nacional-favicon.png">
 
-    <meta property="og:image"
-        content="[https://nacionalmetais.com/images/nacional-favicon.png](https://nacionalmetais.com/images/nacional-favicon.png)">
+    <meta property="og:image" content="https://nacionalmetais.com/images/nacional-favicon.png">
 
     <meta name="adopt-website-id" content="c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" />
-    
     <script src="https://tag.goadopt.io/injector.js?website_code=c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" class="adopt-injector"></script>
+
     <style>
+        /* --- ESTILOS DO NOVO MEGA MENU E LAYOUT GLOBAL --- */
         :root {
             --cor-primaria: #500056;
             --cor-primaria-escuro: #3a003e;
@@ -100,7 +101,7 @@
         .submenu-mobile a { padding: 12px 0; font-size: 1rem; font-weight: 400; color: var(--cor-texto-medio); border-bottom: 1px dashed #eaeaea; justify-content: center;}
         .submenu-mobile a:last-child { border-bottom: none; }
 
-        /* OUTROS ESTILOS DA PÁGINA (Sobrescreve conflitos com CSS antigo) */
+        /* ESTILOS DA PÁGINA DE RUFOS */
         .page-header { background-color: var(--cor-primaria-suave); padding: 60px 0; border-bottom: 1px solid #eaeaea; }
         .breadcrumb { font-size: 0.9rem; color: #888; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
         .breadcrumb a { color: var(--cor-primaria); font-weight: 500; }
@@ -108,32 +109,50 @@
         .page-header h1 { font-size: 2.8rem; color: var(--cor-texto-forte); margin-bottom: 10px; margin-top: 0; }
         .page-header p { font-size: 1.1rem; max-width: 600px; margin: 0; }
 
-        .produto-detalhe { padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .produto-galeria { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; position: sticky; top: 100px; }
-        .imagem-principal img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s ease; }
-        .miniaturas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
-        .thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; transition: all 0.3s ease; }
-        .thumb:hover { opacity: 1; transform: translateY(-2px); }
-        .thumb.ativo { opacity: 1; border-color: var(--cor-primaria); box-shadow: 0 4px 8px rgba(102, 14, 84, 0.2); }
+        .importancia-calha { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; align-items: center; }
+        .importancia-texto h2 { font-size: 2rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top:0; }
+        .importancia-texto p { margin-bottom: 15px; font-size: 1.05rem; }
+        .destaque-box { background-color: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 25px; color: #166534; font-weight: 500; display: flex; gap: 10px; }
+        .importancia-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .produto-info h2 { font-size: 1.8rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top: 0;}
-        .produto-info p { margin-bottom: 20px; font-size: 1.05rem; }
+        .modelos-titulo { text-align: center; margin-bottom: 40px; }
+        .modelos-titulo h2 { font-size: 2.2rem; color: var(--cor-texto-forte); margin: 0 0 10px 0; }
+        
+        .modelos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .card-modelo { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eaeaea; box-shadow: 0 10px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;}
+        .card-modelo:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); border-color: rgba(80,0,86,0.2); }
+        .card-modelo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 1px solid #eee; }
+        .modelo-conteudo { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .modelo-conteudo h3 { font-size: 1.4rem; color: var(--cor-primaria); margin-top: 0; margin-bottom: 15px; }
+        .modelo-conteudo p { font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+        .tag-uso { display: inline-block; background: var(--cor-primaria-suave); color: var(--cor-primaria); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(80,0,86,0.1); width: fit-content;}
 
-        .lista-vantagens { margin: 30px 0; }
-        .lista-vantagens li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 1.05rem; background: white; padding: 15px 20px; border-radius: 8px; border-left: 4px solid var(--cor-primaria); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-        .lista-vantagens i { color: var(--cor-primaria); font-size: 1.4rem; margin-top: 2px; }
-        .lista-vantagens strong { display: block; color: var(--cor-texto-forte); margin-bottom: 4px; }
-
-        .situacoes-ideais { background-color: var(--cor-primaria-suave); padding: 80px 0; }
-        .secao-titulo { text-align: center; font-size: 2.2rem; color: var(--cor-texto-forte); margin-bottom: 50px; margin-top: 0; }
-        .cards-situacoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card-sit { background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card-sit:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); }
-        .card-sit i { font-size: 3rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .card-sit h3 { font-size: 1.3rem; color: var(--cor-texto-forte); margin-bottom: 15px; margin-top: 0;}
-
-        .btn-orcamento { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; margin-top: 20px; transition: 0.3s; }
-        .btn-orcamento:hover { background-color: #128C7E; transform: translateY(-2px); color: white;}
+        /* ESTILO DO BOTÃO CHAMATIVO NA CTA */
+        .btn-chamativo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #25D366;
+            color: #ffffff !important;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .btn-chamativo:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
+        }
+        .btn-chamativo i {
+            font-size: 1.5rem;
+        }
 
         .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s; animation: pulso-whatsapp 2s infinite; }
         .btn-whatsapp-flutuante i { font-size: 32px; }
@@ -141,25 +160,18 @@
         @keyframes pulso-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); transform: scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } }
 
         @media (max-width: 900px) {
-            .container { padding: 0 25px; } 
-            .produto-detalhe { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 40px; }
-            .cards-situacoes { grid-template-columns: 1fr; gap: 20px; }
-            .nav-desktop { display: none; }
+            .importancia-calha { grid-template-columns: 1fr; gap: 30px; margin: 40px 0;}
+            .modelos-grid { grid-template-columns: 1fr; }
             .btn-mobile-trigger { display: block; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; }
-            .menu-mobile .btn-catalogo-mobile { background-color: #622969; color: #ffffff !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; }
-            .produto-galeria { position: relative; top: 0; margin-bottom: 10px; padding: 20px; }
-            .btn-whatsapp-flutuante { width: 55px; height: 55px; bottom: 25px; right: 25px; }
-            .btn-whatsapp-flutuante i { font-size: 28px; }
-            .page-header { padding: 40px 0; }
+            .nav-desktop { display: none; }
             .page-header h1 { font-size: 2.2rem; }
-            .secao-titulo { font-size: 1.8rem; margin-bottom: 30px; }
-            .card-sit { padding: 30px 20px; }
+            .btn-chamativo { width: 100%; justify-content: center; padding: 14px 24px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
- <header>
+    <header>
         <div class="container header-content">
             <a href="/" class="logo">
                 <img src="/images/logo-nacional.webp" alt="Nacional Metais Logo">
@@ -241,8 +253,6 @@
                                     <ul>
                                         <li><a href="selantes-pu-silicone"><i class="ph-bold ph-caret-right"></i> Selantes PU e Silicone</a></li>
                                         <li><a href="fixacao"><i class="ph-bold ph-caret-right"></i> Rebites e Fixadores</a></li>
-                                        
-                                        <!-- NOVA OPÇÃO INSERIDA AQUI -->
                                         <li><a href="abrasivos"><i class="ph-bold ph-caret-right"></i> Abrasivos e Discos</a></li>
                                     </ul>
                                 </div>
@@ -303,17 +313,14 @@
                         <span class="submenu-titulo">Chapas Metálicas</span>
                         <a href="chapas-produtos">Chapas</a>
                         
-
                         <span class="submenu-titulo">Fachadas e Coberturas</span>
-                        <a href="acm">Revestimento ACM</a>
+                        <a href="chapa-acm">Revestimento ACM</a>
                         <a href="policarbonato-alveolar">Policarbonato Alveolar</a>
                         <a href="policarbonato-compacto">Policarbonato Compacto</a>
 
                         <span class="submenu-titulo">Acessórios de Montagem</span>
                         <a href="selantes-pu-silicone">Selantes PU e Silicone</a>
                         <a href="fixacao">Rebites e Fixadores</a>
-                        
-                        <!-- NOVA OPÇÃO INSERIDA AQUI NO MOBILE -->
                         <a href="abrasivos">Abrasivos e Discos</a>
                     </div>
                 </li>
@@ -326,81 +333,101 @@
         </nav>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Especialista em Rufos</h1>
-            <p class="breadcrumb">Home > Fabricação > Rufos</p>
-        </div>
-    </div>
-
-    <section class="container">
-        
-        <div class="importancia-calha">
-            <div class="importancia-texto">
-                <h2>Acabamento e Vedação Total</h2>
-                <p>O rufo é o acabamento que protege a junção entre telhados e paredes. Sem ele, a água da chuva escorre pela parede, causando infiltrações graves, bolhas na pintura e mofo dentro de casa.</p>
-                <p>Na Nacional Metais, fabricamos rufos com chapas de alta qualidade que resistem ao sol forte e à chuva constante sem enferrujar precocemente.</p>
-
-                <div class="destaque-box">
-                    <i class="ph-bold ph-warning"></i> Atenção: A maioria das infiltrações em paredes vem de rufos mal instalados ou de material inferior.
+    <main>
+        <!-- TÍTULO DA PÁGINA -->
+        <div class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> <i class="ph-bold ph-caret-right"></i> 
+                    <a href="fabricacao">Fabricação</a> <i class="ph-bold ph-caret-right"></i> 
+                    <span>Rufos</span>
                 </div>
+                <h1>Modelos de Rufos Sob Medida</h1>
+                <p>Especialistas em rufos para Palhoça e região. Descubra a solução ideal para proteger a junção entre telhados e paredes na sua obra contra infiltrações.</p>
             </div>
+        </div>
+
+        <section class="container">
             
-            
-              <img class="card-modelo" src="images/produtosImagens/rufos/casa-rufo-principal.jpg" alt="">
-            
-        </div>
+            <!-- SEÇÃO EDUCATIVA: POR QUE IMPORTA? -->
+            <div class="importancia-calha">
+                <div class="importancia-texto">
+                    <h2>Acabamento e Vedação Total</h2>
+                    <p>O rufo é o acabamento metálico que protege as frestas e a junção entre telhados e paredes. Sem ele, a água da chuva escorre livremente pela alvenaria, causando infiltrações graves, descascamento da tinta e mofo dentro de casa.</p>
+                    
+                    <p>Na Nacional Metais, fabricamos rufos com chapas de alta qualidade (Galvanizado, Galvalume e Alumínio) que resistem ao sol forte e à chuva constante sem enferrujar precocemente, garantindo uma barreira impenetrável.</p>
 
-        <div class="modelos-titulo">
-            <h2>Modelos Mais Usados</h2>
-        </div>
-
-        <div class="modelos-grid">
-            <!-- Rufo de Capa -->
-            <div class="card-modelo">
-               <img src="images/produtosImagens/rufos/rufo-de-capa.jpg" alt="Rufo de Capa em Alumínio - Nacional Metais" title="Rufo de Capa em Alumínio">
-                <div class="modelo-conteudo">
-                    <h3>Rufo de Capa (Pingadeira)</h3>
-                    <p>Instalado sobre o muro. Ele protege o topo da parede e joga a água para longe, evitando aquelas manchas escuras de escorrimento na fachada.</p>
-                    <span class="tag-uso">Ideal para: Muros e Platibandas</span>
+                    <div class="destaque-box">
+                        <i class="ph-fill ph-warning-circle" style="font-size: 1.5rem;"></i> 
+                        <span><strong>Atenção:</strong> A grande maioria das infiltrações em paredes e muros provém de rufos mal instalados ou de material de qualidade inferior.</span>
+                    </div>
+                </div>
+                
+                <div class="importancia-img">
+                    <img src="images/produtosImagens/rufos/casa-rufo-principal.jpg" onerror="this.src='https://placehold.co/600x400/eeeeee/666666?text=Instalacao+de+Rufos'" alt="Demonstração da importância dos rufos em telhados">
                 </div>
             </div>
 
-            <!-- Rufo de Encosto -->
-            <div class="card-modelo">
-               <img src="images/produtosImagens/rufos/rufo-de-encosto.jpg" alt="Rufo de Encosto em Aço Galvanizado - Nacional Metais" title="Rufo de Encosto em Aço Galvanizado">
-                <div class="modelo-conteudo">
-                    <h3>Rufo de Encosto</h3>
-                    <p>Usado quando o telhado encosta na parede. Ele veda essa fresta, garantindo que a água desça pelo telhado e não entre na parede.</p>
-                    <span class="tag-uso">Ideal para: Junção Telhado/Parede</span>
-                </div>
+            <!-- VITRINE DE MODELOS -->
+            <div class="modelos-titulo">
+                <h2>Conheça os Nossos Modelos</h2>
+                <p style="opacity: 0.7; font-size: 1.1rem;">Fabricamos peças com até 6 metros em Aço Galvanizado, Alumínio, Galvalume e Inox.</p>
             </div>
 
-            <!-- Rufo Externo -->
-            <div class="card-modelo">
-               <img src="images/produtosImagens/rufos/rufo-externo.jpg" alt="Rufo Externo em Aço Inox - Nacional Metais" title="Rufo Externo em Aço Inox">
-                <div class="modelo-conteudo">
-                    <h3>Rufo Externo</h3>
-                    <p>Peça especial para vedar encontros de telhados em níveis diferentes ou recortes específicos da obra.</p>
-                    <span class="tag-uso">Ideal para: Acabamentos Especiais</span>
-                </div>
-            </div>
-        </div>
+            <div class="modelos-grid">
+                
+                <!-- MODELO 1: RUFO DE ENCOSTO -->
+                <!-- URL AQUI DEVE SER EXATAMENTE O NOME DO ARQUIVO ALVO -->
+                <a href="rufo-encosto" class="card-modelo">
+                    <img src="images/produtosImagens/rufos/rufo-de-encosto/rufo-de-encosto-4.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Rufo+de+Encosto'" alt="Rufo de Encosto em Aço Galvanizado">
+                    <div class="modelo-conteudo">
+                        <h3>Rufo de Encosto</h3>
+                        <p>Usado especificamente quando o telhado encosta numa parede mais alta. Ele veda perfeitamente esta fresta em "L", garantindo que a água que desce pela parede caia no telhado e não na estrutura interna.</p>
+                        <span class="tag-uso">Ideal para: Junção Telhado/Parede</span>
+                    </div>
+                </a>
 
-    </section>
-    <div style="text-align: center; margin-bottom: 80px; padding: 40px; background: var(--cor-primaria-claro); border-radius: 12px;">
-    <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Precisa de Rufos Sob Medida?</h3>
-    <p style="margin-bottom: 25px;">Realizamos o corte e dobra de acordo com o seu projeto. Envie as medidas e receba seu orçamento.</p>
-    <a href="https://wa.me/5548999462068" class="btn" style="background-color: #25D366; color: white; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-        <i class="ph-bold ph-whatsapp-logo"></i> Cotar Rufos
-    </a>
-    </div>
-   <footer style="background-color: #622969; color: white; padding: 25px 0;">
+                <!-- MODELO 2: RUFO CAPA (PINGADEIRA) -->
+                <!-- AQUI ATUALIZAMOS A URL PARA A NOVA: capa-pingadeira -->
+                <a href="capa-pingadeira" class="card-modelo">
+                    <img src="images/produtosImagens/rufos/capa-pingadeira/capa-pingadeira-2.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Rufo+Capa+Pingadeira'" alt="Rufo de Capa em Alumínio">
+                    <div class="modelo-conteudo">
+                        <h3>Rufo Capa (Pingadeira)</h3>
+                        <p>Instalado sobre o topo do muro. Ele não só protege o topo da parede contra a água, mas a sua dobra lateral "pingadeira" joga a água para longe, evitando manchas escuras de escorrimento na fachada.</p>
+                        <span class="tag-uso">Ideal para: Muros e Platibandas</span>
+                    </div>
+                </a>
+
+                <!-- MODELO 3: RUFO DE CORTE -->
+                <a href="rufo-corte" class="card-modelo">
+                    <img src="images/produtosImagens/rufos/rufo-externo.jpg" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Rufo+de+Corte'" alt="Rufo de Corte em Aço Inox">
+                    <div class="modelo-conteudo">
+                        <h3>Rufo de Corte</h3>
+                        <p>Peça especial aplicada nas laterais do telhado, exatamente onde as telhas são cortadas na diagonal para acompanhar a inclinação de uma parede ou muro. Evita a penetração lateral da chuva.</p>
+                        <span class="tag-uso">Ideal para: Acabamentos Laterais</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- CTA FINAL (Com botão super chamativo) -->
+            <div style="text-align: center; margin-bottom: 80px; padding: 40px 20px; background: var(--cor-primaria-suave); border: 1px solid #eaeaea; border-radius: 12px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: var(--cor-texto-forte); margin-top:0;">Precisa de Rufos Sob Medida?</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--cor-texto-medio);">Realizamos o corte e dobra de acordo com o seu projeto exato. Envie as medidas para a nossa equipa técnica em Palhoça e receba um orçamento rápido.</p>
+                <a href="https://wa.me/5548999462068?text=Olá! Estou no site e preciso de um orçamento de Rufos sob medida para a minha obra." class="btn-chamativo">
+                    <i class="ph-fill ph-whatsapp-logo"></i> Cotar Rufos no WhatsApp
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer style="background-color: #622969; color: white; padding: 25px 0;">
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
                 <div class="footer-col">
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Nacional Metais</h3>
-                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção</p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção em Palhoça e região.</p>
                 </div>
                 <div class="footer-col">
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Institucional</h3>
@@ -413,31 +440,56 @@
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 8px;"><a href="contato" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
-                        
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center;">
-                <p style="font-size: 0.7rem; opacity: 0.8;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center; padding-top: 20px;">
+                <p style="font-size: 0.7rem; opacity: 0.8; margin: 0;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
                 
-                <!-- ASSINATURA EDGETI -->
                 <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
                     <span>Desenvolvido por</span>
-                   
-                   <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
+                    <a href="https://edgeti.com.br/"> <img src="images/logoEdgeTi.webp" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
                 </div>
             </div>
         </div>
-
-        
     </footer>
-    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento." 
-   class="btn-whatsapp-flutuante" 
-   target="_blank"
-   aria-label="Falar no WhatsApp">
-    <i class="ph-fill ph-whatsapp-logo"></i>
+
+    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento de rufos." 
+       class="btn-whatsapp-flutuante" 
+       target="_blank"
+       aria-label="Falar no WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
-    <script src="assets/js/menu.js"></script>
+
+    <!-- SCRIPT DO MENU MOBILE SANFONA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnMobile = document.getElementById('btn-mobile');
+            const menuMobile = document.getElementById('menu-mobile');
+            const hasSubmenus = document.querySelectorAll('.has-submenu');
+
+            // Abrir/Fechar menu mobile
+            if(btnMobile) {
+                btnMobile.addEventListener('click', () => {
+                    menuMobile.classList.toggle('aberto');
+                });
+            }
+
+            // Lógica sanfona no menu mobile
+            hasSubmenus.forEach(item => {
+                const link = item.querySelector('a');
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Fecha os outros
+                    hasSubmenus.forEach(otherItem => {
+                        if(otherItem !== item) otherItem.classList.remove('ativo');
+                    });
+                    // Abre/fecha o clicado
+                    item.classList.toggle('ativo');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
