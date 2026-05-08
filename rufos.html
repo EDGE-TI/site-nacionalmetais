@@ -50,7 +50,8 @@
         .logo { display: flex; align-items: center; }
         .logo img { max-height: 50px; width: auto; }
 
-        .nav-desktop ul { display: flex; gap: 32px; align-items: center; list-style: none; margin: 0; padding: 0;}
+        /* Ajuste no GAP para caber o novo botão do Mercado Livre */
+        .nav-desktop ul { display: flex; gap: 16px; align-items: center; list-style: none; margin: 0; padding: 0;}
         .nav-desktop > ul > li { height: var(--altura-header); display: flex; align-items: center; }
         .nav-desktop a { font-weight: 500; font-size: 0.95rem; color: var(--cor-texto-forte); display: flex; align-items: center; gap: 6px; transition: 0.3s; text-decoration: none;}
         .nav-desktop a:hover { color: var(--cor-primaria); }
@@ -80,8 +81,14 @@
         .btn-pequeno { background: var(--cor-primaria); color: #fff !important; padding: 10px 20px; border-radius: 4px; font-size: 0.85rem !important; transition: 0.3s; }
         .btn-pequeno:hover { background: var(--cor-primaria-escuro); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(80,0,86,0.2); }
 
-        .nav-desktop .btn-catalogo { background-color: #622969; color: #ffffff !important; padding: 8px 20px !important; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 10px; }
+        /* BOTÃO CATÁLOGO */
+        .nav-desktop .btn-catalogo { background-color: #622969; color: #ffffff !important; padding: 8px 18px !important; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 5px; }
         .nav-desktop .btn-catalogo:hover { background-color: #82338d; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3); }
+
+        /* NOVO BOTÃO MERCADO LIVRE (DESKTOP) */
+        .nav-desktop .btn-ml { background-color: #FFE600; color: #2D3277 !important; padding: 8px 18px !important; border-radius: 8px; font-weight: 700; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 5px; }
+        .nav-desktop .btn-ml i { font-size: 1.1rem; color: #2D3277 !important; }
+        .nav-desktop .btn-ml:hover { background-color: #FFD100; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255, 230, 0, 0.4); }
 
         /* MENU MOBILE */
         .btn-mobile-trigger { display: none; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; z-index: 1001; }
@@ -100,6 +107,10 @@
         .submenu-titulo { display: block; font-size: 0.85rem; font-weight: 700; color: var(--cor-primaria); text-transform: uppercase; letter-spacing: 0.5px; padding: 20px 0 5px 0; text-align: center; border-bottom: 2px solid #eaeaea; width: 80%; margin: 0 auto; }
         .submenu-mobile a { padding: 12px 0; font-size: 1rem; font-weight: 400; color: var(--cor-texto-medio); border-bottom: 1px dashed #eaeaea; justify-content: center;}
         .submenu-mobile a:last-child { border-bottom: none; }
+
+        /* NOVO BOTÃO MERCADO LIVRE (MOBILE) */
+        .menu-mobile .btn-ml-mobile { background-color: #FFE600; color: #2D3277 !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; font-weight: 700;}
+        .menu-mobile .btn-ml-mobile i { font-size: 1.4rem; color: #2D3277 !important; }
 
         /* ESTILOS DA PÁGINA DE RUFOS */
         .page-header { background-color: var(--cor-primaria-suave); padding: 60px 0; border-bottom: 1px solid #eaeaea; }
@@ -167,6 +178,125 @@
             .page-header h1 { font-size: 2.2rem; }
             .btn-chamativo { width: 100%; justify-content: center; padding: 14px 24px; font-size: 1rem; }
         }
+        .banner-ml {
+        /* Fundo azul escuro moderno com degradê subtil */
+        background: linear-gradient(135deg, #1a1c4b 0%, #2D3277 100%);
+        border-radius: 20px;
+        padding: 45px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        box-shadow: 0 20px 40px rgba(45, 50, 119, 0.15);
+        margin-bottom: 60px; /* Espaço antes do rodapé */
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Efeito de brilho "moderno" no canto do banner */
+    .banner-ml::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255, 230, 0, 0.12) 0%, rgba(255, 230, 0, 0) 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .banner-ml-text {
+        position: relative;
+        z-index: 2;
+    }
+
+    .banner-ml-text h2 {
+        color: #ffffff;
+        font-size: 2.2rem;
+        margin-top: 0;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    /* Ícone em amarelo vibrante */
+    .banner-ml-text h2 i {
+        color: #FFE600; 
+        font-size: 2.6rem;
+    }
+
+    .banner-ml-text p {
+        color: #e2e8f0;
+        font-size: 1.1rem;
+        margin: 0;
+        max-width: 600px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    .banner-ml-text p strong {
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .btn-ml-banner {
+        background-color: #FFE600;
+        color: #1a1c4b !important;
+        padding: 16px 36px;
+        border-radius: 50px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(255, 230, 0, 0.25);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-ml-banner:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 25px rgba(255, 230, 0, 0.4);
+        background-color: #FFD100;
+    }
+
+    .btn-ml-banner i {
+        font-size: 1.4rem;
+    }
+
+    /* Responsividade para Celulares */
+    @media (max-width: 900px) {
+        .banner-ml {
+            flex-direction: column;
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 16px;
+        }
+        .banner-ml-text h2 {
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .banner-ml-text p {
+            font-size: 1rem;
+        }
+        .btn-ml-banner {
+            width: 100%;
+            justify-content: center;
+            padding: 16px 20px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -201,7 +331,7 @@
                                     <ul class="grupo-superior">
                                         <li><a href="rufo-encosto"><i class="ph-bold ph-caret-right"></i> Rufo de Encosto</a></li>
                                         <li><a href="capa-pingadeira"><i class="ph-bold ph-caret-right"></i> Rufo Pingadeira</a></li>
-                                        
+                                        <li><a href="rufo-corte"><i class="ph-bold ph-caret-right"></i> Rufo de Corte</a></li>
                                     </ul>
                                     <h3 class="titulo-secundario">Bobinas Metálicas</h3>
                                     <ul>
@@ -268,7 +398,10 @@
                     <li><a href="blog">Blog</a></li>
                     <li><a href="parceria">Parceria</a></li>
                     <li><a href="contato">Contato</a></li>
-                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
+                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph ph-file-pdf"></i> Catálogo</a></li>
+                    
+                    <!-- NOVO BOTÃO MERCADO LIVRE -->
+                    <li><a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml"><i class="ph-fill ph-handshake"></i> Loja Oficial</a></li>
                 </ul>
             </nav>
 
@@ -295,7 +428,7 @@
                         <span class="submenu-titulo">Rufos e Bobinas</span>
                         <a href="rufo-encosto">Rufo de Encosto</a>
                         <a href="capa-pingadeira">Rufo Pingadeira</a>
-                        
+                        <a href="rufo-corte">Rufo de Corte</a>
                         <a href="bobinas-metalicas">Bobinas de Alumínio</a>
 
                         <span class="submenu-titulo">Coifas e Exaustores</span>
@@ -329,6 +462,11 @@
                 <li><a href="parceria">Parceria</a></li>
                 <li><a href="contato">Contato</a></li>
                 <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" class="btn-catalogo-mobile" target="_blank"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
+                
+                <!-- NOVO BOTÃO MERCADO LIVRE MOBILE -->
+                <li style="width: 100%;">
+                    <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" class="btn-ml-mobile" target="_blank"><i class="ph-fill ph-handshake"></i> Loja no Mercado Livre</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -410,6 +548,18 @@
             </div>
 
         </section>
+        <section class="container">
+    <div class="banner-ml">
+        <div class="banner-ml-text">
+            <h2><i class="ph-fill ph-handshake"></i> Loja Oficial</h2>
+            <p>Prefere a comodidade do <strong>Mercado Livre</strong>? Compre os nossos produtos com garantia de entrega rápida, Compra Protegida e parcelamento facilitado para todo o Brasil.</p>
+        </div>
+        <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml-banner">
+            Acessar Mercado Livre <i class="ph-bold ph-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
     </main>
 
     <footer style="background-color: #622969; color: white; padding: 25px 0;">
