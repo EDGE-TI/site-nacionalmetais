@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nacional Metais | Chaminés</title>
+    <title>Chaminés e Sistemas de Exaustão - Nacional Metais</title>
     
+    <meta name="description" content="Especialistas em Chaminés, Dutos, Coifas e Exaustores Eólicos em Palhoça e região. Fabricação sob medida para segurança e eficiência na sua obra.">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- CSS Externos (Mantidos para garantir fontes/rodape) -->
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/header-footer.css">
     <link rel="stylesheet" href="assets/css/produtos-detalhe.css"> 
 
-     <link rel="icon" type="image/png" href="images/nacional-favicon.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/nacional-favicon.png" sizes="192x192">
     <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/png">
-
-
     <link rel="apple-touch-icon" href="images/nacional-favicon.png">
 
-    <meta property="og:image"
-        content="[https://nacionalmetais.com/images/nacional-favicon.png](https://nacionalmetais.com/images/nacional-favicon.png)">
+    <meta property="og:image" content="https://nacionalmetais.com/images/nacional-favicon.png">
     <meta name="adopt-website-id" content="c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" />
-    
     <script src="https://tag.goadopt.io/injector.js?website_code=c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" class="adopt-injector"></script>
+    
     <style>
+        /* --- ESTILOS DO NOVO MEGA MENU E LAYOUT GLOBAL --- */
         :root {
             --cor-primaria: #500056;
             --cor-primaria-escuro: #3a003e;
@@ -43,90 +44,70 @@
         .container { max-width: var(--largura-maxima); margin: 0 auto; padding: 0 20px; }
 
         /* HEADER DESKTOP E MEGA MENU */
-        :root {
-        --cor-primaria: #500056;
-        --cor-primaria-escuro: #3a003e;
-        --cor-primaria-suave: #f9f5fa;
-        --cor-texto-forte: #000000;
-        --cor-texto-medio: #4B5563;
-        --cor-branco: #FFFFFF;
-        --cor-cinza-fundo: #fcfcfc;
-        --largura-maxima: 1200px;
-        --altura-header: 80px; /* Mantém a altura correta do cabeçalho */
-    }
+        header { background-color: white; height: var(--altura-header); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; }
+        .logo { display: flex; align-items: center; }
+        .logo img { max-height: 50px; width: auto; }
 
-    /* HEADER DESKTOP E MEGA MENU */
-    header { background-color: white; height: var(--altura-header); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; }
-    .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; }
-    .logo { display: flex; align-items: center; }
-    .logo img { max-height: 50px; width: auto; }
+        .nav-desktop ul { display: flex; gap: 16px; align-items: center; list-style: none; margin: 0; padding: 0;}
+        .nav-desktop > ul > li { height: var(--altura-header); display: flex; align-items: center; }
+        .nav-desktop a { font-weight: 500; font-size: 0.95rem; color: var(--cor-texto-forte); display: flex; align-items: center; gap: 6px; transition: 0.3s; text-decoration: none;}
+        .nav-desktop a:hover { color: var(--cor-primaria); }
 
-    /* CORREÇÃO DO ESPAÇAMENTO: gap reduzido para 16px para caber os botões sem quebrar a linha */
-    .nav-desktop ul { display: flex; gap: 16px; align-items: center; list-style: none; margin: 0; padding: 0;}
-    .nav-desktop > ul > li { height: var(--altura-header); display: flex; align-items: center; }
-    .nav-desktop a { font-weight: 500; font-size: 0.95rem; color: var(--cor-texto-forte); display: flex; align-items: center; gap: 6px; transition: 0.3s; text-decoration: none;}
-    .nav-desktop a:hover { color: var(--cor-primaria); }
+        .has-mega-menu { position: static !important; }
+        
+        .mega-menu { position: absolute; top: 100%; left: 0; width: 100%; background-color: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-top: 3px solid var(--cor-primaria); border-radius: 0 0 8px 8px; padding: 40px 30px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 999; }
+        .has-mega-menu:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    .has-mega-menu { position: static !important; }
-    
-    .mega-menu { position: absolute; top: 100%; left: 0; width: 100%; background-color: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-top: 3px solid var(--cor-primaria); border-radius: 0 0 8px 8px; padding: 40px 30px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 999; }
-    .has-mega-menu:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .mega-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 280px; gap: 30px; }
+        .mega-coluna { display: flex; flex-direction: column; border-right: 1px solid #f0f0f0; padding-right: 30px; }
+        .mega-coluna:nth-child(3) { border-right: none; padding-right: 0; }
 
-    .mega-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 280px; gap: 30px; }
-    .mega-coluna { display: flex; flex-direction: column; border-right: 1px solid #f0f0f0; padding-right: 30px; }
-    .mega-coluna:nth-child(3) { border-right: none; padding-right: 0; }
+        .mega-coluna h3 { font-size: 0.85rem; color: var(--cor-primaria); margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #f1f1f1; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+        .mega-coluna .grupo-superior { min-height: 145px; }
+        .mega-coluna .titulo-secundario { margin-top: 10px; }
+        .mega-coluna ul { display: flex; flex-direction: column; gap: 12px; }
+        .mega-coluna ul li { height: auto !important; }
+        .mega-coluna a { display: flex; align-items: center; gap: 8px; color: var(--cor-texto-medio); font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
+        .mega-coluna a i { color: #d1d5db; font-size: 0.8rem; transition: 0.2s; }
+        .mega-coluna a:hover { color: var(--cor-primaria); transform: translateX(5px); }
+        .mega-coluna a:hover i { color: var(--cor-primaria); }
 
-    .mega-coluna h3 { font-size: 0.85rem; color: var(--cor-primaria); margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #f1f1f1; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
-    .mega-coluna .grupo-superior { min-height: 145px; }
-    .mega-coluna .titulo-secundario { margin-top: 10px; }
-    .mega-coluna ul { display: flex; flex-direction: column; gap: 12px; }
-    .mega-coluna ul li { height: auto !important; }
-    .mega-coluna a { display: flex; align-items: center; gap: 8px; color: var(--cor-texto-medio); font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
-    .mega-coluna a i { color: #d1d5db; font-size: 0.8rem; transition: 0.2s; }
-    .mega-coluna a:hover { color: var(--cor-primaria); transform: translateX(5px); }
-    .mega-coluna a:hover i { color: var(--cor-primaria); }
+        .mega-destaque { background: linear-gradient(145deg, var(--cor-primaria-suave) 0%, #ffffff 100%); border: 1px solid #f0f0f0; padding: 25px 20px; border-radius: 8px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .mega-destaque img { max-height: 120px; margin-bottom: 15px; }
+        .mega-destaque p { font-size: 1rem; font-weight: 700; color: var(--cor-primaria); margin-bottom: 8px; }
+        .btn-pequeno { background: var(--cor-primaria); color: #fff !important; padding: 10px 20px; border-radius: 4px; font-size: 0.85rem !important; transition: 0.3s; }
+        .btn-pequeno:hover { background: var(--cor-primaria-escuro); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(80,0,86,0.2); }
 
-    .mega-destaque { background: linear-gradient(145deg, var(--cor-primaria-suave) 0%, #ffffff 100%); border: 1px solid #f0f0f0; padding: 25px 20px; border-radius: 8px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .mega-destaque img { max-height: 120px; margin-bottom: 15px; }
-    .mega-destaque p { font-size: 1rem; font-weight: 700; color: var(--cor-primaria); margin-bottom: 8px; }
-    .btn-pequeno { background: var(--cor-primaria); color: #fff !important; padding: 10px 20px; border-radius: 4px; font-size: 0.85rem !important; transition: 0.3s; }
-    .btn-pequeno:hover { background: var(--cor-primaria-escuro); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(80,0,86,0.2); }
+        .nav-desktop .btn-catalogo { background-color: #622969; color: #ffffff !important; padding: 8px 18px !important; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 5px; }
+        .nav-desktop .btn-catalogo:hover { background-color: #82338d; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3); }
 
-    /* CORREÇÃO DOS BOTÕES: padding menor para caber na barra sem aumentar a altura */
-    .nav-desktop .btn-catalogo { background-color: #622969; color: #ffffff !important; padding: 8px 18px !important; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 5px; }
-    .nav-desktop .btn-catalogo:hover { background-color: #82338d; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(98, 41, 105, 0.3); }
+        .nav-desktop .btn-ml { background-color: #FFE600; color: #2D3277 !important; padding: 8px 18px !important; border-radius: 8px; font-weight: 700; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 5px; }
+        .nav-desktop .btn-ml i { font-size: 1.1rem; color: #2D3277 !important; }
+        .nav-desktop .btn-ml:hover { background-color: #FFD100; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255, 230, 0, 0.4); }
 
-    .nav-desktop .btn-ml { background-color: #FFE600; color: #2D3277 !important; padding: 8px 18px !important; border-radius: 8px; font-weight: 700; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; margin-left: 5px; }
-    .nav-desktop .btn-ml i { font-size: 1.1rem; color: #2D3277 !important; }
-    .nav-desktop .btn-ml:hover { background-color: #FFD100; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255, 230, 0, 0.4); }
+        /* MENU MOBILE */
+        .btn-mobile-trigger { display: none; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; z-index: 1001; }
+        .menu-mobile { position: fixed; top: 80px; left: 0; right: 0; bottom: 0; width: 100vw; height: calc(100vh - 80px); background-color: #ffffff; z-index: 999; transform: translateX(100%); transition: transform 0.3s ease-in-out; overflow-y: auto; padding: 20px 0; margin: 0 !important; box-sizing: border-box; }
+        .menu-mobile.aberto { transform: translateX(0); }
+        .menu-mobile ul { display: flex; flex-direction: column; align-items: center; width: 100%; list-style: none; padding: 0; margin: 0;}
+        .menu-mobile > ul > li { width: 100%; text-align: center; margin-bottom: 25px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; }
+        .menu-mobile a { font-size: 1.3rem; font-weight: 600; color: var(--cor-texto-forte); display: flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none;}
+        .menu-mobile a:hover { color: var(--cor-primaria); }
+        
+        .submenu-mobile { display: none; padding-top: 15px; background-color: #fafafa; border-radius: 6px; margin-top: 15px;}
+        .has-submenu.ativo .submenu-mobile { display: block; }
+        .has-submenu.ativo > a { color: var(--cor-primaria); }
+        .has-submenu.ativo > a i { transform: rotate(180deg); }
+        
+        .submenu-titulo { display: block; font-size: 0.85rem; font-weight: 700; color: var(--cor-primaria); text-transform: uppercase; letter-spacing: 0.5px; padding: 20px 0 5px 0; text-align: center; border-bottom: 2px solid #eaeaea; width: 80%; margin: 0 auto; }
+        .submenu-mobile a { padding: 12px 0; font-size: 1rem; font-weight: 400; color: var(--cor-texto-medio); border-bottom: 1px dashed #eaeaea; justify-content: center;}
+        .submenu-mobile a:last-child { border-bottom: none; }
 
-    /* MENU MOBILE */
-    .btn-mobile-trigger { display: none; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; z-index: 1001; }
-    .menu-mobile { position: fixed; top: 80px; left: 0; right: 0; bottom: 0; width: 100vw; height: calc(100vh - 80px); background-color: #ffffff; z-index: 999; transform: translateX(100%); transition: transform 0.3s ease-in-out; overflow-y: auto; padding: 20px 0; margin: 0 !important; box-sizing: border-box; }
-    .menu-mobile.aberto { transform: translateX(0); }
-    .menu-mobile ul { display: flex; flex-direction: column; align-items: center; width: 100%; list-style: none; padding: 0; margin: 0;}
-    .menu-mobile > ul > li { width: 100%; text-align: center; margin-bottom: 25px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; }
-    .menu-mobile a { font-size: 1.3rem; font-weight: 600; color: var(--cor-texto-forte); display: flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none;}
-    .menu-mobile a:hover { color: var(--cor-primaria); }
-    
-    .submenu-mobile { display: none; padding-top: 15px; background-color: #fafafa; border-radius: 6px; margin-top: 15px;}
-    .has-submenu.ativo .submenu-mobile { display: block; }
-    .has-submenu.ativo > a { color: var(--cor-primaria); }
-    .has-submenu.ativo > a i { transform: rotate(180deg); }
-    
-    .submenu-titulo { display: block; font-size: 0.85rem; font-weight: 700; color: var(--cor-primaria); text-transform: uppercase; letter-spacing: 0.5px; padding: 20px 0 5px 0; text-align: center; border-bottom: 2px solid #eaeaea; width: 80%; margin: 0 auto; }
-    .submenu-mobile a { padding: 12px 0; font-size: 1rem; font-weight: 400; color: var(--cor-texto-medio); border-bottom: 1px dashed #eaeaea; justify-content: center;}
-    .submenu-mobile a:last-child { border-bottom: none; }
+        .menu-mobile .btn-ml-mobile { background-color: #FFE600; color: #2D3277 !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; font-weight: 700;}
+        .menu-mobile .btn-ml-mobile i { font-size: 1.4rem; color: #2D3277 !important; }
 
-    .menu-mobile .btn-ml-mobile { background-color: #FFE600; color: #2D3277 !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; font-weight: 700;}
-    .menu-mobile .btn-ml-mobile i { font-size: 1.4rem; color: #2D3277 !important; }
-
-    @media (max-width: 900px) {
-        .nav-desktop { display: none; }
-        .btn-mobile-trigger { display: block; }
-    }
-
-        /* OUTROS ESTILOS DA PÁGINA (Sobrescreve conflitos com CSS antigo) */
+        /* ESTILOS DA PÁGINA (Hub de Chaminés) */
         .page-header { background-color: var(--cor-primaria-suave); padding: 60px 0; border-bottom: 1px solid #eaeaea; }
         .breadcrumb { font-size: 0.9rem; color: #888; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
         .breadcrumb a { color: var(--cor-primaria); font-weight: 500; }
@@ -134,32 +115,105 @@
         .page-header h1 { font-size: 2.8rem; color: var(--cor-texto-forte); margin-bottom: 10px; margin-top: 0; }
         .page-header p { font-size: 1.1rem; max-width: 600px; margin: 0; }
 
-        .produto-detalhe { padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .produto-galeria { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; position: sticky; top: 100px; }
-        .imagem-principal img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s ease; }
-        .miniaturas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
-        .thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; transition: all 0.3s ease; }
-        .thumb:hover { opacity: 1; transform: translateY(-2px); }
-        .thumb.ativo { opacity: 1; border-color: var(--cor-primaria); box-shadow: 0 4px 8px rgba(102, 14, 84, 0.2); }
+        .importancia-calha { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; align-items: center; }
+        .importancia-texto h2 { font-size: 2rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top:0; }
+        .importancia-texto p { margin-bottom: 15px; font-size: 1.05rem; }
+        .destaque-box { background-color: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 25px; color: #166534; font-weight: 500; display: flex; gap: 10px; }
+        .importancia-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .produto-info h2 { font-size: 1.8rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top: 0;}
-        .produto-info p { margin-bottom: 20px; font-size: 1.05rem; }
+        .modelos-titulo { text-align: center; margin-bottom: 40px; }
+        .modelos-titulo h2 { font-size: 2.2rem; color: var(--cor-texto-forte); margin: 0 0 10px 0; }
+        
+        .modelos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        
+        /* Cartões como Links Mágicos */
+        .card-modelo { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eaeaea; box-shadow: 0 10px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;}
+        .card-modelo:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); border-color: rgba(80,0,86,0.2); }
+        .card-modelo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 1px solid #eee; }
+        .modelo-conteudo { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .modelo-conteudo h3 { font-size: 1.4rem; color: var(--cor-primaria); margin-top: 0; margin-bottom: 15px; }
+        .modelo-conteudo p { font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+        .tag-uso { display: inline-block; background: var(--cor-primaria-suave); color: var(--cor-primaria); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(80,0,86,0.1); width: fit-content;}
 
-        .lista-vantagens { margin: 30px 0; }
-        .lista-vantagens li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 1.05rem; background: white; padding: 15px 20px; border-radius: 8px; border-left: 4px solid var(--cor-primaria); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-        .lista-vantagens i { color: var(--cor-primaria); font-size: 1.4rem; margin-top: 2px; }
-        .lista-vantagens strong { display: block; color: var(--cor-texto-forte); margin-bottom: 4px; }
+        /* ESTILO DO BOTÃO CHAMATIVO NA CTA */
+        .btn-chamativo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #25D366;
+            color: #ffffff !important;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .btn-chamativo:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
+        }
+        .btn-chamativo i {
+            font-size: 1.5rem;
+        }
 
-        .situacoes-ideais { background-color: var(--cor-primaria-suave); padding: 80px 0; }
-        .secao-titulo { text-align: center; font-size: 2.2rem; color: var(--cor-texto-forte); margin-bottom: 50px; margin-top: 0; }
-        .cards-situacoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card-sit { background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card-sit:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); }
-        .card-sit i { font-size: 3rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .card-sit h3 { font-size: 1.3rem; color: var(--cor-texto-forte); margin-bottom: 15px; margin-top: 0;}
-
-        .btn-orcamento { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; margin-top: 20px; transition: 0.3s; }
-        .btn-orcamento:hover { background-color: #128C7E; transform: translateY(-2px); color: white;}
+        /* BANNER MERCADO LIVRE */
+        .banner-ml {
+            background: linear-gradient(135deg, #1a1c4b 0%, #2D3277 100%);
+            border-radius: 20px;
+            padding: 45px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            box-shadow: 0 20px 40px rgba(45, 50, 119, 0.15);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .banner-ml::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 230, 0, 0.12) 0%, rgba(255, 230, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .banner-ml-text { position: relative; z-index: 2; }
+        .banner-ml-text h2 { color: #ffffff; font-size: 2.2rem; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -0.5px; }
+        .banner-ml-text h2 i { color: #FFE600; font-size: 2.6rem; }
+        .banner-ml-text p { color: #e2e8f0; font-size: 1.1rem; margin: 0; max-width: 600px; line-height: 1.6; font-weight: 400; }
+        .banner-ml-text p strong { color: #ffffff; font-weight: 600; }
+        .btn-ml-banner {
+            background-color: #FFE600;
+            color: #1a1c4b !important;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 230, 0, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .btn-ml-banner:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(255, 230, 0, 0.4); background-color: #FFD100; }
+        .btn-ml-banner i { font-size: 1.4rem; }
 
         .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s; animation: pulso-whatsapp 2s infinite; }
         .btn-whatsapp-flutuante i { font-size: 32px; }
@@ -167,143 +221,22 @@
         @keyframes pulso-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); transform: scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } }
 
         @media (max-width: 900px) {
-            .container { padding: 0 25px; } 
-            .produto-detalhe { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 40px; }
-            .cards-situacoes { grid-template-columns: 1fr; gap: 20px; }
-            .nav-desktop { display: none; }
+            .importancia-calha { grid-template-columns: 1fr; gap: 30px; margin: 40px 0;}
+            .modelos-grid { grid-template-columns: 1fr; }
             .btn-mobile-trigger { display: block; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; }
-            .menu-mobile .btn-catalogo-mobile { background-color: #622969; color: #ffffff !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; }
-            .produto-galeria { position: relative; top: 0; margin-bottom: 10px; padding: 20px; }
-            .btn-whatsapp-flutuante { width: 55px; height: 55px; bottom: 25px; right: 25px; }
-            .btn-whatsapp-flutuante i { font-size: 28px; }
-            .page-header { padding: 40px 0; }
+            .nav-desktop { display: none; }
             .page-header h1 { font-size: 2.2rem; }
-            .secao-titulo { font-size: 1.8rem; margin-bottom: 30px; }
-            .card-sit { padding: 30px 20px; }
+            .btn-chamativo { width: 100%; justify-content: center; padding: 14px 24px; font-size: 1rem; }
+            .banner-ml { flex-direction: column; text-align: center; padding: 40px 25px; border-radius: 16px; }
+            .banner-ml-text h2 { justify-content: center; font-size: 1.8rem; flex-direction: column; gap: 8px; }
+            .banner-ml-text p { font-size: 1rem; }
+            .btn-ml-banner { width: 100%; justify-content: center; padding: 16px 20px; }
         }
-        .banner-ml {
-        /* Fundo azul escuro moderno com degradê subtil */
-        background: linear-gradient(135deg, #1a1c4b 0%, #2D3277 100%);
-        border-radius: 20px;
-        padding: 45px 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
-        box-shadow: 0 20px 40px rgba(45, 50, 119, 0.15);
-        margin-bottom: 60px; /* Espaço antes do rodapé */
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* Efeito de brilho "moderno" no canto do banner */
-    .banner-ml::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(255, 230, 0, 0.12) 0%, rgba(255, 230, 0, 0) 70%);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    .banner-ml-text {
-        position: relative;
-        z-index: 2;
-    }
-
-    .banner-ml-text h2 {
-        color: #ffffff;
-        font-size: 2.2rem;
-        margin-top: 0;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-    }
-
-    /* Ícone em amarelo vibrante */
-    .banner-ml-text h2 i {
-        color: #FFE600; 
-        font-size: 2.6rem;
-    }
-
-    .banner-ml-text p {
-        color: #e2e8f0;
-        font-size: 1.1rem;
-        margin: 0;
-        max-width: 600px;
-        line-height: 1.6;
-        font-weight: 400;
-    }
-
-    .banner-ml-text p strong {
-        color: #ffffff;
-        font-weight: 600;
-    }
-
-    .btn-ml-banner {
-        background-color: #FFE600;
-        color: #1a1c4b !important;
-        padding: 16px 36px;
-        border-radius: 50px;
-        font-size: 1.05rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 20px rgba(255, 230, 0, 0.25);
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .btn-ml-banner:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 25px rgba(255, 230, 0, 0.4);
-        background-color: #FFD100;
-    }
-
-    .btn-ml-banner i {
-        font-size: 1.4rem;
-    }
-
-    /* Responsividade para Celulares */
-    @media (max-width: 900px) {
-        .banner-ml {
-            flex-direction: column;
-            text-align: center;
-            padding: 40px 25px;
-            border-radius: 16px;
-        }
-        .banner-ml-text h2 {
-            justify-content: center;
-            font-size: 1.8rem;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .banner-ml-text p {
-            font-size: 1rem;
-        }
-        .btn-ml-banner {
-            width: 100%;
-            justify-content: center;
-            padding: 16px 20px;
-        }
-    }
     </style>
 </head>
 <body>
-   <header>
+
+    <header>
         <div class="container header-content">
             <a href="/" class="logo">
                 <img src="/images/logo-nacional.webp" alt="Nacional Metais Logo">
@@ -333,7 +266,7 @@
                                     <ul class="grupo-superior">
                                         <li><a href="rufo-encosto"><i class="ph-bold ph-caret-right"></i> Rufo de Encosto</a></li>
                                         <li><a href="capa-pingadeira"><i class="ph-bold ph-caret-right"></i> Rufo Pingadeira</a></li>
-                                       
+                                        <li><a href="rufo-corte"><i class="ph-bold ph-caret-right"></i> Rufo de Corte</a></li>
                                     </ul>
                                     <h3 class="titulo-secundario">Bobinas Metálicas</h3>
                                     <ul>
@@ -385,8 +318,6 @@
                                     <ul>
                                         <li><a href="selantes-pu-silicone"><i class="ph-bold ph-caret-right"></i> Selantes PU e Silicone</a></li>
                                         <li><a href="fixacao"><i class="ph-bold ph-caret-right"></i> Rebites e Fixadores</a></li>
-                                        
-                                        <!-- NOVA OPÇÃO INSERIDA AQUI -->
                                         <li><a href="abrasivos"><i class="ph-bold ph-caret-right"></i> Abrasivos e Discos</a></li>
                                     </ul>
                                 </div>
@@ -402,7 +333,8 @@
                     <li><a href="blog">Blog</a></li>
                     <li><a href="parceria">Parceria</a></li>
                     <li><a href="contato">Contato</a></li>
-                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
+                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph ph-file-pdf"></i> Catálogo</a></li>
+                    
                     <li><a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml"><i class="ph-fill ph-handshake"></i> Loja Oficial</a></li>
                 </ul>
             </nav>
@@ -430,7 +362,7 @@
                         <span class="submenu-titulo">Rufos e Bobinas</span>
                         <a href="rufo-encosto">Rufo de Encosto</a>
                         <a href="capa-pingadeira">Rufo Pingadeira</a>
-                        
+                        <a href="rufo-corte">Rufo de Corte</a>
                         <a href="bobinas-metalicas">Bobinas de Alumínio</a>
 
                         <span class="submenu-titulo">Coifas e Exaustores</span>
@@ -448,17 +380,14 @@
                         <span class="submenu-titulo">Chapas Metálicas</span>
                         <a href="chapas-produtos">Chapas</a>
                         
-
                         <span class="submenu-titulo">Fachadas e Coberturas</span>
-                        <a href="acm">Revestimento ACM</a>
+                        <a href="chapa-acm">Revestimento ACM</a>
                         <a href="policarbonato-alveolar">Policarbonato Alveolar</a>
                         <a href="policarbonato-compacto">Policarbonato Compacto</a>
 
                         <span class="submenu-titulo">Acessórios de Montagem</span>
                         <a href="selantes-pu-silicone">Selantes PU e Silicone</a>
                         <a href="fixacao">Rebites e Fixadores</a>
-                        
-                        <!-- NOVA OPÇÃO INSERIDA AQUI NO MOBILE -->
                         <a href="abrasivos">Abrasivos e Discos</a>
                     </div>
                 </li>
@@ -467,84 +396,129 @@
                 <li><a href="parceria">Parceria</a></li>
                 <li><a href="contato">Contato</a></li>
                 <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" class="btn-catalogo-mobile" target="_blank"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
-                <li><a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml"><i class="ph-fill ph-handshake"></i> Loja Oficial</a></li>
+                
+                <li style="width: 100%;">
+                    <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" class="btn-ml-mobile" target="_blank"><i class="ph-fill ph-handshake"></i> Loja no Mercado Livre</a>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Chaminés e Dutos</h1>
-            <p class="breadcrumb">Home > Fabricação > Chaminés</p>
-        </div>
-    </div>
-
-    <section class="container">
-        <div class="importancia-calha">
-            <div class="importancia-texto">
-                <h2>Segurança e Eficiência</h2>
-                <p>Uma chaminé mal dimensionada faz a fumaça "voltar" para dentro de casa, deixando cheiro ruim e fuligem nos móveis. Para indústrias e restaurantes, a chaminé é item de segurança obrigatório.</p>
-                <p>Nossos kits são projetados para garantir o fluxo de ar correto, expulsando a fumaça com eficiência mesmo em dias de vento.</p>
-                <div class="destaque-box"><i class="ph-bold ph-fire"></i> Segurança: Evite riscos de incêndio com dutos adequados para alta temperatura.</div>
+    <main>
+        <!-- TÍTULO DA PÁGINA -->
+        <div class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> <i class="ph-bold ph-caret-right"></i> 
+                    <a href="fabricacao">Fabricação</a> <i class="ph-bold ph-caret-right"></i> 
+                    <span>Sistemas de Exaustão</span>
+                </div>
+                <h1>Chaminés, Dutos e Exaustores</h1>
+                <p>O fluxo de ar perfeito para a sua obra em Palhoça e região. Evite o retorno da fumaça e garanta a segurança da sua área gourmet ou indústria.</p>
             </div>
-          <img class="card-modelo" src="images/produtosImagens/chamines/chamine-fundo.jpg" alt="Chaminés e Dutos Industriais">
         </div>
 
-        <div class="modelos-grid">
-           
-            <div class="card-modelo">
-                <img src="images/produtosImagens/chamines/kit-churrasqueira.jpg" alt="Kit Churrasqueira - Nacional Metais" title="Kit Churrasqueira - Nacional Metais">
-                <div class="modelo-conteudo">
-                    <h3>Kit Churrasqueira</h3>
-                    <p>O conjunto completo para sua área gourmet. Inclui duto, curva se necessário e o chapéu chinês para evitar entrada de chuva.</p>
-                    <span class="tag-uso">Ideal para: Áreas Gourmet</span>
+        <section class="container">
+            
+            <!-- SEÇÃO EDUCATIVA: POR QUE IMPORTA? -->
+            <div class="importancia-calha">
+                <div class="importancia-texto">
+                    <h2>Segurança e Eficiência</h2>
+                    <p>Uma chaminé mal dimensionada faz a fumaça "voltar" para dentro de casa, deixando cheiro ruim e fuligem nos móveis. Para galpões, indústrias e restaurantes, um sistema de exaustão eficiente é item de segurança e conforto obrigatório.</p>
+                    
+                    <p>Na Nacional Metais, fabricamos dutos, curvas, coifas e chapéus projetados com engenharia de fluxo para garantir que a fumaça e o calor sejam expulsos com eficiência máxima, mesmo em dias de vento forte.</p>
+
+                    <div class="destaque-box">
+                        <i class="ph-fill ph-fire" style="font-size: 1.5rem;"></i> 
+                        <span><strong>Segurança:</strong> Evite riscos de incêndio utilizando dutos de material e diâmetro adequados para alta temperatura.</span>
+                    </div>
+                </div>
+                
+                <div class="importancia-img">
+                    <img src="images/produtosImagens/chamines/chamine-fundo.jpg" onerror="this.src='https://placehold.co/600x400/eeeeee/666666?text=Sistemas+de+Exaustao'" alt="Chaminés e Dutos Industriais">
                 </div>
             </div>
 
-            <div class="card-modelo">
-                <img src="images/produtosImagens/chamines/curvas-e-desvios.jpg" alt="Curvas e Desvios para Chaminés - Nacional Metais" title="Curvas e Desvios para Chaminés">
-                <div class="modelo-conteudo">
-                    <h3>Curvas e Desvios</h3>
-                    <p>Peças fabricadas em ângulos precisos (45º ou 90º) para desviar de vigas ou telhados sem perder a vazão da fumaça.</p>
-                    <span class="tag-uso">Ideal para: Instalações Complexas</span>
-                </div>
+            <!-- VITRINE DE MODELOS (LINKS PARA O SUBMENU) -->
+            <div class="modelos-titulo">
+                <h2>Conheça as Nossas Linhas</h2>
+                <p style="opacity: 0.7; font-size: 1.1rem;">Fabricação sob medida em Inox e Galvanizado para a Grande Florianópolis.</p>
             </div>
 
-            <div class="card-modelo">
-                <img src="images/produtosImagens/chamines/chapeu-chines.jpg" alt="Chapéu Chinês para Chaminés - Nacional Metais" title="Chapéu Chinês para Chaminés">
-                <div class="modelo-conteudo">
-                    <h3>Chapéu Chinês</h3>
-                    <p>O acabamento topo de linha. Protege a saída da chaminé contra chuva e ninhos de pássaros, mantendo o fluxo livre.</p>
-                    <span class="tag-uso">Indispensável</span>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="modelos-grid">
+                
+                <!-- MODELO 1: COIFAS -->
+                <a href="coifas-cozinha-especiais" class="card-modelo">
+                    <img src="images/produtosImagens/coifas/coifa-cozinha.jpg" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Coifas'" alt="Coifas (Cozinha e Especiais)">
+                    <div class="modelo-conteudo">
+                        <h3>Coifas (Cozinha e Especiais)</h3>
+                        <p>O coração do sistema de exaustão. Fabricamos coifas em Inox com acabamento premium para áreas gourmet, além de coifas industriais de grande porte para restaurantes e fábricas.</p>
+                        <span class="tag-uso">Captação Direta de Fumaça</span>
+                    </div>
+                </a>
 
-    <div style="text-align: center; margin-bottom: 80px; padding: 40px; background: var(--cor-primaria-claro); border-radius: 12px;">
-    <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Precisa de Chaminé Sob Medida?</h3>
-    <p style="margin-bottom: 25px;">Fabricamos chaminés e dutos personalizados para churrasqueiras e lareiras. Envie as medidas do seu projeto.</p>
-    <a href="https://wa.me/5548999462068" class="btn" style="background-color: #25D366; color: white; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-        <i class="ph-bold ph-whatsapp-logo"></i> Cotar Chaminé
-    </a>
-</div>
-<section class="container">
-    <div class="banner-ml">
-        <div class="banner-ml-text">
-            <h2><i class="ph-fill ph-handshake"></i> Loja Oficial</h2>
-            <p>Prefere a comodidade do <strong>Mercado Livre</strong>? Compre os nossos produtos com garantia de entrega rápida, Compra Protegida e parcelamento facilitado para todo o Brasil.</p>
-        </div>
-        <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml-banner">
-            Acessar Mercado Livre <i class="ph-bold ph-arrow-right"></i>
-        </a>
-    </div>
-</section>
+                <!-- MODELO 2: CHAMINÉS E CHAPÉUS (Antigo Kit Churrasqueira) -->
+                <a href="chamines-geral" class="card-modelo">
+                    <img src="images/produtosImagens/chamines/kit-churrasqueira.jpg" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Kits+de+Chaminé'" alt="Chaminés e Chapéus">
+                    <div class="modelo-conteudo">
+                        <h3>Chaminés e Chapéus</h3>
+                        <p>Kits completos para a sua área gourmet ou lareira. Inclui os dutos principais e o clássico Chapéu Chinês, o acabamento topo de linha que impede a entrada de chuva e pássaros.</p>
+                        <span class="tag-uso">Ideal para: Áreas Gourmet</span>
+                    </div>
+                </a>
+
+                <!-- MODELO 3: SPUTNIK -->
+                <a href="sputnik" class="card-modelo">
+                    <img src="images/produtosImagens/chamines/chapeu/sputnik-2.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Chamine+Sputnik'" alt="Chaminé Sputnik">
+                    <div class="modelo-conteudo">
+                        <h3>Chaminé Sputnik</h3>
+                        <p>A solução definitiva contra o retorno de fumaça. O seu design inteligente e vazado em todos os ângulos utiliza o próprio vento a seu favor para criar um efeito de sucção poderoso (efeito Venturi).</p>
+                        <span class="tag-uso">Para Zonas de Muito Vento</span>
+                    </div>
+                </a>
+
+                <!-- MODELO 4: DUTOS E CURVAS -->
+                <a href="dutos-curvas" class="card-modelo">
+                    <img src="images/produtosImagens/chamines/dutos-curvas/curva-1.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Dutos+e+Curvas'" alt="Dutos e Curvas">
+                    <div class="modelo-conteudo">
+                        <h3>Dutos e Curvas</h3>
+                        <p>Tubulações fabricadas em ângulos exatos (45º, 90º ou sob medida). Perfeitos para criar os desvios necessários no telhado ou para fugir de vigas sem comprometer o fluxo de exaustão.</p>
+                        <span class="tag-uso">Instalações Complexas</span>
+                    </div>
+                </a>
+
+            
+            </div>
+
+            <!-- CTA FINAL (Com botão super chamativo) -->
+            <div style="text-align: center; margin-bottom: 80px; padding: 40px 20px; background: var(--cor-primaria-suave); border: 1px solid #eaeaea; border-radius: 12px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: var(--cor-texto-forte); margin-top:0;">Precisa de Exaustão Sob Medida?</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--cor-texto-medio);">Fabricamos chaminés, dutos e exaustores personalizados para a sua necessidade. Fale com a nossa equipa técnica em Palhoça.</p>
+                <a href="https://wa.me/5548999462068?text=Olá! Estou no site e preciso de um orçamento de chaminés e dutos para a minha obra." class="btn-chamativo">
+                    <i class="ph-fill ph-whatsapp-logo"></i> Cotar no WhatsApp
+                </a>
+            </div>
+
+            <!-- BANNER MERCADO LIVRE (Novo Padrão) -->
+            <div class="banner-ml">
+                <div class="banner-ml-text">
+                    <h2><i class="ph-fill ph-handshake"></i> Loja Oficial</h2>
+                    <p>Prefere a comodidade do <strong>Mercado Livre</strong>? Compre os nossos produtos com garantia de entrega rápida, Compra Protegida e parcelamento facilitado para todo o Brasil.</p>
+                </div>
+                <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml-banner">
+                    Acessar Mercado Livre <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+
+        </section>
+    </main>
+
     <footer style="background-color: #622969; color: white; padding: 25px 0;">
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
                 <div class="footer-col">
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Nacional Metais</h3>
-                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção</p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">Sua loja favorita de metais e materiais de construção em Palhoça e região.</p>
                 </div>
                 <div class="footer-col">
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Institucional</h3>
@@ -557,29 +531,56 @@
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 8px;"><a href="contato" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
-                        
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center;">
-                <p style="font-size: 0.7rem; opacity: 0.8;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(130, 51, 141, 0.1); display: flex; flex-direction: column; align-items: center; gap: 15px; text-align: center; padding-top: 20px;">
+                <p style="font-size: 0.7rem; opacity: 0.8; margin: 0;">&copy; 2026 Nacional Metais Todos os direitos reservados</p>
                 
-                <!-- ASSINATURA EDGETI -->
                 <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
                     <span>Desenvolvido por</span>
-               
-                   <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
+                    <a href="https://edgeti.com.br/"> <img src="images/logoEdgeTi.webp" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
                 </div>
             </div>
         </div>
     </footer>
-    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento." 
-    class="btn-whatsapp-flutuante" 
-    target="_blank"
-    aria-label="Falar no WhatsApp">
-    <i class="ph-fill ph-whatsapp-logo"></i>
+
+    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento de chaminés e dutos." 
+       class="btn-whatsapp-flutuante" 
+       target="_blank"
+       aria-label="Falar no WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
-    <script src="assets/js/menu.js"></script>
+
+    <!-- SCRIPT DO MENU MOBILE SANFONA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnMobile = document.getElementById('btn-mobile');
+            const menuMobile = document.getElementById('menu-mobile');
+            const hasSubmenus = document.querySelectorAll('.has-submenu');
+
+            // Abrir/Fechar menu mobile
+            if(btnMobile) {
+                btnMobile.addEventListener('click', () => {
+                    menuMobile.classList.toggle('aberto');
+                });
+            }
+
+            // Lógica sanfona no menu mobile
+            hasSubmenus.forEach(item => {
+                const link = item.querySelector('a');
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Fecha os outros
+                    hasSubmenus.forEach(otherItem => {
+                        if(otherItem !== item) otherItem.classList.remove('ativo');
+                    });
+                    // Abre/fecha o clicado
+                    item.classList.toggle('ativo');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
