@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="images/nacional-favicon.png">
 
     <meta property="og:image"
-        content="[https://nacionalmetais.com/images/nacional-favicon.png](https://nacionalmetais.com/images/nacional-favicon.png)">
+        content="https://nacionalmetais.com/images/nacional-favicon.png">
     <meta name="adopt-website-id" content="c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" />
     
     <script src="https://tag.goadopt.io/injector.js?website_code=c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" class="adopt-injector"></script>
@@ -40,7 +40,6 @@
         
         .container { max-width: var(--largura-maxima); margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER DESKTOP E MEGA MENU */
         :root {
         --cor-primaria: #500056;
         --cor-primaria-escuro: #3a003e;
@@ -119,68 +118,43 @@
     .menu-mobile .btn-ml-mobile { background-color: #FFE600; color: #2D3277 !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; font-weight: 700;}
     .menu-mobile .btn-ml-mobile i { font-size: 1.4rem; color: #2D3277 !important; }
 
-    @media (max-width: 900px) {
-        .nav-desktop { display: none; }
-        .btn-mobile-trigger { display: block; }
-    }
+    /* =======================================================
+       ESTILOS ESPECÍFICOS DA PÁGINA HUB (NOVO PADRÃO)
+       ======================================================= */
+    .page-header { background-color: var(--cor-primaria-suave); padding: 60px 0; border-bottom: 1px solid #eaeaea; }
+    .breadcrumb { font-size: 0.9rem; color: #888; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--cor-primaria); font-weight: 500; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-header h1 { font-size: 2.8rem; color: var(--cor-texto-forte); margin-bottom: 10px; margin-top: 0; }
+    .page-header p { font-size: 1.1rem; max-width: 600px; margin: 0; }
 
-        /* OUTROS ESTILOS DA PÁGINA (Sobrescreve conflitos com CSS antigo) */
-        .page-header { background-color: var(--cor-primaria-suave); padding: 60px 0; border-bottom: 1px solid #eaeaea; }
-        .breadcrumb { font-size: 0.9rem; color: #888; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
-        .breadcrumb a { color: var(--cor-primaria); font-weight: 500; }
-        .breadcrumb a:hover { text-decoration: underline; }
-        .page-header h1 { font-size: 2.8rem; color: var(--cor-texto-forte); margin-bottom: 10px; margin-top: 0; }
-        .page-header p { font-size: 1.1rem; max-width: 600px; margin: 0; }
+    .importancia-calha { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; align-items: center; }
+    .importancia-texto h2 { font-size: 2rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top:0; }
+    .importancia-texto p { margin-bottom: 15px; font-size: 1.05rem; }
+    .destaque-box { background-color: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 25px; color: #166534; font-weight: 500; display: flex; gap: 10px; }
+    .importancia-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .produto-detalhe { padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .produto-galeria { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; position: sticky; top: 100px; }
-        .imagem-principal img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s ease; }
-        .miniaturas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
-        .thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; transition: all 0.3s ease; }
-        .thumb:hover { opacity: 1; transform: translateY(-2px); }
-        .thumb.ativo { opacity: 1; border-color: var(--cor-primaria); box-shadow: 0 4px 8px rgba(102, 14, 84, 0.2); }
+    .modelos-titulo { text-align: center; margin-bottom: 40px; }
+    .modelos-titulo h2 { font-size: 2.2rem; color: var(--cor-texto-forte); margin: 0 0 10px 0; }
+    
+    .modelos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
+    
+    /* Cartões como Links Mágicos Clicáveis */
+    .card-modelo { text-decoration: none; color: inherit; background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eaeaea; box-shadow: 0 10px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;}
+    .card-modelo:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); border-color: rgba(80,0,86,0.2); }
+    .card-modelo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 1px solid #eee; }
+    .modelo-conteudo { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+    .modelo-conteudo h3 { font-size: 1.4rem; color: var(--cor-primaria); margin-top: 0; margin-bottom: 15px; }
+    .modelo-conteudo p { font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+    .tag-uso { display: inline-block; background: var(--cor-primaria-suave); color: var(--cor-primaria); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(80,0,86,0.1); width: fit-content;}
 
-        .produto-info h2 { font-size: 1.8rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top: 0;}
-        .produto-info p { margin-bottom: 20px; font-size: 1.05rem; }
+    /* ESTILO DO BOTÃO CHAMATIVO NA CTA */
+    .btn-chamativo { display: inline-flex; align-items: center; gap: 12px; background-color: #25D366; color: #ffffff !important; padding: 16px 32px; border-radius: 50px; font-size: 1.15rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; text-decoration: none; margin-top: 10px; }
+    .btn-chamativo:hover { background-color: #128C7E; transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5); }
+    .btn-chamativo i { font-size: 1.5rem; }
 
-        .lista-vantagens { margin: 30px 0; }
-        .lista-vantagens li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 1.05rem; background: white; padding: 15px 20px; border-radius: 8px; border-left: 4px solid var(--cor-primaria); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-        .lista-vantagens i { color: var(--cor-primaria); font-size: 1.4rem; margin-top: 2px; }
-        .lista-vantagens strong { display: block; color: var(--cor-texto-forte); margin-bottom: 4px; }
-
-        .situacoes-ideais { background-color: var(--cor-primaria-suave); padding: 80px 0; }
-        .secao-titulo { text-align: center; font-size: 2.2rem; color: var(--cor-texto-forte); margin-bottom: 50px; margin-top: 0; }
-        .cards-situacoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card-sit { background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card-sit:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); }
-        .card-sit i { font-size: 3rem; color: var(--cor-primaria); margin-bottom: 20px; }
-        .card-sit h3 { font-size: 1.3rem; color: var(--cor-texto-forte); margin-bottom: 15px; margin-top: 0;}
-
-        .btn-orcamento { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; margin-top: 20px; transition: 0.3s; }
-        .btn-orcamento:hover { background-color: #128C7E; transform: translateY(-2px); color: white;}
-
-        .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s; animation: pulso-whatsapp 2s infinite; }
-        .btn-whatsapp-flutuante i { font-size: 32px; }
-        .btn-whatsapp-flutuante:hover { background-color: #128C7E; transform: scale(1.1); animation: none; color: white; }
-        @keyframes pulso-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); transform: scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } }
-
-        @media (max-width: 900px) {
-            .container { padding: 0 25px; } 
-            .produto-detalhe { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: 40px; }
-            .cards-situacoes { grid-template-columns: 1fr; gap: 20px; }
-            .nav-desktop { display: none; }
-            .btn-mobile-trigger { display: block; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; }
-            .menu-mobile .btn-catalogo-mobile { background-color: #622969; color: #ffffff !important; margin: 10px 20px; padding: 12px !important; border-radius: 8px; justify-content: center; display: flex; gap: 10px; }
-            .produto-galeria { position: relative; top: 0; margin-bottom: 10px; padding: 20px; }
-            .btn-whatsapp-flutuante { width: 55px; height: 55px; bottom: 25px; right: 25px; }
-            .btn-whatsapp-flutuante i { font-size: 28px; }
-            .page-header { padding: 40px 0; }
-            .page-header h1 { font-size: 2.2rem; }
-            .secao-titulo { font-size: 1.8rem; margin-bottom: 30px; }
-            .card-sit { padding: 30px 20px; }
-        }
-        .banner-ml {
-        /* Fundo azul escuro moderno com degradê subtil */
+    /* BANNER MERCADO LIVRE */
+    .banner-ml {
         background: linear-gradient(135deg, #1a1c4b 0%, #2D3277 100%);
         border-radius: 20px;
         padding: 45px 50px;
@@ -194,7 +168,6 @@
         overflow: hidden;
     }
 
-    /* Efeito de brilho "moderno" no canto do banner */
     .banner-ml::before {
         content: '';
         position: absolute;
@@ -208,100 +181,40 @@
         z-index: 1;
     }
 
-    .banner-ml-text {
-        position: relative;
-        z-index: 2;
-    }
+    .banner-ml-text { position: relative; z-index: 2; }
+    .banner-ml-text h2 { color: #ffffff; font-size: 2.2rem; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -0.5px; }
+    .banner-ml-text h2 i { color: #FFE600; font-size: 2.6rem; }
+    .banner-ml-text p { color: #e2e8f0; font-size: 1.1rem; margin: 0; max-width: 600px; line-height: 1.6; font-weight: 400; }
+    .banner-ml-text p strong { color: #ffffff; font-weight: 600; }
+    .btn-ml-banner { background-color: #FFE600; color: #1a1c4b !important; padding: 16px 36px; border-radius: 50px; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; white-space: nowrap; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(255, 230, 0, 0.25); display: inline-flex; align-items: center; gap: 10px; position: relative; z-index: 2; }
+    .btn-ml-banner:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(255, 230, 0, 0.4); background-color: #FFD100; }
+    .btn-ml-banner i { font-size: 1.4rem; }
 
-    .banner-ml-text h2 {
-        color: #ffffff;
-        font-size: 2.2rem;
-        margin-top: 0;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-    }
+    /* =======================================================
+       BOTÃO FLUTUANTE DO WHATSAPP
+       ======================================================= */
+    .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; z-index: 9999; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s; animation: pulso-whatsapp 2s infinite; }
+    .btn-whatsapp-flutuante i { font-size: 32px; }
+    .btn-whatsapp-flutuante:hover { background-color: #128C7E; transform: scale(1.1); animation: none; }
+    @keyframes pulso-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); transform: scale(1); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); transform: scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); transform: scale(1); } }
 
-    /* Ícone em amarelo vibrante */
-    .banner-ml-text h2 i {
-        color: #FFE600; 
-        font-size: 2.6rem;
-    }
-
-    .banner-ml-text p {
-        color: #e2e8f0;
-        font-size: 1.1rem;
-        margin: 0;
-        max-width: 600px;
-        line-height: 1.6;
-        font-weight: 400;
-    }
-
-    .banner-ml-text p strong {
-        color: #ffffff;
-        font-weight: 600;
-    }
-
-    .btn-ml-banner {
-        background-color: #FFE600;
-        color: #1a1c4b !important;
-        padding: 16px 36px;
-        border-radius: 50px;
-        font-size: 1.05rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 20px rgba(255, 230, 0, 0.25);
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .btn-ml-banner:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 25px rgba(255, 230, 0, 0.4);
-        background-color: #FFD100;
-    }
-
-    .btn-ml-banner i {
-        font-size: 1.4rem;
-    }
-
-    /* Responsividade para Celulares */
     @media (max-width: 900px) {
-        .banner-ml {
-            flex-direction: column;
-            text-align: center;
-            padding: 40px 25px;
-            border-radius: 16px;
-        }
-        .banner-ml-text h2 {
-            justify-content: center;
-            font-size: 1.8rem;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .banner-ml-text p {
-            font-size: 1rem;
-        }
-        .btn-ml-banner {
-            width: 100%;
-            justify-content: center;
-            padding: 16px 20px;
-        }
+        .nav-desktop { display: none; }
+        .btn-mobile-trigger { display: block; font-size: 2rem; color: var(--cor-primaria); background: none; border: none; cursor: pointer; }
+        .importancia-calha { grid-template-columns: 1fr; gap: 30px; margin: 40px 0;}
+        .modelos-grid { grid-template-columns: 1fr; }
+        .page-header h1 { font-size: 2.2rem; }
+        .btn-chamativo { width: 100%; justify-content: center; padding: 14px 24px; font-size: 1rem; }
+        .banner-ml { flex-direction: column; text-align: center; padding: 40px 25px; border-radius: 16px; }
+        .banner-ml-text h2 { justify-content: center; font-size: 1.8rem; flex-direction: column; gap: 8px; }
+        .banner-ml-text p { font-size: 1rem; }
+        .btn-ml-banner { width: 100%; justify-content: center; padding: 16px 20px; }
     }
     </style>
 </head>
 <body>
-    <header>
+
+   <header>
         <div class="container header-content">
             <a href="/" class="logo">
                 <img src="/images/logo-nacional.webp" alt="Nacional Metais Logo">
@@ -331,7 +244,7 @@
                                     <ul class="grupo-superior">
                                         <li><a href="rufo-encosto"><i class="ph-bold ph-caret-right"></i> Rufo de Encosto</a></li>
                                         <li><a href="capa-pingadeira"><i class="ph-bold ph-caret-right"></i> Rufo Pingadeira</a></li>
-                                        
+                                        <li><a href="rufo-corte"><i class="ph-bold ph-caret-right"></i> Rufo de Corte</a></li>
                                     </ul>
                                     <h3 class="titulo-secundario">Bobinas Metálicas</h3>
                                     <ul>
@@ -383,8 +296,6 @@
                                     <ul>
                                         <li><a href="selantes-pu-silicone"><i class="ph-bold ph-caret-right"></i> Selantes PU e Silicone</a></li>
                                         <li><a href="fixacao"><i class="ph-bold ph-caret-right"></i> Rebites e Fixadores</a></li>
-                                        
-                                        <!-- NOVA OPÇÃO INSERIDA AQUI -->
                                         <li><a href="abrasivos"><i class="ph-bold ph-caret-right"></i> Abrasivos e Discos</a></li>
                                     </ul>
                                 </div>
@@ -400,7 +311,8 @@
                     <li><a href="blog">Blog</a></li>
                     <li><a href="parceria">Parceria</a></li>
                     <li><a href="contato">Contato</a></li>
-                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
+                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph-bold ph-file-pdf"></i> Catálogo</a></li>
+                    
                     <li><a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml"><i class="ph-fill ph-handshake"></i> Loja Oficial</a></li>
                 </ul>
             </nav>
@@ -428,7 +340,7 @@
                         <span class="submenu-titulo">Rufos e Bobinas</span>
                         <a href="rufo-encosto">Rufo de Encosto</a>
                         <a href="capa-pingadeira">Rufo Pingadeira</a>
-                        
+                        <a href="rufo-corte">Rufo de Corte</a>
                         <a href="bobinas-metalicas">Bobinas de Alumínio</a>
 
                         <span class="submenu-titulo">Coifas e Exaustores</span>
@@ -446,17 +358,14 @@
                         <span class="submenu-titulo">Chapas Metálicas</span>
                         <a href="chapas-produtos">Chapas</a>
                         
-
                         <span class="submenu-titulo">Fachadas e Coberturas</span>
-                        <a href="acm">Revestimento ACM</a>
+                        <a href="chapa-acm">Revestimento ACM</a>
                         <a href="policarbonato-alveolar">Policarbonato Alveolar</a>
                         <a href="policarbonato-compacto">Policarbonato Compacto</a>
 
                         <span class="submenu-titulo">Acessórios de Montagem</span>
                         <a href="selantes-pu-silicone">Selantes PU e Silicone</a>
                         <a href="fixacao">Rebites e Fixadores</a>
-                        
-                        <!-- NOVA OPÇÃO INSERIDA AQUI NO MOBILE -->
                         <a href="abrasivos">Abrasivos e Discos</a>
                     </div>
                 </li>
@@ -464,68 +373,104 @@
                 <li><a href="blog">Blog</a></li>
                 <li><a href="parceria">Parceria</a></li>
                 <li><a href="contato">Contato</a></li>
-                <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" class="btn-catalogo-mobile" target="_blank"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
-                <li><a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml"><i class="ph-fill ph-handshake"></i> Loja Oficial</a></li>
+                <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" class="btn-catalogo-mobile" target="_blank"><i class="ph-bold ph-file-pdf"></i> Ver Catálogo</a></li>
+                
+                <li style="width: 100%;">
+                    <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" class="btn-ml-mobile" target="_blank"><i class="ph-fill ph-handshake"></i> Loja no Mercado Livre</a>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Policarbonato</h1>
-            <p class="breadcrumb">Home > Distribuição > Policarbonato</p>
-        </div>
-    </div>
-
-    <section class="container">
-        <div class="importancia-calha">
-            <div class="importancia-texto">
-                <h2>Luz Natural com Proteção</h2>
-                <p>O Policarbonato é 250 vezes mais resistente que o vidro e muito mais leve. É a solução perfeita para quem quer claridade sem o calor excessivo do sol direto, graças à proteção UV.</p>
-                <div class="destaque-box"><i class="ph-bold ph-sun"></i> Proteção UV: Nossas chapas bloqueiam os raios nocivos, protegendo móveis e veículos embaixo da cobertura.</div>
+    <main>
+        <!-- TÍTULO DA PÁGINA -->
+        <div class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> <i class="ph-bold ph-caret-right"></i> 
+                    <a href="distribuicao">Distribuição</a> <i class="ph-bold ph-caret-right"></i> 
+                    <span>Policarbonato</span>
+                </div>
+                <h1>Policarbonato</h1>
+                <p>A solução perfeita para quem quer claridade sem o calor excessivo do sol direto, garantindo resistência extrema e proteção UV.</p>
             </div>
-           <img class="card-modelo" src="images/produtosImagens/policarbonato/policarbonato-fundo.jpg" alt="Policarbonato em diferentes acabamentos">
         </div>
 
-        <div class="modelos-grid">
-            <div class="card-modelo">
-                <img src="images/produtosImagens/policarbonato/policarbonato-canelado.jpg" alt="Policarbonato Canelado">
-                <div class="modelo-conteudo">
-                    <h3>Alveolar (Canelado)</h3>
-                    <p>Possui cavidades internas (colmeia). É super leve e econômico. Ótimo para grandes coberturas curvas.</p>
-                    <span class="tag-uso">Custo-Benefício</span>
+        <section class="container">
+            
+            <!-- SEÇÃO EDUCATIVA -->
+            <div class="importancia-calha">
+                <div class="importancia-texto">
+                    <h2>Luz Natural com Proteção</h2>
+                    <p>O Policarbonato é 250 vezes mais resistente que o vidro e muito mais leve. É a escolha definitiva para criar áreas de lazer iluminadas, garagens seguras e coberturas modernas.</p>
+                    
+                    <p>Na Nacional Metais, trabalhamos com as versões Alveolar e Compacto, cortadas sob medida para o seu projeto em Palhoça e Grande Florianópolis.</p>
+
+                    <div class="destaque-box">
+                        <i class="ph-fill ph-sun" style="font-size: 1.5rem;"></i> 
+                        <span><strong>Proteção UV:</strong> Nossas chapas bloqueiam os raios nocivos, protegendo móveis e veículos embaixo da cobertura contra o ressecamento e o desgaste.</span>
+                    </div>
+                </div>
+                
+                <div class="importancia-img">
+                    <img src="images/produtosImagens/policarbonato/policarbonato-fundo.jpg" onerror="this.src='https://placehold.co/600x400/eeeeee/666666?text=Policarbonato'" alt="Policarbonato em diferentes acabamentos">
                 </div>
             </div>
-            <div class="card-modelo">
-               <img src="images/produtosImagens/policarbonato/policarbonato-liso.jpg" alt="Policarbonato Liso">
-                <div class="modelo-conteudo">
-                    <h3>Compacto (Liso)</h3>
-                    <p>Maciço e transparente como vidro, mas inquebrável. Ideal para visores, escudos e áreas nobres.</p>
-                    <span class="tag-uso">Premium</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <div style="text-align: center; margin-bottom: 80px; padding: 40px; background: var(--cor-primaria-claro); border-radius: 12px;">
-    <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Precisa de Chapas de Policarbonato?</h3>
-    <p style="margin-bottom: 25px;">Alveolar ou Compacto. Envie as medidas do seu projeto e entregamos as chapas cortadas sob medida.</p>
-    <a href="https://wa.me/5548999462068" class="btn" style="background-color: #25D366; color: white; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-        <i class="ph-bold ph-whatsapp-logo"></i> Cotar Policarbonato
-    </a>
-</div>
-    <section class="container">
-    <div class="banner-ml">
-        <div class="banner-ml-text">
-            <h2><i class="ph-fill ph-handshake"></i> Loja Oficial</h2>
-            <p>Prefere a comodidade do <strong>Mercado Livre</strong>? Compre os nossos produtos com garantia de entrega rápida, Compra Protegida e parcelamento facilitado para todo o Brasil.</p>
-        </div>
-        <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml-banner">
-            Acessar Mercado Livre <i class="ph-bold ph-arrow-right"></i>
-        </a>
-    </div>
-</section>
-   <footer style="background-color: #622969; color: white; padding: 25px 0;">
+            <!-- VITRINE DE MODELOS (CARTÕES CLICÁVEIS) -->
+            <div class="modelos-titulo">
+                <h2>Conheça Nossos Modelos</h2>
+                <p style="opacity: 0.7; font-size: 1.1rem;">Disponíveis em diversas cores e espessuras para a sua obra.</p>
+            </div>
+
+            <div class="modelos-grid">
+                
+                <!-- Modelo Alveolar -->
+                <a href="policarbonato-alveolar" class="card-modelo">
+                    <img src="images/produtosImagens/policarbonato/policarbonato-canelado.jpg" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Alveolar'" alt="Policarbonato Canelado">
+                    <div class="modelo-conteudo">
+                        <h3>Alveolar (Canelado)</h3>
+                        <p>Possui cavidades internas (colmeia). É super leve, reduz o calor e tem um excelente custo-benefício. Ótimo para grandes coberturas, garagens e pergolados.</p>
+                        <span class="tag-uso">Melhor Custo-Benefício</span>
+                    </div>
+                </a>
+
+                <!-- Modelo Compacto -->
+                <a href="policarbonato-compacto" class="card-modelo">
+                    <img src="images/produtosImagens/policarbonato/policarbonato-liso.jpg" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Compacto'" alt="Policarbonato Liso">
+                    <div class="modelo-conteudo">
+                        <h3>Compacto (Maciço)</h3>
+                        <p>Maciço e perfeitamente liso. Semelhança estética idêntica ao vidro temperado, mas inquebrável. Ideal para fachadas, guarda-corpos e coberturas premium.</p>
+                        <span class="tag-uso">Aparência de Vidro</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- CTA FINAL (Botão chamativo) -->
+            <div style="text-align: center; margin-bottom: 80px; padding: 40px 20px; background: var(--cor-primaria-suave); border: 1px solid #eaeaea; border-radius: 12px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: var(--cor-texto-forte); margin-top:0;">Precisa de Chapas de Policarbonato?</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--cor-texto-medio);">Alveolar ou Compacto. Envie as medidas do seu projeto e entregamos as chapas perfeitas para a sua instalação em Palhoça e região.</p>
+                <a href="https://wa.me/5548999462068?text=Olá! Estou no site a ver o Policarbonato e gostaria de solicitar um orçamento." target="_blank" class="btn-chamativo">
+                    <i class="ph-fill ph-whatsapp-logo"></i> Cotar Policarbonato
+                </a>
+            </div>
+
+            <!-- BANNER MERCADO LIVRE -->
+            <div class="banner-ml">
+                <div class="banner-ml-text">
+                    <h2><i class="ph-fill ph-handshake"></i> Loja Oficial</h2>
+                    <p>Prefere a comodidade do <strong>Mercado Livre</strong>? Compre os nossos produtos com garantia de entrega rápida, Compra Protegida e parcelamento facilitado para todo o Brasil.</p>
+                </div>
+                <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml-banner">
+                    Acessar Mercado Livre <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer style="background-color: #622969; color: white; padding: 25px 0;">
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
                 <div class="footer-col">
@@ -543,7 +488,6 @@
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 8px;"><a href="contato" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
-                        
                     </ul>
                 </div>
             </div>
@@ -554,7 +498,6 @@
                 <!-- ASSINATURA EDGETI -->
                 <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
                     <span>Desenvolvido por</span>
-                    
                    <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
                 </div>
             </div>
@@ -566,6 +509,6 @@
    aria-label="Falar no WhatsApp">
     <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
-    <script src="assets/js/menu.js"></script>
+<script src="assets/js/menu.js"></script>
 </body>
 </html>
