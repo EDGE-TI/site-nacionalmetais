@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="images/nacional-favicon.png">
 
     <meta property="og:image"
-        content="[https://nacionalmetais.com/images/nacional-favicon.png](https://nacionalmetais.com/images/nacional-favicon.png)">
+        content="https://nacionalmetais.com/images/nacional-favicon.png">
 
     <meta name="adopt-website-id" content="c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" />
     
@@ -299,10 +299,64 @@
             padding: 16px 20px;
         }
     }
+
+    /* ESTILOS DA PÁGINA (Hub de Produtos ACM) */
+    .importancia-calha { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; align-items: center; }
+    .importancia-texto h2 { font-size: 2rem; color: var(--cor-texto-forte); margin-bottom: 20px; margin-top:0; }
+    .importancia-texto p { margin-bottom: 15px; font-size: 1.05rem; }
+    .destaque-box { background-color: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 25px; color: #166534; font-weight: 500; display: flex; gap: 10px; }
+    .importancia-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+    .modelos-titulo { text-align: center; margin-bottom: 40px; }
+    .modelos-titulo h2 { font-size: 2.2rem; color: var(--cor-texto-forte); margin: 0 0 10px 0; }
+    
+    .modelos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
+    
+    /* Cartões Mágicos - AGORA COM LINK (text-decoration none) */
+    .card-modelo { text-decoration: none; color: inherit; background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eaeaea; box-shadow: 0 10px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;}
+    .card-modelo:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(80,0,86,0.1); border-color: rgba(80,0,86,0.2); }
+    .card-modelo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 1px solid #eee; }
+    .modelo-conteudo { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+    .modelo-conteudo h3 { font-size: 1.4rem; color: var(--cor-primaria); margin-top: 0; margin-bottom: 15px; }
+    .modelo-conteudo p { font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+    .tag-uso { display: inline-block; background: var(--cor-primaria-suave); color: var(--cor-primaria); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(80,0,86,0.1); width: fit-content;}
+
+    /* ESTILO DO BOTÃO CHAMATIVO NA CTA */
+    .btn-chamativo {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background-color: #25D366;
+        color: #ffffff !important;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+    .btn-chamativo:hover {
+        background-color: #128C7E;
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
+    }
+    .btn-chamativo i {
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+        .importancia-calha { grid-template-columns: 1fr; gap: 30px; margin: 40px 0;}
+        .modelos-grid { grid-template-columns: 1fr; }
+        .btn-chamativo { width: 100%; justify-content: center; padding: 14px 24px; font-size: 1rem; }
+    }
     </style>
 </head>
 <body>
-   <header>
+    <header>
         <div class="container header-content">
             <a href="/" class="logo">
                 <img src="/images/logo-nacional.webp" alt="Nacional Metais Logo">
@@ -332,7 +386,7 @@
                                     <ul class="grupo-superior">
                                         <li><a href="rufo-encosto"><i class="ph-bold ph-caret-right"></i> Rufo de Encosto</a></li>
                                         <li><a href="capa-pingadeira"><i class="ph-bold ph-caret-right"></i> Rufo Pingadeira</a></li>
-                                        
+                                        <li><a href="rufo-corte"><i class="ph-bold ph-caret-right"></i> Rufo de Corte</a></li>
                                     </ul>
                                     <h3 class="titulo-secundario">Bobinas Metálicas</h3>
                                     <ul>
@@ -384,8 +438,6 @@
                                     <ul>
                                         <li><a href="selantes-pu-silicone"><i class="ph-bold ph-caret-right"></i> Selantes PU e Silicone</a></li>
                                         <li><a href="fixacao"><i class="ph-bold ph-caret-right"></i> Rebites e Fixadores</a></li>
-                                        
-                                        <!-- NOVA OPÇÃO INSERIDA AQUI -->
                                         <li><a href="abrasivos"><i class="ph-bold ph-caret-right"></i> Abrasivos e Discos</a></li>
                                     </ul>
                                 </div>
@@ -401,7 +453,7 @@
                     <li><a href="blog">Blog</a></li>
                     <li><a href="parceria">Parceria</a></li>
                     <li><a href="contato">Contato</a></li>
-                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
+                    <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" target="_blank" class="btn-catalogo"><i class="ph-bold ph-file-pdf"></i> Catálogo</a></li>
                     <li><a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml"><i class="ph-fill ph-handshake"></i> Loja Oficial</a></li>
                 </ul>
             </nav>
@@ -429,7 +481,7 @@
                         <span class="submenu-titulo">Rufos e Bobinas</span>
                         <a href="rufo-encosto">Rufo de Encosto</a>
                         <a href="capa-pingadeira">Rufo Pingadeira</a>
-                        
+                        <a href="rufo-corte">Rufo de Corte</a>
                         <a href="bobinas-metalicas">Bobinas de Alumínio</a>
 
                         <span class="submenu-titulo">Coifas e Exaustores</span>
@@ -447,17 +499,14 @@
                         <span class="submenu-titulo">Chapas Metálicas</span>
                         <a href="chapas-produtos">Chapas</a>
                         
-
                         <span class="submenu-titulo">Fachadas e Coberturas</span>
-                        <a href="acm">Revestimento ACM</a>
+                        <a href="chapa-acm">Revestimento ACM</a>
                         <a href="policarbonato-alveolar">Policarbonato Alveolar</a>
                         <a href="policarbonato-compacto">Policarbonato Compacto</a>
 
                         <span class="submenu-titulo">Acessórios de Montagem</span>
                         <a href="selantes-pu-silicone">Selantes PU e Silicone</a>
                         <a href="fixacao">Rebites e Fixadores</a>
-                        
-                        <!-- NOVA OPÇÃO INSERIDA AQUI NO MOBILE -->
                         <a href="abrasivos">Abrasivos e Discos</a>
                     </div>
                 </li>
@@ -465,75 +514,91 @@
                 <li><a href="blog">Blog</a></li>
                 <li><a href="parceria">Parceria</a></li>
                 <li><a href="contato">Contato</a></li>
-                <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" class="btn-catalogo-mobile" target="_blank"><i class="ph ph-file-pdf"></i> Ver Catálogo</a></li>
-                <li><a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml"><i class="ph-fill ph-handshake"></i> Loja Oficial</a></li>
+                <li><a href="/images/catalogo/Catálogo físico atualizado.pdf" class="btn-catalogo-mobile" target="_blank"><i class="ph-bold ph-file-pdf"></i> Ver Catálogo</a></li>
+                
+                <li style="width: 100%;">
+                    <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" class="btn-ml-mobile" target="_blank"><i class="ph-fill ph-handshake"></i> Loja no Mercado Livre</a>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Revestimento em ACM</h1>
-            <p class="breadcrumb">Home > Distribuição > ACM</p>
-        </div>
-    </div>
-
-    <section class="container">
-        <div class="importancia-calha">
-            <div class="importancia-texto">
-                <h2>A Cara Nova do Seu Negócio</h2>
-                <p>O Alumínio Composto (ACM) revolucionou a arquitetura comercial. Ele permite criar fachadas lisas, curvas e coloridas que duram décadas sem desbotar.</p>
-                <div class="destaque-box"><i class="ph-bold ph-storefront"></i> Valorização: Uma fachada em ACM aumenta imediatamente a percepção de valor da sua loja.</div>
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> <i class="ph-bold ph-caret-right"></i> 
+                    <a href="distribuicao">Distribuição</a> <i class="ph-bold ph-caret-right"></i> 
+                    <span>Revestimento ACM</span>
+                </div>
+                <h1>Revestimento em ACM</h1>
+                <p>A solução mais moderna e sofisticada para fachadas comerciais e residenciais. Estoque de chapas em diversas cores com entrega para Palhoça e Grande Florianópolis.</p>
             </div>
-            <img class="card-modelo" src="images/produtosImagens/acm/acm-fundo.jpg" alt="ACM em cores vivas">
         </div>
 
-        <div class="modelos-grid">
-            <div class="card-modelo">
-               <img src="images/produtosImagens/acm/acm-cores.jpg" alt="ACM em cores vivas">
-                <div class="modelo-conteudo">
-                    <h3>Cores Sólidas</h3>
-                    <p>Vermelho, Azul, Amarelo, Preto... Cores vivas e brilhantes para destacar sua marca.</p>
-                    <span class="tag-uso">Comunicação Visual</span>
+        <section class="container">
+            
+            <div class="importancia-calha">
+                <div class="importancia-texto">
+                    <h2>A Cara Nova do Seu Negócio</h2>
+                    <p>O Alumínio Composto (ACM) revolucionou a arquitetura comercial. Ele permite criar fachadas lisas, curvas e coloridas que duram décadas sem desbotar, graças à sua incrível resistência às intempéries do tempo.</p>
+                    <p>Ao revestir a sua loja ou letreiro com ACM da Nacional Metais, garante uma estética premium, leveza na estrutura e baixa manutenção a longo prazo.</p>
+                    
+                    <div class="destaque-box">
+                        <i class="ph-fill ph-storefront" style="font-size: 1.5rem;"></i> 
+                        <span><strong>Valorização:</strong> Uma fachada em ACM atrai a atenção dos clientes e aumenta imediatamente a percepção de valor da sua loja.</span>
+                    </div>
+                </div>
+                
+                <div class="importancia-img">
+                    <img src="images/produtosImagens/acm/acm-3.webp" onerror="this.src='https://placehold.co/600x400/eeeeee/666666?text=Revestimento+ACM'" alt="Fachada comercial revestida com chapas de ACM">
                 </div>
             </div>
-            <div class="card-modelo">
-               <img src="images/produtosImagens/acm/acm-amadeirado.jpg" alt="Chapa ACM com acabamento amadeirado">
-                <div class="modelo-conteudo">
-                    <h3>Madeirados</h3>
-                    <p>A beleza e elegância da madeira com a durabilidade do alumínio. Não apodrece e não precisa de verniz.</p>
-                    <span class="tag-uso">Arquitetura</span>
-                </div>
-            </div>
-            <div class="card-modelo">
-               <img src="images/produtosImagens/acm/acm-metalico.jpg" alt="Chapas ACM com acabamento metálico">
-                <div class="modelo-conteudo">
-                    <h3>Metálicos e Aço Corten</h3>
-                    <p>Acabamentos sofisticados como Prata, Ouro e o rústico Aço Corten.</p>
-                    <span class="tag-uso">Design</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <div style="text-align: center; margin-bottom: 80px; padding: 40px; background: var(--cor-primaria-claro); border-radius: 12px;">
-        <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Precisa de Chapas de ACM?</h3>
-        <p style="margin-bottom: 25px;">Diversas cores e acabamentos para sua fachada ou projeto. Envie as medidas e solicite seu orçamento.</p>
-        <a href="https://wa.me/5548999462068" class="btn" style="background-color: #25D366; color: white; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
-            <i class="ph-bold ph-whatsapp-logo"></i> Cotar ACM
-        </a>
-    </div>
-<section class="container">
-    <div class="banner-ml">
-        <div class="banner-ml-text">
-            <h2><i class="ph-fill ph-handshake"></i> Loja Oficial</h2>
-            <p>Prefere a comodidade do <strong>Mercado Livre</strong>? Compre os nossos produtos com garantia de entrega rápida, Compra Protegida e parcelamento facilitado para todo o Brasil.</p>
-        </div>
-        <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml-banner">
-            Acessar Mercado Livre <i class="ph-bold ph-arrow-right"></i>
-        </a>
-    </div>
-</section>
+            <div class="modelos-titulo">
+                <h2>Nosso Revestimento</h2>
+                <p style="opacity: 0.7; font-size: 1.1rem;">Disponível para pronta entrega. Consulte o nosso catálogo completo no WhatsApp.</p>
+            </div>
+
+            <!-- INÍCIO DAS DIVS (Apenas 1 clicável) -->
+            <div class="modelos-grid" style="display: flex; justify-content: center;">
+                
+                <!-- Único Modelo Clicável apontando para chapa-acm -->
+                <a href="chapa-acm" class="card-modelo" style="max-width: 450px;">
+                    <img src="images/produtosImagens/acm/acm-2.webp" onerror="this.src='https://placehold.co/400x300/eeeeee/666666?text=Revestimento+ACM'" alt="Revestimento ACM em diversas cores">
+                    <div class="modelo-conteudo">
+                        <h3>Chapa de ACM</h3>
+                        <p>Disponível em cores sólidas, madeirados e metálicos. A escolha perfeita para comunicação visual, letreiros e revestimento de fachadas de alto padrão.</p>
+                        <span class="tag-uso">Ver Detalhes do Produto</span>
+                    </div>
+                </a>
+
+            </div>
+            <!-- FIM DAS DIVS -->
+
+            <!-- CTA FINAL (Botão chamativo) -->
+            <div style="text-align: center; margin-bottom: 80px; padding: 40px 20px; background: var(--cor-primaria-suave); border: 1px solid #eaeaea; border-radius: 12px; margin-top: 50px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: var(--cor-texto-forte); margin-top:0;">Precisa de Chapas de ACM?</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--cor-texto-medio);">Diversas cores e acabamentos para a sua fachada ou projeto. Envie as medidas e solicite um orçamento rápido com entrega para Palhoça e região.</p>
+                <a href="https://wa.me/5548999462068?text=Olá! Estou no site a ver o ACM e gostaria de solicitar um orçamento para o meu projeto." target="_blank" class="btn-chamativo">
+                    <i class="ph-fill ph-whatsapp-logo"></i> Cotar Chapas de ACM
+                </a>
+            </div>
+
+            <!-- BANNER MERCADO LIVRE -->
+            <div class="banner-ml">
+                <div class="banner-ml-text">
+                    <h2><i class="ph-fill ph-handshake"></i> Loja Oficial</h2>
+                    <p>Prefere a comodidade do <strong>Mercado Livre</strong>? Compre os nossos produtos com garantia de entrega rápida, Compra Protegida e parcelamento facilitado para todo o Brasil.</p>
+                </div>
+                <a href="https://www.mercadolivre.com.br/pagina/nacionalmetais" target="_blank" class="btn-ml-banner">
+                    Acessar Mercado Livre <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+
+        </section>
+    </main>
+
     <footer style="background-color: #622969; color: white; padding: 25px 0;">
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 10px;">
@@ -552,7 +617,6 @@
                     <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #fff;">Ajuda</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 8px;"><a href="contato" style="color: #ccc; text-decoration: none;">Fale Conosco</a></li>
-                        
                     </ul>
                 </div>
             </div>
@@ -563,19 +627,22 @@
                 <!-- ASSINATURA EDGETI -->
                 <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; opacity: 0.7;">
                     <span>Desenvolvido por</span>
-                   
                    <a href="https://edgeti.com.br/"> <img src="images/logoEDGETI.png" alt="Logo EDGETI" style="height: 20px; width: auto;"></a>
                 </div>
             </div>
         </div>
-        
     </footer>
-    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento." 
+    
+    <a href="https://wa.me/5548999462068?text=Olá! Vim pelo site e gostaria de um orçamento de chapas em ACM." 
    class="btn-whatsapp-flutuante" 
    target="_blank"
    aria-label="Falar no WhatsApp">
     <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
+    
     <script src="assets/js/menu.js"></script>
+    <script>
+        // Script simples caso seja necessário no futuro para a página de ACM
+    </script>
 </body>
 </html>
