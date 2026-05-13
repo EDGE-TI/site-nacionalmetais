@@ -643,6 +643,119 @@ background-color: #fffcff;
         font-size: 1.4rem; 
         color: #2D3277 !important; 
     }
+    .secao-parceria-home {
+    background-color: var(--cor-primaria-suave, #f9f5fa);
+    padding: 80px 0;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.parceria-home-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.parceria-home-titulo h2 {
+    font-size: 2.5rem;
+    color: var(--cor-texto-forte, #000);
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.parceria-home-titulo p {
+    font-size: 1.15rem;
+    color: var(--cor-texto-medio, #4B5563);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grid-parceria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.card-parceiro {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid var(--cor-primaria, #500056);
+}
+
+.card-parceiro:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(80, 0, 86, 0.1);
+}
+
+.card-parceiro i {
+    font-size: 3rem;
+    color: var(--cor-primaria, #500056);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.card-parceiro h3 {
+    font-size: 1.3rem;
+    color: var(--cor-texto-forte, #000);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card-parceiro p {
+    font-size: 1rem;
+    color: var(--cor-texto-medio, #4B5563);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.parceria-publico {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+    color: var(--cor-primaria, #500056);
+    font-size: 1.1rem;
+    background: #fff;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(80,0,86,0.1);
+}
+
+.btn-parceria-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--cor-primaria, #500056);
+    color: #fff !important;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: 0.3s;
+    margin-top: 30px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(80, 0, 86, 0.3);
+}
+
+.btn-parceria-home:hover {
+    background-color: var(--cor-primaria-escuro, #3a003e);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(80, 0, 86, 0.4);
+    color: white;
+}
+
+/* Responsividade extra para colocar junto com o @media (max-width: 900px) que você já tem */
+@media (max-width: 900px) {
+    .grid-parceria { grid-template-columns: 1fr; gap: 20px; }
+    .parceria-home-titulo h2 { font-size: 2rem; }
+    .parceria-publico { font-size: 0.95rem; padding: 10px 15px; }
+}
     </style>
 
 
@@ -975,6 +1088,40 @@ background-color: #fffcff;
         </section>
         </section>
 
+        <section class="secao-parceria-home">
+    <div class="container">
+        <div class="parceria-home-titulo">
+            <h2>Cresça o seu negócio com a Nacional Metais</h2>
+            <p>Uma parceria sólida projetada para impulsionar os lucros de Calheiros, Serralheiros e Construtoras em Palhoça e região.</p>
+        </div>
+
+        <div class="grid-parceria">
+            <div class="card-parceiro">
+                <i class="ph-fill ph-star"></i>
+                <h3>Destaque e Sucesso</h3>
+                <p>Apoio total da nossa fábrica para você focar no que dá lucro: o serviço. Entregamos os seus materiais com precisão e rapidez.</p>
+            </div>
+            <div class="card-parceiro">
+                <i class="ph-fill ph-headset"></i>
+                <h3>Atendimento Personalizado</h3>
+                <p>Suporte exclusivo e recorrente. Um canal direto com a nossa equipa para ajustar medidas e priorizar os seus pedidos do dia a dia.</p>
+            </div>
+            <div class="card-parceiro">
+                <i class="ph-fill ph-coins"></i>
+                <h3>Preços Diferenciados</h3>
+                <p>Condições comerciais exclusivas para parceiros, garantindo orçamentos muito mais competitivos e maior margem de lucro nas suas obras.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <span class="parceria-publico">Vantagens exclusivas para: Calheiros | Serralheiros | Construtoras</span>
+            <br>
+            <a href="parceria" class="btn-parceria-home">
+                Saber mais sobre a Parceria <i class="ph-bold ph-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
         <section class="secao-contato">
     <div class="container contato-wrapper">
         
