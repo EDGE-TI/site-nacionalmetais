@@ -1,24 +1,20 @@
-User-agent: *
+User-agent: * 
 
-1. Bloquear buscas internas e parâmetros que geram duplicidade
-
+# 1. Bloquear buscas internas e parâmetros que geram duplicidade
 Disallow: /search
 Disallow: /busca
 Disallow: /?s=
 Disallow: /?filter_
 Disallow: /*?orderby=
 
-2. Bloquear áreas administrativas e de login
-
+# 2. Bloquear áreas administrativas e de login
 Disallow: /admin/
 Disallow: /login/
 
-3. Garantir que o Google consiga ler o visual e as imagens do site
-
+# 3. Garantir que o Google consiga ler o visual e as imagens do site
 Allow: /images/
 Allow: /assets/
 Allow: /uploads/
 
-4. Apontamento do Mapa do Site (Essencial para indexação)
-
+# 4. Apontamento do Mapa do Site
 Sitemap: https://nacionalmetais.com/sitemap.xml
