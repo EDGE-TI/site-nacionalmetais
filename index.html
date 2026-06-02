@@ -386,6 +386,84 @@
             .top-bar { display: none; } 
             .nav-desktop { display: none; }
             .btn-mobile-trigger { display: block; }
+
+            /* Reduz a altura do header principal */
+    header {
+        height: 80px;
+    }
+
+    /* Ajusta o posicionamento do menu mobile para alinhar com o novo header */
+    .menu-mobile {
+        top: 38px;
+    }
+
+    /* Opcional: Ajusta o tamanho do logo para não estourar no header de 40px */
+    .logo img {
+        max-height: 50px;
+    }
+
+    /* Opcional: Ajusta o tamanho do botão hambúrguer para ficar proporcional */
+    .btn-mobile-trigger {
+        font-size: 1.5rem;
+    }
+    /* --- MENU MOBILE OTIMIZADO --- */
+
+/* 1. Redução de espaçamentos e fontes para economizar altura */
+.menu-mobile {
+    padding: 10px 0 !important; /* Diminuído de 20px */
+}
+
+.menu-mobile ul {
+    gap: 0; /* Remove gap fixo para controlar item por item */
+}
+
+/* 2. Compactação dos itens principais */
+.menu-mobile > ul > li {
+    margin-bottom: 10px !important; /* Diminuído de 25px */
+    padding-bottom: 10px !important; /* Diminuído de 15px */
+}
+
+.menu-mobile a {
+    font-size: 1.1rem !important; /* Diminuído de 1.3rem */
+    padding: 5px 10px;
+}
+
+/* 3. Ajuste do Submenu para ser mais compacto */
+.submenu-mobile {
+    margin-top: 8px !important;
+    padding-top: 5px !important;
+}
+
+.submenu-titulo {
+    font-size: 0.75rem !important;
+    padding: 10px 0 5px 0 !important;
+    margin-bottom: 5px;
+}
+
+.submenu-mobile a {
+    padding: 8px 0 !important; /* Diminuído de 12px */
+    font-size: 0.95rem !important;
+}
+
+/* 4. Ajuste dos botões (Botões ocupam muito espaço, vamos deixá-los mais finos) */
+.menu-mobile .btn-escuro, 
+.menu-mobile .btn-ml-mobile {
+    margin: 5px 20px !important; /* Menos margem vertical */
+    padding: 10px !important;    /* Menos altura */
+    font-size: 1rem !important;
+}
+
+/* 5. Ajuste fino na altura da tela do menu */
+.menu-mobile {
+    /* Garante que o menu não ultrapasse a altura da tela, permitindo scroll apenas se necessário */
+    height: calc(100vh - 40px) !important; 
+    overflow-y: auto;
+}
+
+/* --- DICA ADICIONAL: Esconder o submenu por padrão ao fechar o menu --- */
+/* Certifique-se de que, ao fechar o menu (classe .aberto removida), 
+   o JavaScript também remova a classe .ativo dos submenus, 
+   para que ele abra sempre "limpo". */
         }
         /* =======================================================
            ESTILOS ESPECÍFICOS DA PÁGINA DE PRODUTO
@@ -605,17 +683,29 @@ background-color: #fffcff;
 
 /* Responsividade */
 @media (max-width: 768px) {
+    
+    /* Reduz o tamanho da seção hero e puxa o conteúdo para cima */
+    .hero {
+        padding-top: 80px !important;    /* Reduz drasticamente o espaço superior */
+        padding-bottom: 300px !important; /* Deixa a seção mais fina */
+        min-height: auto !important;     /* Remove alturas mínimas exageradas se houver */
+    }
+
+    /* Remove as margens que empurram o título para baixo */
     .hero h1 {
         font-size: 2.2rem;
+        margin-top: 0 !important;       /* Gruda o título no topo do hero */
+        padding-top: 0 !important;
     }
+
     .produtos-grid {
         grid-template-columns: 1fr; /* 1 coluna no celular */
     }
     nav ul {
         display: none;
     }
-
 }
+
 .banner-ml {
         /* Fundo azul escuro moderno com degradê subtil */
         background: linear-gradient(135deg, #1a1c4b 0%, #2D3277 100%);

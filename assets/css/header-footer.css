@@ -47,7 +47,6 @@ header {
     right: 0; /* Força a encostar nos dois lados */
     bottom: 0; /* Força a ir até ao fundo */
     width: 100vw; /* 100% da largura da janela visual */
-    height: calc(100vh - 80px);
     
     /* Visual */
     background-color: #ffffff;
@@ -83,6 +82,7 @@ header {
     width: 100%;
     padding: 0;
     margin: 0;
+    
     list-style: none;
 }
 
@@ -258,6 +258,7 @@ align-items: center;
     display: flex;
     gap: 10px;
 }
+
 }
 .nav-desktop .btn-catalogo {
     background-color: #622969; /* Seu Roxo-Vinho */
