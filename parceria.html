@@ -1173,7 +1173,7 @@
         
         <div class="form-grupo">
             <label for="telefone">Telefone / WhatsApp *</label>
-            <input type="tel" id="telefone" name="Telefone_WhatsApp" required placeholder="(48) 99999-9999">
+            <input type="tel" id="telefone" name="Telefone_WhatsApp" required placeholder="(00) 00000-0000" maxlength="15">
         </div>
         
         <div class="form-grupo full-width">
@@ -1303,6 +1303,20 @@
 </div>
 <script src="assets/js/menu.js"></script>
 <script>
+    // --- MÁSCARA AUTOMÁTICA DE TELEFONE ---
+const inputTelefone = document.getElementById('telefone');
+
+inputTelefone.addEventListener('input', function (e) {
+    // Remove tudo o que não for número (impede a digitação de letras)
+    let valor = e.target.value.replace(/\D/g, ''); 
+    
+    // Aplica a formatação em tempo real
+    valor = valor.replace(/^(\d{2})(\d)/g, '($1) $2'); // Coloca parênteses em volta do DDD
+    valor = valor.replace(/(\d)(\d{4})$/, '$1-$2');    // Coloca o hífen antes dos últimos 4 dígitos
+    
+    // Atualiza o campo com o valor formatado
+    e.target.value = valor;
+});
 document.getElementById('form-parceria').addEventListener('submit', async function(e) {
     e.preventDefault(); // Impede a página de recarregar
 
