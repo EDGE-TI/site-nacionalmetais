@@ -1092,7 +1092,7 @@
             <h2>Formulário de Parceria</h2>
             <p>Preencha os campos abaixo para enviar a sua proposta diretamente para a nossa análise corporativa. Entraremos em contacto brevemente.</p>
             
-            <form action="https://formspree.io/f/seu-id-aqui" method="POST" class="form-parceria">
+            <form id="form-parceria" class="form-parceria">
                 <input type="hidden" name="_to" value="contato@nacionalmetais.com">
                 
                 <div class="form-grid">
@@ -1239,5 +1239,52 @@
     <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
 <script src="assets/js/menu.js"></script>
+<script>
+document.getElementById('form-parceria').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Impede a página de recarregar
+
+    const botao = e.target.querySelector('button[type="submit"]');
+    const textoOriginal = botao.innerText;
+    
+    // Altera o botão para mostrar que está a carregar
+    botao.innerText = 'A enviar...';
+    botao.disabled = true;
+
+    // Recolhe todos os dados preenchidos
+    const formData = new FormData(this);
+    const dados = Object.fromEntries(formData.entries());
+    
+    // Tratamento do checkbox (transforma o "on" em true para o Node.js)
+    dados.lgpd = formData.get('lgpd') ? true : false;
+
+    try {
+        // Envia o "envelope" para a nossa ponte segura no Apache
+        const resposta = await fetch('/api/seja-um-parceiro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        });
+
+        const resultado = await resposta.json();
+
+        if (resposta.ok) {
+            alert('Sucesso! A sua proposta foi enviada.');
+            this.reset(); // Limpa o formulário
+        } else {
+            // Mostra os erros caso o backend tenha bloqueado algo (ex: e-mail inválido)
+            alert('Erro: ' + (resultado.erro || 'Verifique os dados preenchidos.'));
+            console.log(resultado.erros);
+        }
+    } catch (erro) {
+        alert('Ocorreu um erro ao comunicar com o servidor. Tente novamente.');
+    } finally {
+        // Volta o botão ao normal
+        botao.innerText = textoOriginal;
+        botao.disabled = false;
+    }
+});
+</script>
 </body>
 </html>
