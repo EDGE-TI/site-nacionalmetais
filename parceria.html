@@ -798,6 +798,60 @@
         top: 0;
     }
 }
+/* =======================================================
+   ESTILOS DA NOTIFICAÇÃO (TOAST)
+   ======================================================= */
+#toast-sucesso {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ffffff;
+    border-left: 5px solid #25D366; /* Verde sucesso */
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9999;
+    
+    /* Prepara a animação (esconde fora do ecrã) */
+    transform: translateX(150%);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Efeito de "mola" */
+}
+
+/* Classe que o JavaScript vai adicionar para fazer o Toast aparecer */
+#toast-sucesso.mostrar {
+    transform: translateX(0);
+}
+
+#toast-sucesso .check-icon {
+    color: #25D366;
+    font-size: 28px;
+}
+
+.toast-mensagem strong {
+    display: block;
+    color: var(--cor-texto-forte, #1f2937);
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.toast-mensagem p {
+    color: var(--cor-texto-medio, #4b5563);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Responsividade: No telemóvel, ele fica centralizado na parte inferior */
+@media (max-width: 768px) {
+    #toast-sucesso {
+        right: 20px;
+        left: 20px;
+        bottom: 20px;
+        justify-content: center;
+    }
+}
     </style>
 </head>
 <body>
@@ -1238,6 +1292,13 @@
    aria-label="Falar no WhatsApp">
     <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
+    <div id="toast-sucesso" class="toast-escondido">
+    <i class="ph-fill ph-check-circle check-icon"></i>
+    <div class="toast-mensagem">
+        <strong>Tudo certo!</strong>
+        <p>A sua proposta de parceria foi enviada com sucesso.</p>
+    </div>
+</div>
 <script src="assets/js/menu.js"></script>
 <script>
 document.getElementById('form-parceria').addEventListener('submit', async function(e) {
@@ -1270,7 +1331,15 @@ document.getElementById('form-parceria').addEventListener('submit', async functi
         const resultado = await resposta.json();
 
         if (resposta.ok) {
-            alert('Sucesso! A sua proposta foi enviada.');
+            // Mostra o Toast elegante
+            const toast = document.getElementById('toast-sucesso');
+            toast.classList.add('mostrar');
+            
+            // Esconde automaticamente após 4 segundos (4000 milissegundos)
+            setTimeout(() => {
+                toast.classList.remove('mostrar');
+            }, 4000);
+
             this.reset(); // Limpa o formulário
         } else {
             // Mostra os erros caso o backend tenha bloqueado algo (ex: e-mail inválido)
