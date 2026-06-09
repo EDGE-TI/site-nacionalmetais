@@ -1146,58 +1146,60 @@
             <h2>Formulário de Parceria</h2>
             <p>Preencha os campos abaixo para enviar a sua proposta diretamente para a nossa análise corporativa. Entraremos em contacto brevemente.</p>
             
-            <form id="form-parceria" class="form-parceria">
-                <input type="hidden" name="_to" value="contato@nacionalmetais.com">
-                
-                <div class="form-grid">
-                    <div class="form-grupo full-width">
-                        <label for="nome">Nome completo *</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome completo">
-                    </div>
-                    
-                    <div class="form-grupo">
-                        <label for="empresa">Empresa *</label>
-                        <input type="text" id="empresa" name="empresa" required placeholder="Nome da sua empresa">
-                    </div>
-                    
-                    <div class="form-grupo">
-                        <label for="cnpj">CNPJ (Opcional)</label>
-                        <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00">
-                    </div>
-                    
-                    <div class="form-grupo">
-                        <label for="cidade_estado">Cidade / Estado *</label>
-                        <input type="text" id="cidade_estado" name="cidade_estado" required placeholder="Ex: Palhoça / SC">
-                    </div>
-                    
-                    <div class="form-grupo">
-                        <label for="telefone">Telefone / WhatsApp *</label>
-                        <input type="tel" id="telefone" name="telefone" required placeholder="(48) 99999-9999">
-                    </div>
-                    
-                    <div class="form-grupo full-width">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" required placeholder="seuemail@empresa.com">
-                    </div>
-                    
-                    <div class="form-grupo full-width">
-                        <label for="segmento">Segmento de atuação *</label>
-                        <input type="text" id="segmento" name="segmento" required placeholder="Ex: Calheiro, Serralheiro, Construtora, Engenharia...">
-                    </div>
-                    
-                    <div class="form-grupo full-width">
-                        <label for="mensagem">Mensagem / Descreva a parceria *</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Conte-nos detalhes sobre o seu modelo de negócio e como podemos cooperar"></textarea>
-                    </div>
-                </div>
-                
-                <div class="form-lgpd">
-                    <input type="checkbox" id="lgpd" name="lgpd" required>
-                    <label for="lgpd">Autorizo contacto referente à solicitação de parceria. *</label>
-                </div>
-                
-                <button type="submit" class="btn-enviar-form">Enviar Proposta por E-mail</button>
-            </form>
+<form id="form-parceria" class="form-parceria">
+    <input type="hidden" name="access_key" value="4eb87d3e-f31d-42e1-9ad8-ca8a729cd4c6">
+
+    <div class="form-grid">
+        
+        <div class="form-grupo full-width">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="Nome Completo" required placeholder="Digite o seu nome completo">
+        </div>
+        
+        <div class="form-grupo">
+            <label for="empresa">Empresa *</label>
+            <input type="text" id="empresa" name="Empresa" required placeholder="Nome da sua empresa">
+        </div>
+        
+        <div class="form-grupo">
+            <label for="cnpj">CNPJ (Opcional)</label>
+            <input type="text" id="cnpj" name="CNPJ" placeholder="00.000.000/0000-00">
+        </div>
+        
+        <div class="form-grupo">
+            <label for="cidade_estado">Cidade / Estado *</label>
+            <input type="text" id="cidade_estado" name="Cidade_Estado" required placeholder="Ex: Palhoça / SC">
+        </div>
+        
+        <div class="form-grupo">
+            <label for="telefone">Telefone / WhatsApp *</label>
+            <input type="tel" id="telefone" name="Telefone_WhatsApp" required placeholder="(48) 99999-9999">
+        </div>
+        
+        <div class="form-grupo full-width">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="Email" required placeholder="seuemail@empresa.com">
+        </div>
+        
+        <div class="form-grupo full-width">
+            <label for="segmento">Segmento de atuação *</label>
+            <input type="text" id="segmento" name="Segmento_Atuacao" required placeholder="Ex: Calheiro, Serralheiro, Construtora...">
+        </div>
+        
+        <div class="form-grupo full-width">
+            <label for="mensagem">Mensagem / Descreva a parceria *</label>
+            <textarea id="mensagem" name="Mensagem_Parceria" rows="5" required placeholder="Conte-nos detalhes sobre o seu modelo de negócio e como podemos cooperar"></textarea>
+        </div>
+    </div>
+    
+    <div class="form-lgpd">
+        <input type="checkbox" id="lgpd" name="lgpd" required>
+        <label for="lgpd">Autorizo contato referente à solicitação. *</label>
+    </div>
+    
+    <button type="submit" class="btn-enviar-form">Enviar Proposta por E-mail</button>
+</form>
+    
         </div>
         
         <div class="parceria-whatsapp-box">
@@ -1211,7 +1213,7 @@
                 </a>
                 
                 <span class="obs-whatsapp">
-                    <strong>Nota importante:</strong> O atendimento via WhatsApp é direcionado para a triagem da equipa comercial geral. Para propostas formais diretamente à administração, utilize o formulário de e-mail ao lado.
+                    <strong>Nota:</strong> O atendimento via WhatsApp é direcionado para a triagem da equipe comercial. Para propostas formais diretamente à parceria, prefira utilizar o formulário de e-mail ao lado.
                 </span>
             </div>
         </div>
@@ -1307,49 +1309,38 @@ document.getElementById('form-parceria').addEventListener('submit', async functi
     const botao = e.target.querySelector('button[type="submit"]');
     const textoOriginal = botao.innerText;
     
-    // Altera o botão para mostrar que está a carregar
     botao.innerText = 'A enviar...';
     botao.disabled = true;
 
-    // Recolhe todos os dados preenchidos
     const formData = new FormData(this);
-    const dados = Object.fromEntries(formData.entries());
-    
-    // Tratamento do checkbox (transforma o "on" em true para o Node.js)
-    dados.lgpd = formData.get('lgpd') ? true : false;
+    // Transforma o checkbox em um formato de texto claro para o e-mail
+    formData.set('lgpd', formData.get('lgpd') ? 'Autorizado' : 'Não autorizado');
 
     try {
-        // Envia o "envelope" para a nossa ponte segura no Apache
-        const resposta = await fetch('/api/seja-um-parceiro', {
+        // Disparo direto para o processador de e-mails externo
+        const resposta = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dados)
+            body: formData
         });
 
         const resultado = await resposta.json();
 
-        if (resposta.ok) {
-            // Mostra o Toast elegante
+        if (resposta.status === 200) {
+            // Mostra o Toast elegante de sucesso
             const toast = document.getElementById('toast-sucesso');
             toast.classList.add('mostrar');
             
-            // Esconde automaticamente após 4 segundos (4000 milissegundos)
             setTimeout(() => {
                 toast.classList.remove('mostrar');
             }, 4000);
 
             this.reset(); // Limpa o formulário
         } else {
-            // Mostra os erros caso o backend tenha bloqueado algo (ex: e-mail inválido)
-            alert('Erro: ' + (resultado.erro || 'Verifique os dados preenchidos.'));
-            console.log(resultado.erros);
+            alert('Erro ao enviar: ' + resultado.message);
         }
     } catch (erro) {
-        alert('Ocorreu um erro ao comunicar com o servidor. Tente novamente.');
+        alert('Ocorreu um erro ao enviar a solicitação. Tente novamente.');
     } finally {
-        // Volta o botão ao normal
         botao.innerText = textoOriginal;
         botao.disabled = false;
     }
