@@ -1118,6 +1118,143 @@ background-color: #fffcff;
         .footer-desenvolvedor a:hover img {
             opacity: 1;
         }
+        /* =======================================================
+   ESTILOS DA SECÇÃO DE AVALIAÇÕES (GOOGLE REVIEWS)
+   ======================================================= */
+.secao-avaliacoes {
+    padding: 80px 20px;
+    background-color: #f8fafc; /* Fundo cinza bem claro/azulado */
+}
+
+.container-avaliacoes {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-avaliacoes {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-avaliacoes h2 {
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.titulo-avaliacoes p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.grid-avaliacoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.card-avaliacao {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    transition: transform 0.3s ease;
+}
+
+.card-avaliacao:hover {
+    transform: translateY(-5px); /* Efeito de flutuação ao passar o rato */
+}
+
+.cabecalho-avaliacao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.avatar-cliente {
+    width: 45px;
+    height: 45px;
+    background-color: #e2e8f0;
+    color: #334155;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.info-cliente {
+    flex-grow: 1;
+}
+
+.info-cliente strong {
+    display: block;
+    color: #1e293b;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.estrelas {
+    color: #fbbc04; /* Amarelo oficial do Google */
+    font-size: 1rem;
+    display: flex;
+    gap: 2px;
+}
+
+.icone-google {
+    color: #4285f4; /* Azul oficial do Google */
+    font-size: 24px;
+}
+
+.texto-avaliacao {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.acao-avaliacoes {
+    text-align: center;
+}
+
+.btn-google {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-google:hover {
+    border-color: #4285f4;
+    color: #4285f4;
+}
+
+/* Responsividade para Tablets e Telemóveis */
+@media (max-width: 992px) {
+    .grid-avaliacoes {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-avaliacoes {
+        grid-template-columns: 1fr; /* 1 coluna no telemóvel */
+    }
+    
+    .titulo-avaliacoes h2 {
+        font-size: 1.8rem;
+    }
+}
     </style>
 
 
@@ -1560,6 +1697,85 @@ background-color: #fffcff;
         </a>
     </div>
 </section>
+
+<section class="secao-avaliacoes">
+    <div class="container-avaliacoes">
+        
+        <div class="titulo-avaliacoes">
+            <h2>O que os nossos clientes dizem</h2>
+            <p>Confira algumas das avaliações reais da <strong>Nacional Metais</strong> no Google.</p>
+        </div>
+
+        <div class="grid-avaliacoes">
+            
+            <div class="card-avaliacao">
+                <div class="cabecalho-avaliacao">
+                    <div class="avatar-cliente">M</div>
+                    <div class="info-cliente">
+                        <strong>Mestra Pintura Eletrostática</strong>
+                        <div class="estrelas">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                    </div>
+                    <div class="icone-google">
+                        <i class="ph-fill ph-google-logo"></i>
+                    </div>
+                </div>
+                <p class="texto-avaliacao">"Pessoal profissional , excelentes nos masterias e na mão de obra ! recomendo ."</p>
+            </div>
+
+            <div class="card-avaliacao">
+                <div class="cabecalho-avaliacao">
+                    <div class="avatar-cliente">D</div>
+                    <div class="info-cliente">
+                        <strong>Daniel Santos</strong>
+                        <div class="estrelas">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                    </div>
+                    <div class="icone-google">
+                        <i class="ph-fill ph-google-logo"></i>
+                    </div>
+                </div>
+                <p class="texto-avaliacao">"Loja completa eu super recomendo 😀❤️🙏."</p>
+            </div>
+
+            <div class="card-avaliacao">
+                <div class="cabecalho-avaliacao">
+                    <div class="avatar-cliente">R</div>
+                    <div class="info-cliente">
+                        <strong>Gisele Silva</strong>
+                        <div class="estrelas">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                    </div>
+                    <div class="icone-google">
+                        <i class="ph-fill ph-google-logo"></i>
+                    </div>
+                </div>
+                <p class="texto-avaliacao">"Melhor empresa da região.
+Organização
+Agilidade
+Preços"</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
        <footer>
     <div class="container">
         <div class="footer-grid">
