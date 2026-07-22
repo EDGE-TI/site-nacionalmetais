@@ -530,28 +530,164 @@
 
 
 
-    /* home.css      */
-    .hero {
+   /* =======================================================
+   ESTILOS DO HERO SLIDER (ESTRUTURA E ANIMAÇÃO)
+   ======================================================= */
+.hero-slider {
     position: relative;
-    padding: 300px 0;
-    background: linear-gradient(135deg, rgba(25, 16, 26, 0.644) 0%, rgba(38, 16, 41, 0.801) 100%), 
-                url('/images/backgroundprincipal.webp') no-repeat; 
-    background-size: cover;
-    background-attachment: fixed; 
-    text-align: center;
-    color: white;
-    overflow: hidden;
+    width: 100%;
+    height: 60vh;
+    min-height: 450px;
+    overflow: hidden; /* Esconde os slides laterais */
+    background-color: #000
+    
 }
 
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+
+
+/* Setas e Bolinhas de Navegação */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.dot.ativo {
+    background: #ffffff;
+    transform: scale(1.3);
+}
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Removidas as propriedades de background daqui */
+}
+
+/* NOVA CLASSE: Faz a tag <img> comportar-se como fundo */
+.slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o mesmo papel do background-size: cover */
+    object-position: center;
+    z-index: 0; /* Garante que fica atrás do overlay escuro */
+}
+
+/* =======================================================
+   ESTILOS DO TEXTO FIXO NO SLIDER
+   ======================================================= */
+.hero-conteudo-fixo {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 5; 
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+    pointer-events: none; /* Permite clicar nas imagens do fundo */
+}
+
+.hero-conteudo-fixo h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+}
+
+.hero-conteudo-fixo h1 span {
+    color: #af0bcc; /* Mantido o seu roxo/magenta original */
+}
+
+.hero-conteudo-fixo p {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Responsividade do Texto e Setas */
+@media (max-width: 768px) {
+    .hero-conteudo-fixo h1 { font-size: 2rem; }
+    .hero-conteudo-fixo p { font-size: 1rem; }
+    .slider-btn { display: none; } /* Oculta as setas em ecrãs pequenos para não poluir */
+}
+
+/* =======================================================
+   OUTRAS SEÇÕES E CLASSES ANTIGAS (MANTIDAS INTACTAS)
+   ======================================================= */
 .secao-produtos-container {
-background-color: #fffcff;
+    background-color: #fffcff;
     padding: 80px 0;
 }
 
 .secao-produtos-container .titulo-secao {
     color: #110315;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.247);
-    
 }
 
 .secao-produtos-container .subtitulo-secao {
@@ -559,6 +695,8 @@ background-color: #fffcff;
     opacity: 1;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.463);
 }
+
+/* Classes da seção hero antiga mantidas para evitar quebras em outras páginas */
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -1469,12 +1607,67 @@ background-color: #fffcff;
         </nav>
     </header>
     <main class="fundo-home">
-        <section class="hero">
-            <div class="container">
-                <h1>Fábrica de Calhas, Rufos e Peças Sob Medida em <span>Palhoça</span>.</h1>
-                <p>Produtos pensados para durar e impressionar.</p>
-            </div>
-        </section>
+<section class="hero-slider">
+    
+    <div class="slider-track" id="track">
+        
+        <!-- Calhas -->
+        <a href="calhas" class="slide">
+            <picture>
+                <!-- Imagem Mobile -->
+                <source media="(max-width: 768px)" srcset="images/iconesHome/calhas-mobile-hero.webp">
+                <!-- Imagem Desktop (Padrão) -->
+                <img src="images/iconesHome/calhas-hero.webp" alt="Calhas Premium" class="slide-img">
+            </picture>
+            <div class="overlay-escuro"></div>
+        </a>
+
+        <!-- Rufos -->
+        <a href="rufos" class="slide">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/iconesHome/rufos-mobile-hero.webp">
+                <img src="images/iconesHome/rufos-hero.webp" alt="Rufos Sob Medida" class="slide-img">
+            </picture>
+            <div class="overlay-escuro"></div>
+        </a>
+
+        <!-- Chaminés -->
+        <a href="chamines" class="slide">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/iconesHome/chamines-mobile-hero.webp">
+                <img src="images/iconesHome/chamines-hero.webp" alt="Chaminés Eficientes" class="slide-img">
+            </picture>
+            <div class="overlay-escuro"></div>
+        </a>
+
+        <!-- ACM -->
+        <a href="acm" class="slide">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/iconesHome/acm-mobile-hero.webp">
+                <img src="images/iconesHome/acm-hero.webp" alt="Fachadas em ACM" class="slide-img">
+            </picture>
+            <div class="overlay-escuro"></div>
+        </a>
+
+        <!-- Policarbonato -->
+        <a href="policarbonato" class="slide">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/iconesHome/policarbonato-mobile-hero.webp">
+                <img src="images/iconesHome/policarbonato-hero.webp" alt="Soluções em Policarbonato" class="slide-img">
+            </picture>
+            <div class="overlay-escuro"></div>
+        </a>
+
+    </div>
+
+    <!-- Controles (Setas usando a biblioteca Phosphor) -->
+    <button class="slider-btn prev" id="btn-prev"><i class="ph-bold ph-caret-left"></i></button>
+    <button class="slider-btn next" id="btn-next"><i class="ph-bold ph-caret-right"></i></button>
+    
+    <!-- Indicadores (Bolinhas) -->
+    <div class="slider-dots" id="dots-container"></div>
+    
+</section>
 
         <section class="secao-produtos-container">
         <section class="container" style="margin-bottom: 100px;">
@@ -1848,6 +2041,71 @@ Preços"</p>
 
        <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <script src="assets/js/menu.js" defer></script>
+    <script>
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const btnNext = document.getElementById('btn-next');
+    const btnPrev = document.getElementById('btn-prev');
+    const dotsContainer = document.getElementById('dots-container');
+    
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    // Cria as bolinhas dinamicamente baseado na quantidade de slides
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('ativo');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.children);
+
+    function updateSlider() {
+        // Move o track para o lado correto (ex: -100%, -200%)
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Atualiza a bolinha ativa
+        dots.forEach(dot => dot.classList.remove('ativo'));
+        dots[currentIndex].classList.add('ativo');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+        resetAutoPlay(); // Reinicia o timer se o usuário clicar
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+        resetAutoPlay();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+        resetAutoPlay();
+    }
+
+    // Eventos dos botões
+    btnNext.addEventListener('click', nextSlide);
+    btnPrev.addEventListener('click', prevSlide);
+
+    // Função para passar automaticamente a cada 5 segundos e meio(5500ms)
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 5500);
+    }
+
+    function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+    }
+
+    // Inicia o slider
+    startAutoPlay();
+</script>
 </body>
 
 </html>
