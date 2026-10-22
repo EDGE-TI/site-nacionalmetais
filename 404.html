@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Não Encontrada | Nacional Metais</title>
+    
+    <!-- Ícones Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container-404 {
+            max-width: 600px;
+            background: #ffffff;
+            padding: 50px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .icone-erro {
+            font-size: 80px;
+            color: #af0bcc; /* Roxo da Nacional Metais */
+            margin-bottom: 10px;
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+        .container-404 h1 {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #1e293b;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .container-404 h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #334155;
+        }
+
+        .container-404 p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .botoes-acao {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-principal {
+            background-color: #af0bcc;
+            color: #ffffff;
+        }
+
+        .btn-principal:hover {
+            background-color: #8c09a3;
+            transform: translateY(-2px);
+        }
+
+        .btn-secundario {
+            background-color: #e2e8f0;
+            color: #1e293b;
+        }
+
+        .btn-secundario:hover {
+            background-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        /* Animação suave no ícone */
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 480px) {
+            .container-404 h1 { font-size: 4rem; }
+            .container-404 h2 { font-size: 1.4rem; }
+            .botoes-acao { flex-direction: column; }
+            .btn { justify-content: center; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-404">
+        <i class="ph-bold ph-warning-circle icone-erro"></i>
+        <h1>404</h1>
+        <h2>Ops! A água escorreu para fora da calha.</h2>
+        <p>A página que procura não existe, foi movida ou o endereço está incorreto. Não se preocupe, vamos ajudá-lo a voltar ao lugar certo.</p>
+        
+        <div class="botoes-acao">
+            <a href="/" class="btn btn-principal">
+                <i class="ph-bold ph-house"></i> Voltar ao Início
+            </a>
+            <a href="/contato.html" class="btn btn-secundario">
+                <i class="ph-bold ph-whatsapp-logo"></i> Falar com Consultor
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

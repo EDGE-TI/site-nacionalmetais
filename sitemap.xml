@@ -109,13 +109,13 @@
 
     <!-- PÁGINAS LEGAIS (LGPD) -->
     <url>
-        <loc>https://nacionalmetais.com/termos-de-uso</loc>
+        <loc>https://nacionalmetais.com/termos</loc>
         <lastmod>2026-02-27</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>https://nacionalmetais.com/politica-de-privacidade</loc>
+        <loc>https://nacionalmetais.com/privacidade</loc>
         <lastmod>2026-02-27</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
