@@ -14,6 +14,9 @@
 
      <link rel="preload" as="image" href="/images/backgroundprincipal.webp" type="image/jpeg" fetchpriority="high">
 
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         
 
@@ -551,20 +554,6 @@
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.slide {
-    min-width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-
-
 /* Setas e Bolinhas de Navegação */
 .slider-btn {
     position: absolute;
@@ -586,7 +575,7 @@
 }
 
 .slider-btn:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(37, 10, 48, 0.5);
 }
 
 .prev { left: 20px; }
@@ -633,7 +622,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    aspect-ratio: cover;
+    object-fit:cover; /* Mantém a proporção da imagem */
     object-position: center;
     z-index: 0; /* Garante que fica atrás do overlay escuro */
 }
@@ -648,7 +637,7 @@
     text-decoration: none;
     
     /* Sombra para garantir legibilidade sobre imagens claras */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 4px rgba(36, 11, 41, 0.5);
     
     /* Ativa a animação */
     animation: bounceDown 2s infinite;
@@ -1433,6 +1422,62 @@
         font-size: 1.8rem;
     }
 }
+/* Contêiner do Texto */
+.slide-content {
+    position: relative;
+    z-index: 5; /* Garante que fica acima do overlay-escuro e da imagem */
+    width: 100%;
+    max-width: 1200px; /* Limite de largura para não colar nas bordas em monitores grandes */
+    padding: 0 20px;
+    text-align: left;
+    color: #180511;
+}
+
+/* Estilos de Tipografia com Sombreado para Legibilidade */
+.slide-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.158);
+}
+
+.slide-content p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Falso Botão (apenas visual, pois o slide inteiro já é um link <a>) */
+.btn-slide {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #af0bcc;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.slide:hover .btn-slide {
+    background-color: #8c09a3; /* Escurece o botão ao passar o rato no banner */
+}
+
+/* Responsividade para o Telemóvel */
+@media (max-width: 768px) {
+    .slide-content {
+        text-align: center; /* Centraliza o texto no mobile */
+    }
+    
+    .slide-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .slide-content p {
+        font-size: 1.1rem;
+    }
+}
     </style>
 
 
@@ -1653,14 +1698,21 @@
         
         <!-- Calhas -->
         <a href="calhas" class="slide">
-            <picture>
-                <!-- Imagem Mobile -->
-                <source media="(max-width: 768px)" srcset="images/iconesHome/calhas-mobile-hero.webp">
-                <!-- Imagem Desktop (Padrão) -->
-                <img src="images/iconesHome/calhas-hero.webp" class="slide-img">
-            </picture>
-            <div class="overlay-escuro"></div>
-        </a>
+    <picture>
+        <source media="(max-width: 768px)" srcset="images/iconesHome/calhas-hero-mobile.webp">
+        <img src="images/iconesHome/calhas-hero.webp" alt="Calhas Premium" class="slide-img">
+    </picture>
+    
+    <!-- Película de escurecimento -->
+    <div class="overlay-escuro"></div>
+
+    <!-- NOVO: Textos em HTML -->
+    <div class="slide-content">
+        <h1>Calhas Premium</h1>
+        <p>O escoamento ideal para qualquer obra</p>
+        <span class="btn-slide">Ver Modelos</span>
+    </div>
+</a>
 
         <!-- Rufos -->
         <a href="rufos" class="slide">
