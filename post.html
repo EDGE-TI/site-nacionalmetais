@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title id="post-title-tag">Carregando... - Nacional Metais</title>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192">
     <link rel="shortcut icon" href="images/nacional-favicon.png" type="image/x-icon">
@@ -196,6 +196,14 @@
     <script src="https://tag.goadopt.io/injector.js?website_code=c0e20d26-d520-4db2-b3ef-bb9a5a5896b8" class="adopt-injector"></script>
 
     <base href="/">
+    <!-- Google Analytics integrado com GoAdopt LGPD -->
+<script type="text/plain" data-adopt-cookie="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-GQWRYE8FFM"></script>
+<script type="text/plain" data-adopt-cookie="analytics">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GQWRYE8FFM');
+</script>
 </head>
 <body class="bg-white font-sans text-gray-800">
   
@@ -478,18 +486,28 @@
                     containerImg.classList.remove('hidden');
                 }
 
-                // Conteúdo Principal
-                const htmlContent = renderStrapiBlocks(info.conteudo || info.content);
-                document.getElementById('post-conteudo').innerHTML = htmlContent;
+                // 1. Gera o HTML bruto a partir dos blocos do Strapi
+const htmlBruto = renderStrapiBlocks(info.conteudo || info.content);
 
-                // Finalização
-                loading.style.display = 'none';
-                artigo.classList.remove('hidden');
+// 2. Sanitiza o HTML contra ataques XSS (requer a tag do DOMPurify no <head>)
+const htmlLimpo = DOMPurify.sanitize(htmlBruto);
 
-            } catch (error) {
-                loading.style.display = 'none';
-                erroDiv.classList.remove('hidden');
-                document.getElementById('erro-detalhe').innerText = error.message;
+// 3. Injeta o conteúdo seguro no ID correto do seu layout
+document.getElementById('post-conteudo').innerHTML = htmlLimpo;
+
+// 4. Atualiza as meta tags de SEO dinamicamente (Paliativo para o Google)
+document.title = `${info.title} | Nacional Metais`;
+if (document.querySelector('meta[name="description"]')) {
+    document.querySelector('meta[name="description"]').setAttribute("content", info.resumo || "");
+}
+if (document.querySelector('meta[property="og:title"]')) {
+    document.querySelector('meta[property="og:title"]').setAttribute("content", info.title || "");
+    document.querySelector('meta[property="og:description"]').setAttribute("content", info.resumo || "");
+}
+
+// 5. Finalização visual
+loading.style.display = 'none';
+artigo.classList.remove('hidden');
             }
         }
 
