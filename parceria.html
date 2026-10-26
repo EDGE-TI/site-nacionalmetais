@@ -851,6 +851,38 @@
         bottom: 20px;
         justify-content: center;
     }
+    /* Estilos do Toast */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.toast.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hidden {
+    display: none;
+}
+
+.toast-sucesso {
+    background-color: #10b981; /* Verde */
+}
+
+.toast-erro {
+    background-color: #ef4444; /* Vermelho */
+}
 }
     </style>
     <!-- Google Analytics integrado com GoAdopt LGPD -->
@@ -1154,11 +1186,13 @@
             <h2>Formulário de Parceria</h2>
             <p>Preencha os campos abaixo para enviar a sua proposta diretamente para a nossa análise corporativa. Entraremos em contacto brevemente.</p>
             
-<form id="form-parceria" class="form-parceria">
+<form id="form-parceria" class="form-parceria" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="4eb87d3e-f31d-42e1-9ad8-ca8a729cd4c6">
+    
+    <!-- Honeypot anti-spam (Oculto para humanos) -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
     <div class="form-grid">
-        
         <div class="form-grupo full-width">
             <label for="nome">Nome completo *</label>
             <input type="text" id="nome" name="Nome Completo" required placeholder="Digite o seu nome completo">
@@ -1205,8 +1239,14 @@
         <label for="lgpd">Autorizo contato referente à solicitação. *</label>
     </div>
     
-    <button type="submit" class="btn-enviar-form">Enviar Proposta por E-mail</button>
+    <!-- ID 'btn-enviar' adicionado para o JavaScript controlar o estado do botão -->
+    <button type="submit" id="btn-enviar" class="btn-enviar-form">Enviar Proposta por E-mail</button>
 </form>
+
+<!-- Toast de Notificação com aria-live para leitores de tela -->
+<div id="toast-notificacao" class="toast hidden" aria-live="polite" role="status">
+    <span id="toast-mensagem"></span>
+</div>
     
         </div>
         
@@ -1309,6 +1349,53 @@
         <p>A sua proposta de parceria foi enviada com sucesso.</p>
     </div>
 </div>
+<script> const formParceria = document.getElementById('form-parceria');
+const btnEnviar = document.getElementById('btn-enviar');
+const toast = document.getElementById('toast-notificacao');
+const toastMensagem = document.getElementById('toast-mensagem');
+
+formParceria.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Altera o texto para PT-BR e bloqueia múltiplos cliques
+    const textoOriginal = btnEnviar.innerText;
+    btnEnviar.innerText = 'Enviando...';
+    btnEnviar.disabled = true;
+
+    const formData = new FormData(formParceria);
+
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            mostrarToast('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'sucesso');
+            formParceria.reset();
+        } else {
+            mostrarToast('Erro ao enviar: ' + data.message, 'erro');
+        }
+    } catch (error) {
+        mostrarToast('Erro de conexão. Verifique sua internet e tente novamente.', 'erro');
+    } finally {
+        btnEnviar.innerText = textoOriginal;
+        btnEnviar.disabled = false;
+    }
+});
+
+function mostrarToast(texto, tipo) {
+    toastMensagem.innerText = texto;
+    toast.className = `toast toast-${tipo} mostrar`;
+    
+    // Oculta automaticamente após 5 segundos
+    setTimeout(() => {
+        toast.classList.remove('mostrar');
+        toast.classList.add('hidden');
+    }, 5000);
+}   </script>
 <script src="assets/js/menu.js"></script>
 <script>
     // --- MÁSCARA AUTOMÁTICA DE TELEFONE ---
