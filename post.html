@@ -487,27 +487,38 @@
                 }
 
                 // 1. Gera o HTML bruto a partir dos blocos do Strapi
-const htmlBruto = renderStrapiBlocks(info.conteudo || info.content);
+                const htmlBruto = renderStrapiBlocks(info.conteudo || info.content);
 
-// 2. Sanitiza o HTML contra ataques XSS (requer a tag do DOMPurify no <head>)
-const htmlLimpo = DOMPurify.sanitize(htmlBruto);
+                // 2. Sanitiza o HTML contra ataques XSS
+                const htmlLimpo = DOMPurify.sanitize(htmlBruto);
 
-// 3. Injeta o conteúdo seguro no ID correto do seu layout
-document.getElementById('post-conteudo').innerHTML = htmlLimpo;
+                // 3. Injeta o conteúdo seguro no ID correto
+                document.getElementById('post-conteudo').innerHTML = htmlLimpo;
 
-// 4. Atualiza as meta tags de SEO dinamicamente (Paliativo para o Google)
-document.title = `${info.title} | Nacional Metais`;
-if (document.querySelector('meta[name="description"]')) {
-    document.querySelector('meta[name="description"]').setAttribute("content", info.resumo || "");
-}
-if (document.querySelector('meta[property="og:title"]')) {
-    document.querySelector('meta[property="og:title"]').setAttribute("content", info.title || "");
-    document.querySelector('meta[property="og:description"]').setAttribute("content", info.resumo || "");
-}
+                // 4. Atualiza as meta tags de SEO dinamicamente
+                document.title = `${info.title} | Nacional Metais`;
+                if (document.querySelector('meta[name="description"]')) {
+                    document.querySelector('meta[name="description"]').setAttribute("content", info.resumo || "");
+                }
+                if (document.querySelector('meta[property="og:title"]')) {
+                    document.querySelector('meta[property="og:title"]').setAttribute("content", info.title || "");
+                    document.querySelector('meta[property="og:description"]').setAttribute("content", info.resumo || "");
+                }
 
-// 5. Finalização visual
-loading.style.display = 'none';
-artigo.classList.remove('hidden');
+                // 5. Finalização visual
+                loading.style.display = 'none';
+                artigo.classList.remove('hidden');
+
+            } catch (error) {
+                // Se algo falhar (Strapi fora do ar, erro no código), cai aqui
+                loading.style.display = 'none';
+                if(typeof erroDiv !== 'undefined') {
+                    erroDiv.classList.remove('hidden');
+                }
+                const erroDetalhe = document.getElementById('erro-detalhe');
+                if(erroDetalhe) {
+                    erroDetalhe.innerText = error.message;
+                }
             }
         }
 
