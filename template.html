@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Dinâmico Preenchido na Geração -->
     <title>{{TITULO}} | Nacional Metais</title>
     <meta name="description" content="{{RESUMO}}">
     
-    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
     <meta property="og:title" content="{{TITULO}} | Nacional Metais">
     <meta property="og:description" content="{{RESUMO}}">
     <meta property="og:image" content="{{IMAGEM_URL}}">
@@ -123,7 +121,7 @@
 
     <base href="/">
     
-    <!-- Google Analytics -->
+    
     <script type="text/plain" data-adopt-cookie="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-GQWRYE8FFM"></script>
     <script type="text/plain" data-adopt-cookie="analytics">
       window.dataLayer = window.dataLayer || [];
@@ -177,19 +175,16 @@
 
     <main class="container mx-auto px-4 py-10 max-w-4xl">
         
-        <!-- O conteúdo já vem pronto, sem necessidade de tela de carregamento ou scripts -->
         <article id="artigo">
             <div class="mb-8 text-center">
                 <span class="text-sm font-bold text-vinho-700 uppercase tracking-wider bg-vinho-50 px-3 py-1 rounded-full">{{DATA_PUBLICACAO}}</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6 leading-tight">{{TITULO}}</h1>
             </div>
 
-            <!-- Classe {{ESCONDER_IMAGEM}} adicionada caso o post não tenha imagem -->
             <div class="mb-10 w-full rounded-xl overflow-hidden shadow-lg bg-gray-100 {{ESCONDER_IMAGEM}}">
                 <img src="{{IMAGEM_URL}}" alt="{{TITULO}}" class="w-full h-auto object-cover max-h-[500px]">
             </div>
 
-            <!-- O HTML sanitizado e formatado do Strapi será injetado aqui -->
             <div class="prose prose-lg prose-rose mx-auto text-gray-700">
                 {{CONTEUDO_HTML}}
             </div>
@@ -292,7 +287,7 @@
         <i class="ph-fill ph-whatsapp-logo"></i>
     </a>
 
-    <!-- Apenas o script do menu mobile foi mantido -->
+   
     <script src="assets/js/menu.js"></script>
 </body>
 </html>

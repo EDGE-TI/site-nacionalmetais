@@ -36,7 +36,7 @@ async function gerarPaginas() {
     const template = fs.readFileSync('template.html', 'utf-8');
     
     // Utilize a URL correta do seu Strapi
-    const urlAPI = 'https://nacionalmetais.com/api/posts?populate=*';
+    const urlAPI = 'https://nacionalmetais.com/api/posts?populate=*&pagination[limit]=1000';
     
     console.log("Buscando dados no Strapi...");
     const response = await fetch(urlAPI);
