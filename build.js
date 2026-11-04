@@ -6,9 +6,17 @@ const fs = require('fs');
 async function gerarPaginas() {
     const template = fs.readFileSync('template.html', 'utf-8');
     
-    // Substitua pela URL real da sua API
-    const response = await fetch('https://sua-api.com/api/posts?populate=*');
-    const dados = await response.json();
+   const urlAPI = 'http://127.0.0.1:1337/api/posts?populate=*'; // Coloque a URL correta do seu Strapi aqui
+const response = await fetch(urlAPI);
+
+if (!response.ok) {
+    console.error(`Falha na conexão. Código de erro: ${response.status}`);
+    const respostaBruta = await response.text();
+    console.error(`Conteúdo recebido: ${respostaBruta.substring(0, 100)}...`);
+    return;
+}
+
+const dados = await response.json();
 
     dados.data.forEach(post => {
         const info = post.attributes; // ou apenas post, dependendo da versão do Strapi
