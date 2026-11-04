@@ -40,14 +40,15 @@ async function carregarLista(pagina = 1) {
         posts.forEach(post => {
             const info = post.attributes || post;
             
-            // --- MUDANÇA AQUI: Pegando o Slug ou usando o ID como fallback ---
-            const linkParam = info.slug ? `slug=${info.slug}` : `id=${post.id}`;
+            // Define o link final amigável para SEO (Direto para o arquivo gerado)
+            const linkUrl = info.slug ? `/${info.slug}` : '#';
 
-            let imgUrl = 'https://placehold.co/600x400?text=Sem+Imagem';
+            // Remove o placehold.co e usa um caminho local padronizado caso falte imagem
+            let imgUrl = '/images/logo-nacional.webp'; 
             const midia = info.capa?.data || info.capa;
             if (midia) {
                 const url = midia.attributes?.url || midia.url;
-                if (url) imgUrl = API_URL + url;
+                if (url) imgUrl = url.startsWith('http') ? url : API_URL + url;
             }
 
             const data = new Date(info.publishedAt).toLocaleDateString('pt-BR');
@@ -61,23 +62,23 @@ async function carregarLista(pagina = 1) {
                 resumo = info.conteudo.substring(0, 100).replace(/<[^>]*>?/gm, '') + '...';
             }
 
-            // --- LINKS ATUALIZADOS PARA USAR O SLUG ---
+            // Links atualizados injetados no HTML
             const html = `
                 <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col h-full border border-gray-100">
-                    <a href="post.html?${linkParam}" class="h-48 overflow-hidden block group">
-                        <img src="${imgUrl}" alt="${info.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <a href="${linkUrl}" class="h-48 overflow-hidden block group">
+                        <img src="${imgUrl}" alt="${info.title || info.titulo}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </a>
                     <div class="p-6 flex flex-col flex-grow">
                         <span class="text-xs font-semibold text-vinho-700 mb-2 block">${data}</span>
                         
                         <h2 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
-                            <a href="post.html?${linkParam}" class="hover:text-vinho-900 transition">
+                            <a href="${linkUrl}" class="hover:text-vinho-900 transition">
                                 ${info.title || info.titulo}
                             </a>
                         </h2>
                         <p class="text-gray-600 text-sm mb-4 flex-grow line-clamp-3">${resumo}</p>
                         
-                        <a href="post.html?${linkParam}" class="mt-auto inline-flex items-center text-vinho-900 font-bold hover:underline">
+                        <a href="${linkUrl}" class="mt-auto inline-flex items-center text-vinho-900 font-bold hover:underline">
                             Ler notícia completa <span class="ml-1">&rarr;</span>
                         </a>
                     </div>
