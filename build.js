@@ -34,32 +34,46 @@ function renderStrapiBlocks(content) {
 
 async function gerarPaginas() {
     const template = fs.readFileSync('template.html', 'utf-8');
-    
-    // Utilize a URL correta do seu Strapi
-    const urlAPI = 'https://nacionalmetais.com/api/posts?populate=*&pagination[limit]=1000';
-    
-    console.log("Buscando dados no Strapi...");
-    const response = await fetch(urlAPI);
+    let pagina = 1;
+    let totalPaginas = 1;
+    let todosPosts = [];
 
-    if (!response.ok) {
-        console.error(`Falha na conexão. Código de erro: ${response.status}`);
-        return;
+    console.log("Buscando dados no Strapi...");
+
+    // Loop para baixar todas as páginas contornando o limite do Strapi
+    while (pagina <= totalPaginas) {
+        const urlAPI = `https://nacionalmetais.com/api/posts?populate=*&pagination[page]=${pagina}&pagination[pageSize]=100`;
+        const response = await fetch(urlAPI);
+        
+        if (!response.ok) {
+            console.error(`Falha na conexão (Página ${pagina}). Código: ${response.status}`);
+            break;
+        }
+
+        const json = await response.json();
+        if (json.data) {
+            todosPosts = todosPosts.concat(json.data);
+        }
+        
+        if (json.meta && json.meta.pagination) {
+            totalPaginas = json.meta.pagination.pageCount;
+        }
+        pagina++;
     }
 
-    const dados = await response.json();
-
-    if (!dados.data || dados.data.length === 0) {
+    if (todosPosts.length === 0) {
         console.log("Nenhum post encontrado.");
         return;
     }
 
-    dados.data.forEach(post => {
+    console.log(`Total de posts encontrados: ${todosPosts.length}`);
+
+    // Geração dos arquivos físicos
+    todosPosts.forEach(post => {
         const info = post.attributes || post; 
         
-        // Converte o conteúdo
         const htmlConteudo = renderStrapiBlocks(info.conteudo || info.content);
         
-        // Prepara a imagem e a URL completa
         let imgUrl = '';
         const midia = info.capa?.data || info.capa;
         if (midia) {
@@ -69,7 +83,6 @@ async function gerarPaginas() {
             }
         }
         
-        // Prepara a data
         let dataFormatada = '';
         if (info.publishedAt) {
             dataFormatada = new Date(info.publishedAt).toLocaleDateString('pt-BR', { dateStyle: 'long' });
@@ -78,7 +91,6 @@ async function gerarPaginas() {
         const esconderImagem = imgUrl ? '' : 'hidden';
         const tituloPost = info.title || info.titulo || '';
 
-        // Preenche o molde
         let htmlFinal = template
             .replace(/{{TITULO}}/g, tituloPost)
             .replace(/{{RESUMO}}/g, info.resumo || '')
@@ -87,7 +99,10 @@ async function gerarPaginas() {
             .replace(/{{DATA_PUBLICACAO}}/g, dataFormatada)
             .replace('{{CONTEUDO_HTML}}', htmlConteudo);
 
-        const nomeArquivo = `${info.slug}.html`;
+        // Prevenção caso o post não tenha slug preenchido
+        const slugFinal = info.slug || `post-${post.id}`;
+        const nomeArquivo = `${slugFinal}.html`;
+        
         fs.writeFileSync(nomeArquivo, htmlFinal);
         console.log(`Sucesso: ${nomeArquivo}`);
     });
