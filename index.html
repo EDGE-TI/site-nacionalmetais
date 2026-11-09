@@ -1801,6 +1801,188 @@
     <a href="#primeira-secao" class="scroll-down-arrow" id="scroll-down-btn">
         <i class="ph-bold ph-caret-down"></i>
     </a>
+    
+    <style>
+    /* =========================================
+       SEÇÃO COMPACTA: NOSSOS PRODUTOS 
+       ========================================= */
+    .secao-produtos-compacta {
+        background-color: #f9fafb;
+        padding: 45px 20px; /* Espaçamento vertical bem menor */
+        font-family: 'Inter', sans-serif;
+        border-top: 1px solid #eaeaea;
+        border-bottom: 1px solid #eaeaea;
+    }
+    .compact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .compact-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .compact-header h2 {
+        font-size: 1.8rem;
+        color: #111827;
+        margin: 0 0 5px 0;
+        font-weight: 800;
+    }
+    .compact-header p {
+        color: #6b7280;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .compact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px; /* Menos espaço entre os quadros */
+    }
+
+    .compact-card {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .compact-card-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #f3f4f6;
+        padding-bottom: 12px;
+    }
+    .compact-card-title i {
+        font-size: 24px;
+        color: #660e54;
+        background-color: #fdf4fc;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    .compact-card-title h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+    }
+
+    .compact-lista-itens {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .compact-linha {
+        font-size: 0.9rem;
+        color: #4b5563;
+        line-height: 1.5;
+    }
+    .compact-linha strong {
+        color: #660e54;
+        font-weight: 700;
+        margin-right: 5px;
+    }
+    .compact-separador {
+        color: #d1d5db;
+        margin: 0 4px;
+    }
+
+    /* Responsividade Celular */
+    @media (max-width: 800px) {
+        .compact-grid {
+            grid-template-columns: 1fr; /* Empilha no celular */
+        }
+        .secao-produtos-compacta {
+            padding: 30px 15px;
+        }
+    }
+</style>
+
+<section class="secao-produtos-compacta">
+    <div class="compact-container">
+        
+        <div class="compact-header">
+            <h2>O que a Nacional Metais oferece</h2>
+            <p>Fabricação sob medida e distribuição das melhores marcas do mercado.</p>
+        </div>
+
+        <div class="compact-grid">
+            
+            <!-- CAIXA 1: FABRICAÇÃO -->
+            <div class="compact-card">
+                <div class="compact-card-title">
+                    <i class="ph-fill ph-hammer"></i>
+                    <h3>Fabricação Própria</h3>
+                </div>
+                
+                <div class="compact-lista-itens">
+                    <div class="compact-linha">
+                        <strong>Calhas de Chuva:</strong>
+                        Calha de Beirado <span class="compact-separador">•</span> 
+                        Calha Americana <span class="compact-separador">•</span> 
+                        Calha Interna <span class="compact-separador">•</span> 
+                        Calha Rincão <span class="compact-separador">•</span> 
+                        Calha Platibanda
+                    </div>
+                    
+                    <div class="compact-linha">
+                        <strong>Rufos e Pingadeiras:</strong>
+                        Rufo de Encosto <span class="compact-separador">•</span> 
+                        Rufo Pingadeira <span class="compact-separador">•</span> 
+                        Rufo de Corte
+                    </div>
+
+                    <div class="compact-linha">
+                        <strong>Coifas e Chaminés:</strong>
+                        Coifas (Cozinha e Especiais) <span class="compact-separador">•</span> 
+                        Chaminés e Chapéus <span class="compact-separador">•</span> 
+                        Chaminé Sputnik <span class="compact-separador">•</span> 
+                        Dutos e Curvas
+                    </div>
+
+                    <div class="compact-linha">
+                        <strong>Exaustores:</strong>
+                        Exaustores Eólicos
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAIXA 2: DISTRIBUIÇÃO -->
+            <div class="compact-card">
+                <div class="compact-card-title">
+                    <i class="ph-fill ph-truck"></i>
+                    <h3>Distribuição</h3>
+                </div>
+                
+                <div class="compact-lista-itens">
+                    <div class="compact-linha">
+                        <strong>Fachadas e Coberturas:</strong>
+                        Revestimento ACM <span class="compact-separador">•</span> 
+                        Policarbonato Alveolar <span class="compact-separador">•</span> 
+                        Policarbonato Compacto
+                    </div>
+
+                    <div class="compact-linha">
+                        <strong>Chapas e Bobinas:</strong>
+                        Chapas Metálicas <span class="compact-separador">•</span> 
+                        Bobinas de Alumínio <span class="compact-separador">•</span> 
+                        Bobinas Metálicas
+                    </div>
+
+                    <div class="compact-linha">
+                        <strong>Acessórios de Montagem:</strong>
+                        Selantes PU e Silicone
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+        
+
         <section class="secao-produtos-container">
         <section class="container" style="margin-bottom: 100px;">
             <h2 class="titulo-secao">Nossos Produtos</h2>
